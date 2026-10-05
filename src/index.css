@@ -1,0 +1,483 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+/* ==========================================================================
+   SKY MIRR DESIGN SYSTEM: ICE BLUE & DEEP CYAN
+   Visual identity: Modern Corporate Luxury
+   Primary colours:
+     Ice White:     #F8FCFD
+     Pure White:    #FFFFFF
+     Soft Ice Blue: #EAF6F9
+     Light Cyan:    #D7EEF3
+     Sky Cyan:      #91D6E3
+     Primary Cyan:  #18A6BE
+     Deep Cyan:     #087F98
+     Dark Teal:     #075568
+     Midnight Teal: #073746
+     Deep Navy:     #102B3B
+
+   Supporting colours:
+     Primary Text:   #152C39
+     Secondary Text: #627784
+     Muted Text:     #8A9BA4
+     Border:         #DFEAF0
+     Light Surface:  #F1F8FA
+     Dark Surface:   #0B3443
+   ========================================================================== */
+
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-ice-white: #f8fcfd;
+  --color-pure-white: #ffffff;
+  --color-soft-ice-blue: #eaf6f9;
+  --color-light-cyan: #d7eef3;
+  --color-sky-cyan: #91d6e3;
+  --color-primary-cyan: #18a6be;
+  --color-deep-cyan: #087f98;
+  --color-dark-teal: #075568;
+  --color-midnight-teal: #073746;
+  --color-deep-navy: #102b3b;
+
+  --color-primary-text: #152c39;
+  --color-secondary-text: #627784;
+  --color-muted-text: #8a9ba4;
+  --color-border-subtle: #dfeaf0;
+  --color-light-surface: #f1f8fa;
+  --color-dark-surface: #0b3443;
+
+  /* Blue / Sky / Cyan / Teal utility scales mapped directly to the design tokens */
+  --color-cyan-50: #eaf6f9;
+  --color-cyan-100: #d7eef3;
+  --color-cyan-200: #bde5ed;
+  --color-cyan-300: #91d6e3;
+  --color-cyan-400: #4dbed3;
+  --color-cyan-500: #18a6be;
+  --color-cyan-600: #087f98;
+  --color-cyan-700: #075568;
+  --color-cyan-800: #073746;
+  --color-cyan-900: #0b3443;
+  --color-cyan-950: #102b3b;
+
+  --color-sky-50: #eaf6f9;
+  --color-sky-100: #d7eef3;
+  --color-sky-200: #bde5ed;
+  --color-sky-300: #91d6e3;
+  --color-sky-400: #4dbed3;
+  --color-sky-500: #18a6be;
+  --color-sky-600: #087f98;
+  --color-sky-700: #075568;
+  --color-sky-800: #073746;
+  --color-sky-900: #0b3443;
+  --color-sky-950: #102b3b;
+
+  --color-blue-50: #eaf6f9;
+  --color-blue-100: #d7eef3;
+  --color-blue-200: #bde5ed;
+  --color-blue-300: #91d6e3;
+  --color-blue-400: #4dbed3;
+  --color-blue-500: #18a6be;
+  --color-blue-600: #087f98;
+  --color-blue-700: #075568;
+  --color-blue-800: #073746;
+  --color-blue-900: #0b3443;
+  --color-blue-950: #102b3b;
+
+  --color-teal-50: #eaf6f9;
+  --color-teal-100: #d7eef3;
+  --color-teal-200: #bde5ed;
+  --color-teal-300: #91d6e3;
+  --color-teal-400: #4dbed3;
+  --color-teal-500: #18a6be;
+  --color-teal-600: #087f98;
+  --color-teal-700: #075568;
+  --color-teal-800: #073746;
+  --color-teal-900: #0b3443;
+  --color-teal-950: #102b3b;
+
+  --color-indigo-50: #eaf6f9;
+  --color-indigo-100: #d7eef3;
+  --color-indigo-200: #bde5ed;
+  --color-indigo-300: #91d6e3;
+  --color-indigo-400: #4dbed3;
+  --color-indigo-500: #18a6be;
+  --color-indigo-600: #087f98;
+  --color-indigo-700: #075568;
+  --color-indigo-800: #073746;
+  --color-indigo-900: #0b3443;
+  --color-indigo-950: #102b3b;
+
+  /* Slate neutral ramp mapped to the corporate luxury supporting colors */
+  --color-slate-50: #f8fcfd;
+  --color-slate-100: #f1f8fa;
+  --color-slate-200: #dfeaf0;
+  --color-slate-300: #cbd9e1;
+  --color-slate-400: #8a9ba4;
+  --color-slate-500: #627784;
+  --color-slate-600: #475d6c;
+  --color-slate-700: #294252;
+  --color-slate-800: #1a3444;
+  --color-slate-900: #152c39;
+  --color-slate-950: #0b1e28;
+}
+
+:root {
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --accent: #087f98;
+  --accent-deep: #075568;
+  --accent-primary: #18a6be;
+  --accent-sky: #91d6e3;
+  --ink: #152c39;
+  --ink-secondary: #627784;
+  --ink-muted: #8a9ba4;
+  --line: #dfeaf0;
+  --nav-h: 72px;
+
+  /* Brand gradients */
+  --grad-light: linear-gradient(180deg, #ffffff 0%, #eaf6f9 100%);
+  --grad-ice-blue: linear-gradient(135deg, #eaf6f9 0%, #d7eef3 100%);
+  --grad-cyan: linear-gradient(135deg, #18a6be 0%, #087f98 100%);
+  --grad-dark-premium: linear-gradient(145deg, #075568 0%, #073746 50%, #102b3b 100%);
+}
+
+/* ---------- Base Styles ---------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--nav-h) + 40px);
+  }
+  body {
+    background-color: #f8fcfd;
+    color: #152c39;
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+    text-rendering: optimizeLegibility;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.025em;
+    color: #152c39;
+  }
+  h1, h2 {
+    font-weight: 800;
+  }
+  h3, h4 {
+    font-weight: 700;
+  }
+  ::selection {
+    background: #087f98;
+    color: #ffffff;
+  }
+  :focus-visible {
+    outline: 2px solid #087f98;
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+  img {
+    -webkit-user-drag: none;
+  }
+}
+
+/* Headings in dark sections */
+.bg-executive-gradient h1,
+.bg-executive-gradient h2,
+.on-dark h1,
+.on-dark h2,
+.on-dark h3 {
+  color: #ffffff !important;
+}
+
+.home-image-section h2 {
+  color: #ffffff !important;
+}
+.home-image-section p {
+  color: rgba(234, 246, 249, 0.9) !important;
+}
+
+/* Refined corner radii */
+.rounded-xl {
+  border-radius: 12px;
+}
+.rounded-2xl {
+  border-radius: 18px;
+}
+.rounded-3xl {
+  border-radius: 24px;
+}
+
+/* Eyebrows and text helpers */
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #18a6be 0%, #087f98 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.text-gradient-blue,
+.animate-text-shimmer {
+  background: linear-gradient(90deg, #18a6be 0%, #91d6e3 50%, #18a6be 100%);
+  background-size: 200% 100%;
+  animation: gradShift 7s ease-in-out infinite alternate;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ==========================================================================
+   HEADER & NAVIGATION
+   ========================================================================== */
+header.fixed {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(248, 252, 253, 0.88);
+  border-bottom: 1px solid #dfeaf0;
+  transition: background 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+header.fixed[data-scrolled] {
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 10px 30px -15px rgba(7, 55, 70, 0.12);
+}
+header nav button {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+header nav > button::before,
+header nav > div > button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  height: 2px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #18a6be, #087f98);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease);
+}
+header nav > button:hover::before,
+header nav > div:hover > button::before {
+  transform: scaleX(1);
+}
+
+/* ==========================================================================
+   BUTTONS — Modern Corporate Luxury System
+   ========================================================================== */
+/* Primary Buttons: Deep cyan background (#087F98), smooth gradient, elegant hover */
+:is(button, a)[class*="bg-blue-600"]:not([class*="h-1.5"]),
+:is(button, a)[class*="bg-gradient"]:not([class*="h-1.5"]),
+:is(button, a)[class*="from-blue-600"],
+button.btn-primary,
+a.btn-primary {
+  background-image: linear-gradient(135deg, #18a6be 0%, #087f98 100%);
+  background-color: #087f98;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: 0 10px 24px -10px rgba(8, 127, 152, 0.5);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), background 0.35s ease;
+}
+:is(button, a)[class*="bg-blue-600"]:not([class*="h-1.5"]):hover,
+:is(button, a)[class*="bg-gradient"]:not([class*="h-1.5"]):hover,
+:is(button, a)[class*="from-blue-600"]:hover,
+button.btn-primary:hover,
+a.btn-primary:hover {
+  transform: translateY(-2px);
+  background-image: linear-gradient(135deg, #087f98 0%, #075568 100%);
+  box-shadow: 0 16px 32px -12px rgba(8, 127, 152, 0.65);
+}
+
+/* Secondary Buttons */
+button.btn-secondary,
+a.btn-secondary {
+  background: #ffffff;
+  border: 1.5px solid #087f98;
+  color: #087f98;
+  transition: all 0.3s var(--ease);
+}
+button.btn-secondary:hover,
+a.btn-secondary:hover {
+  background: #eaf6f9;
+  border-color: #075568;
+  color: #075568;
+}
+
+/* Dark Section Buttons */
+.on-dark button.btn-light,
+.bg-executive-gradient button.btn-light {
+  background: #ffffff;
+  color: #087f98;
+  border: 1px solid rgba(145, 214, 227, 0.4);
+  box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.3);
+}
+.on-dark button.btn-light:hover,
+.bg-executive-gradient button.btn-light:hover {
+  background: #eaf6f9;
+  color: #075568;
+}
+
+button:not(:disabled):active,
+a[href]:active {
+  transform: scale(0.985);
+}
+
+/* Form input focus states */
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #18a6be !important;
+  box-shadow: 0 0 0 4px rgba(24, 166, 190, 0.18) !important;
+  outline: none !important;
+}
+
+/* ==========================================================================
+   CARDS & SURFACES
+   ========================================================================== */
+div.group:not(.no-lift) {
+  transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease), border-color 0.3s ease;
+}
+div.group:not(.no-lift):hover {
+  transform: translateY(-5px);
+  border-color: #91d6e3;
+  box-shadow: 0 24px 50px -20px rgba(8, 127, 152, 0.22);
+}
+div.group:not(.no-lift) img {
+  transition: transform 0.9s var(--ease), filter 0.5s ease;
+}
+div.group:not(.no-lift):hover img {
+  transform: scale(1.04);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid #dfeaf0;
+  box-shadow: 0 14px 34px -15px rgba(7, 55, 70, 0.08);
+}
+.glass-panel-dark {
+  background: rgba(11, 52, 67, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(145, 214, 227, 0.2);
+}
+
+/* Bento tile styling */
+.bento-dark {
+  background: linear-gradient(150deg, #075568 0%, #073746 50%, #102b3b 100%) !important;
+  border-color: rgba(145, 214, 227, 0.25) !important;
+  box-shadow: 0 20px 45px -20px rgba(7, 55, 70, 0.45) !important;
+}
+.bento-dark h3 {
+  color: #ffffff !important;
+}
+.bento-dark p {
+  color: #d7eef3 !important;
+}
+
+/* Executive banner background */
+.bg-executive-gradient {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(145deg, #075568 0%, #073746 55%, #102b3b 100%) !important;
+}
+.bg-executive-gradient::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(520px 320px at 85% 10%, rgba(24, 166, 190, 0.35), transparent 65%),
+    radial-gradient(460px 300px at 10% 90%, rgba(145, 214, 227, 0.2), transparent 65%);
+  animation: aurora 18s ease-in-out infinite alternate;
+}
+.bg-executive-gradient::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(145, 214, 227, 0.6), transparent);
+}
+
+@keyframes aurora {
+  to {
+    transform: translate3d(-3%, 4%, 0) scale(1.06);
+  }
+}
+
+/* ==========================================================================
+   FOOTER — Midnight Teal & Deep Navy
+   ========================================================================== */
+footer {
+  background: #073746 !important;
+  color: #d7eef3 !important;
+  border-top: 1px solid rgba(145, 214, 227, 0.2) !important;
+}
+footer .text-slate-400,
+footer .text-slate-500,
+footer .text-slate-600 {
+  color: #8a9ba4 !important;
+}
+
+/* ==========================================================================
+   KEYFRAME ANIMATIONS
+   ========================================================================== */
+@keyframes gradShift {
+  to {
+    background-position: 100% 0;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-fade-in {
+  animation: fadeIn 0.35s var(--ease) forwards;
+}
+.animate-slide-up-fade {
+  animation: slideUpFade 0.5s var(--ease) forwards;
+}
+
+/* Scrollbar polish in brand cyan */
+html {
+  scrollbar-color: #087f98 #eaf6f9;
+  scrollbar-width: thin;
+}
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#18a6be, #087f98);
+  border-radius: 99px;
+  border: 2px solid #eaf6f9;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #075568;
+}
