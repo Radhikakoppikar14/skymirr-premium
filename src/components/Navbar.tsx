@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo, useRef } from "react";
 import { createPortal } from "react-dom";
 import {
   Search,
@@ -6,6 +6,7 @@ import {
   Menu,
   X,
   ArrowUpRight,
+  ArrowRight,
   Radio,
   Cpu,
   Layers,
@@ -14,6 +15,15 @@ import {
   Building2,
   Newspaper,
   BookOpen,
+  Zap,
+  Activity,
+  ShieldCheck,
+  CheckCircle2,
+  Tag,
+  Compass,
+  FileText,
+  CornerDownLeft,
+  SlidersHorizontal as Sliders,
 } from "lucide-react";
 import { COMPANY_INFO, PRODUCTS_DATA } from "../data/skymirrData";
 import { CATALOG_ITEMS } from "../data/catalog";
@@ -49,8 +59,10 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<MenuKey>(null);
   const [accOpen, setAccOpen] = useState<string | null>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
-  const searchResults = (() => {
+  // Search Results
+  const searchResults = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
     if (!query) return [];
 
@@ -70,21 +82,29 @@ export const Navbar: React.FC<NavbarProps> = ({
         .toLowerCase()
         .includes(query)
     ).slice(0, 6);
-  })();
+  }, [searchQuery]);
 
   const closeSearch = () => {
     setSearchOpen(false);
     setSearchQuery("");
   };
 
-  // Esc closes the search modal, dropdowns and the mobile drawer
+  const openSearch = () => {
+    setSearchOpen(true);
+    setTimeout(() => {
+      inputRef.current?.focus();
+    }, 50);
+  };
+
+  // Esc closes search, dropdowns and mobile drawer
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key !== "Escape") return;
-      setSearchOpen(false);
-      setSearchQuery("");
-      setOpenMenu(null);
-      setMobileMenuOpen(false);
+      if (e.key === "Escape") {
+        setSearchOpen(false);
+        setSearchQuery("");
+        setOpenMenu(null);
+        setMobileMenuOpen(false);
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -125,7 +145,24 @@ export const Navbar: React.FC<NavbarProps> = ({
     openProduct(id);
   };
 
-  const isActive = (r: string) => currentRoute === r;
+  const isActive = (route: string) => currentRoute === route;
+
+  const getCategoryBadgeClass = (cat: string) => {
+    switch (cat) {
+      case "router":
+        return "bg-[#1F4FD8] text-white border-[#1F4FD8]";
+      case "antenna":
+        return "bg-[#E8F0FE] text-[#1F4FD8] border-[#4C8DF6]/40";
+      case "tracker":
+        return "bg-purple-50 text-purple-700 border-purple-200";
+      case "tech":
+        return "bg-emerald-50 text-emerald-700 border-emerald-200";
+      case "page":
+        return "bg-slate-100 text-slate-700 border-slate-200";
+      default:
+        return "bg-slate-100 text-slate-600 border-slate-200";
+    }
+  };
 
   const productsActive =
     isActive("products") ||
@@ -317,7 +354,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="sm-actions text-white flex items-center gap-3">
           <button
             type="button"
-            onClick={() => setSearchOpen(true)}
+            onClick={openSearch}
             className="sm-icon-btn text-white hover:text-cyan-400 transition-colors"
             aria-label="Search"
           >
@@ -410,13 +447,21 @@ export const Navbar: React.FC<NavbarProps> = ({
               <form onSubmit={handleSearchSubmit} className="sm-search-bar">
                 <Search className="sm-search-ico" />
                 <input
+                  ref={inputRef}
                   type="text"
                   autoFocus
+                  data-no-ring
+                  className="sm-search-input"
                   placeholder="Search antennas, frequencies, routers, trackers, patents..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
-                <button type="button" onClick={closeSearch} className="sm-search-close" aria-label="Close search">
+                <button
+                  type="button"
+                  onClick={closeSearch}
+                  className="sm-search-close"
+                  aria-label="Close search"
+                >
                   <X />
                 </button>
               </form>
@@ -428,24 +473,50 @@ export const Navbar: React.FC<NavbarProps> = ({
                       <div
                         key={item.id}
                         onClick={() => openProduct(item.id)}
-                        className="sm-result"
+                        className="sm-result group"
                       >
-                        <div>
-                          <div className="sm-result-name">{item.name}</div>
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center gap-2">
+                            <span className="sm-result-name group-hover:text-[#1F4FD8] transition-colors">
+                              {item.name}
+                            </span>
+                            <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full border font-bold bg-[#E8F0FE] text-[#1F4FD8] border-[#4C8DF6]/30">
+                              {item.category}
+                            </span>
+                          </div>
                           <div className="sm-result-tag">{item.tagline}</div>
-                          <div className="sm-result-freq">{item.frequencyRange}</div>
+                          {item.frequencyRange && (
+                            <div className="sm-result-freq">{item.frequencyRange}</div>
+                          )}
                         </div>
-                        <ArrowUpRight />
+                        <ArrowUpRight className="w-4 h-4 text-[#5B6B82] group-hover:text-[#1F4FD8] transition-colors shrink-0" />
                       </div>
                     ))}
                   </div>
                 ) : searchQuery ? (
                   <div className="sm-search-empty">
-                    No hardware or specifications matched "{searchQuery}".
+                    No hardware or specifications matched &ldquo;{searchQuery}&rdquo;.
                   </div>
                 ) : (
                   <div className="sm-search-empty">
-                    Type a frequency (e.g. "600 MHz", "Wi-Fi 7", "CPE", "MIMO") to search.
+                    <p className="text-sm text-[#5B6B82] mb-3">
+                      Type a frequency (e.g. &ldquo;600 MHz&rdquo;, &ldquo;Wi-Fi 7&rdquo;, &ldquo;CPE&rdquo;, &ldquo;MIMO&rdquo;) to search.
+                    </p>
+                    <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
+                      {["600 MHz", "Wi-Fi 7", "Sky5G Router", "MuLCAT™", "MIMO", "Trackers"].map((tag) => (
+                        <button
+                          key={tag}
+                          type="button"
+                          onClick={() => {
+                            setSearchQuery(tag);
+                            inputRef.current?.focus();
+                          }}
+                          className="px-3 py-1 rounded-full text-xs font-mono bg-[#FAF7F2] hover:bg-[#E8F0FE] text-[#5B6B82] hover:text-[#1F4FD8] border border-[#E3D4BA] transition-colors cursor-pointer"
+                        >
+                          {tag}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
