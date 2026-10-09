@@ -69,10 +69,6 @@ export const ProductsCatalog: React.FC<ProductsCatalogProps> = ({
         aria-hidden="true"
         className="pointer-events-none absolute bottom-0 left-10 -z-10 w-[500px] h-[350px] bg-[radial-gradient(circle,rgba(31,79,216,0.22),transparent_70%)] blur-3xl"
       />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(#4C8DF6_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.06]"
-      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
         
@@ -173,8 +169,6 @@ export const ProductsCatalog: React.FC<ProductsCatalogProps> = ({
                 <div className="w-[300px] h-[300px] rounded-full border border-[#4C8DF6]/50 animate-ping [animation-duration:6s]" />
                 <div className="absolute w-[200px] h-[200px] rounded-full border border-[#4C8DF6]/40" />
                 <div className="absolute w-[100px] h-[100px] rounded-full border border-[#4C8DF6]/30" />
-                {/* Micro coordinates */}
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(76,141,246,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(76,141,246,0.05)_1px,transparent_1px)] bg-[size:2rem_2rem]" />
               </div>
 
               {/* Main Crisp Hardware Cutout */}

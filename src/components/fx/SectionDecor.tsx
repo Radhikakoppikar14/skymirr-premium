@@ -23,7 +23,6 @@ export const SectionDecor: React.FC<Props> = ({ children, side = "right", classN
       </svg>
       <span className="fx-orbit" />
       <div className="fx-hairline" />
-      <div className="fx-dots absolute inset-0" />
       <div className="fx-streak" />
       <span
         data-scroll-speed="0.05"

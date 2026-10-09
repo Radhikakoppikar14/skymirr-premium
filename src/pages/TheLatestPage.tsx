@@ -177,7 +177,6 @@ export const TheLatestPage: React.FC = () => {
             interactive={true}
             showParticles={true}
           />
-          <div className="absolute inset-0 bg-[radial-gradient(#4C8DF6_1px,transparent_1px)] [background-size:32px_32px] opacity-15" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">

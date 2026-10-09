@@ -7,7 +7,6 @@ import React from "react";
  */
 export const BannerFX: React.FC = () => (
   <div aria-hidden="true" className="bfx pointer-events-none absolute inset-0 overflow-hidden">
-    <div className="bfx-grid" />
     <div className="bfx-orb bfx-orb-a" />
     <div className="bfx-orb bfx-orb-b" />
     <div className="bfx-radar" />

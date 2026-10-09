@@ -26,7 +26,7 @@ header.sm-header[data-scrolled] { background: rgba(8,16,36,.78); box-shadow: 0 1
 .hz-orb-a { width: 52vw; height: 52vw; left: -14vw; top: -20vw; background: radial-gradient(circle, #1F4FD8, transparent 68%); animation: hzDrift 22s ease-in-out infinite alternate; }
 .hz-orb-b { width: 44vw; height: 44vw; right: -12vw; top: 6vw; background: radial-gradient(circle, #4C8DF6, transparent 68%); opacity: .4; animation: hzDrift 28s ease-in-out -8s infinite alternate-reverse; }
 .hz-orb-c { width: 36vw; height: 36vw; left: 30vw; bottom: -18vw; background: radial-gradient(circle, #6fa8ff, transparent 70%); opacity: .3; animation: hzDrift 26s ease-in-out -4s infinite alternate; }
-.hz-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(150,190,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(150,190,255,.07) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 20%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 20%, transparent 75%); animation: hzGrid 30s linear infinite; }
+.hz-grid { display: none !important; }
 .hz-vignette { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, var(--ink) 100%); }
 @keyframes hzDrift { to { transform: translate3d(7vw, 5vw, 0) scale(1.12); } }
 @keyframes hzGrid { to { background-position: 0 64px, 64px 0; } }
@@ -236,8 +236,8 @@ main section[class*="-mt-8"] a:hover [class*="rounded-3xl"], main section[class*
 @keyframes sbMesh1 { 0% { transform: translate3d(0,0,0) scale(1); } 100% { transform: translate3d(9vw, 6vw, 0) scale(1.25); } }
 @keyframes sbMesh2 { 0% { transform: translate3d(0,0,0) scale(1.1); } 100% { transform: translate3d(-8vw, 7vw, 0) scale(.9); } }
 
-.sb-dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(190,215,255,.5) 1px, transparent 1.5px); background-size: 30px 30px; opacity: .16; }
-.sb-spot { position: absolute; inset: 0; background-image: radial-gradient(rgba(220,235,255,.95) 1.4px, transparent 2px); background-size: 30px 30px; opacity: .55; -webkit-mask-image: radial-gradient(260px circle at var(--mx) var(--my), #000, transparent 70%); mask-image: radial-gradient(260px circle at var(--mx) var(--my), #000, transparent 70%); }
+.sb-dots { display: none !important; }
+.sb-spot { display: none !important; }
 .sb-grain { position: absolute; inset: 0; background-image: var(--grain); background-size: 160px 160px; opacity: .07; mix-blend-mode: overlay; }
 
 /* halo that slowly turns behind the slider */

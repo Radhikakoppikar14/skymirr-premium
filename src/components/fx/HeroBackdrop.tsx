@@ -32,9 +32,6 @@ export const HeroBackdrop: React.FC = () => (
     {/* Clean dark cyber RF background with gradient - ZERO images */}
     <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A] via-[#0B1F3A] to-[#0B1F3A]" />
 
-    {/* Engineering vector coordinate grid */}
-    <div className="fx-grid absolute inset-0 opacity-[0.45]" />
-
     {/* Live Electromagnetic Sinusoidal Wave Canvas */}
     <div className="absolute inset-0 opacity-70">
       <LiveWaveCanvas

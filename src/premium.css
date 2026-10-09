@@ -90,9 +90,7 @@ footer { position: relative; } footer::before { content: ""; position: absolute;
 .pdx-hero { position: relative; isolation: isolate; margin-top: 0; padding: 5rem 0 !important; border: 0 !important; border-radius: 0 !important;
   color: #fff; background: linear-gradient(145deg, #0B1F3A 0%, #0B1F3A 55%, #0B1F3A 100%) !important; box-shadow: 0 0 0 100vmax #0B1F3A !important;
   clip-path: inset(0 -100vmax); overflow: visible !important; backdrop-filter: none !important; display: grid; gap: 3rem; }
-.pdx-hero::before { content: ""; position: absolute; inset: 0 -100vmax; z-index: -1; pointer-events: none;
-  background-image: linear-gradient(rgba(255,255,255, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255, .05) 1px, transparent 1px); background-size: 44px 44px;
-  mask-image: linear-gradient(100deg, #000, transparent 75%); -webkit-mask-image: linear-gradient(100deg, #000, transparent 75%); }
+.pdx-hero::before { display: none !important; }
 .pdx-hero::after { content: ""; position: absolute; right: -4%; top: 50%; width: 520px; height: 520px; translate: 0 -50%; z-index: -1; border-radius: 50%; pointer-events: none;
   border: 1px solid rgba(76,141,246, 0.2); box-shadow: 0 0 0 70px rgba(76,141,246, 0.04), 0 0 0 150px rgba(76,141,246, 0.02); }
 @media (min-width: 1024px) { .pdx-hero:not(.pdx-hero-solo) { grid-template-columns: 1.1fr .9fr; align-items: center; } }

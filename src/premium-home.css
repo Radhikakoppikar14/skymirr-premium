@@ -293,11 +293,7 @@ header.sm-header[data-scrolled] {
    HOME HERO – shared atmosphere pieces
    ========================================================================== */
 .sm-hero-grid {
-  position: absolute; inset: 0;
-  background-image: linear-gradient(rgba(76,141,246, 0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(76,141,246, 0.055) 1px, transparent 1px);
-  background-size: 72px 72px;
-  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 70% 35%, #000 0%, transparent 75%);
-  mask-image: radial-gradient(ellipse 80% 70% at 70% 35%, #000 0%, transparent 75%);
+  display: none !important;
 }
 .sm-hero-glow {
   position: absolute; right: -180px; top: 50%; width: 760px; height: 760px; translate: 0 -50%; border-radius: 50%;

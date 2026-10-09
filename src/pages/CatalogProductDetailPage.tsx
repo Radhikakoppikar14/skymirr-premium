@@ -253,7 +253,6 @@ export const CatalogProductDetailPage: React.FC<
               }}
               className="pd-stage no-lift relative w-full min-h-[340px] sm:min-h-[430px] rounded-[28px] overflow-clip cursor-zoom-in"
             >
-              <div aria-hidden="true" className="pd-stage-grid" />
               <div aria-hidden="true" className="pd-spot" />
               <div aria-hidden="true" className="pd-rings">
                 <span /><span /><span />
