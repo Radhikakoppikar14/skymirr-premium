@@ -17,6 +17,7 @@
  */
 
 const EXCLUDE = [
+  "button", "[role='button']", "[role='tab']", "input", "select", "textarea",
   "header", "nav", ".no-reveal", ".bg-executive-gradient", "[data-no-motion]", "[role='dialog']",
   "[class*='-animate']", "[class*='marquee']", ".no-scrollbar", "[aria-hidden='true']",
   "[class*='opacity-0']", "[class*='fixed']", "[class*='sticky']",
@@ -25,11 +26,14 @@ const EXCLUDE = [
 const BLOCK = [
   "h1", "h2", "h3", "h4", "h5", "p", "li", "blockquote", "figcaption", "dt", "dd",
   "figure", "form", "table", "details",
-  "[class*='rounded-xl']", "[class*='rounded-2xl']", "[class*='rounded-3xl']",
-  "[class*='grid-cols'] > *", ".glass-panel-light", ".card-gradient-hover",
+  "[class*='rounded-xl']:not(button):not([role='button']):not([role='tab'])",
+  "[class*='rounded-2xl']:not(button):not([role='button']):not([role='tab'])",
+  "[class*='rounded-3xl']:not(button):not([role='button']):not([role='tab'])",
+  "[class*='grid-cols'] > *:not(button):not([role='button']):not([role='tab'])",
+  ".glass-panel-light", ".card-gradient-hover",
 ].join(",");
 
-const CTA = "a[class*='rounded-full'], button[class*='rounded-full'], a[class*='bg-blue-600'], button[class*='bg-blue-600']";
+const CTA = "a[class*='rounded-full'], a[class*='bg-blue-600']";
 
 export function initMotion() {
   if (typeof window === "undefined") return;

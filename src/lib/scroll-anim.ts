@@ -2,8 +2,8 @@
    headings rise + un-blur, paragraphs slide up, cards/figures scale in, with a small
    stagger between siblings. Also drives a light parallax on the hero/page backgrounds.
    Skipped entirely for reduced motion. */
-const CANDIDATES = "main h2, main h3, main p, main blockquote, main figure, main [class*='rounded-3xl'], main [class*='rounded-2xl']";
-const SKIP = ".hz, [data-pop-grid], .sm-drawer, .sm-search-overlay, .sm-modal, section.isolate[class*='bg-gradient-to-b'], footer";
+const CANDIDATES = "main h2, main h3, main p, main blockquote, main figure, main [class*='rounded-3xl']:not(button):not(a):not([role='button']):not([role='tab']), main [class*='rounded-2xl']:not(button):not(a):not([role='button']):not([role='tab'])";
+const SKIP = "button, a, [role='button'], [role='tab'], input, select, textarea, [data-no-motion], [data-sa-skip], .hz, [data-pop-grid], .sm-drawer, .sm-search-overlay, .sm-modal, section.isolate[class*='bg-gradient-to-b'], footer, nav, header";
 
 export function initScrollAnim() {
   if (typeof window === "undefined") return;
@@ -34,7 +34,17 @@ export function initScrollAnim() {
   );
 
   const prep = (el: HTMLElement) => {
-    if (el.classList.contains("sa") || el.closest(SKIP) || el.closest(".sa")) return;
+    if (
+      el.tagName === "BUTTON" ||
+      el.tagName === "A" ||
+      el.getAttribute("role") === "button" ||
+      el.getAttribute("role") === "tab" ||
+      el.hasAttribute("data-no-motion") ||
+      el.hasAttribute("data-sa-skip") ||
+      el.closest(SKIP) ||
+      el.closest(".sa") ||
+      el.classList.contains("sa")
+    ) return;
     if (el.tagName === "P" && (el.textContent || "").trim().length < 24) return;
     const r = el.getBoundingClientRect();
     if (r.height < 24 || r.width < 80) return;

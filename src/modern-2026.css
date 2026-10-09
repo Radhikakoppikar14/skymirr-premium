@@ -260,6 +260,21 @@ main section[class*="-mt-8"] a:hover [class*="rounded-3xl"], main section[class*
 .sa.sa-in { opacity: 1; translate: 0 0; scale: 1; filter: blur(0); }
 .sa.sa-in:not([data-sa-done]) { transition: opacity .8s var(--ease-x) var(--sd, 0ms), translate .95s var(--ease-x) var(--sd, 0ms), scale .95s var(--ease-x) var(--sd, 0ms), filter .8s var(--ease-x) var(--sd, 0ms) !important; }
 
+/* Interactive elements immunity: buttons, tabs, links, controls must never be invisible */
+button,
+button.sa,
+button.mv,
+button[data-sa],
+button[data-mv],
+[role="tab"],
+[role="button"],
+[data-no-motion],
+[data-sa-skip],
+button * {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 /* parallax */
 .sb-img { translate: 0 calc(var(--sy, 0) * .12px); }
 .sb-mesh { translate: 0 calc(var(--sy, 0) * -.06px); }

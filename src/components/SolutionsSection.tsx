@@ -125,12 +125,17 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
         </div>
 
         {/* HORIZONTAL SECTOR SELECTOR TABS */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3" data-no-motion data-sa-skip>
           {applications.map((app, idx) => {
             const isActive = idx === activeIndex;
             return (
               <button
                 key={app.id}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                data-no-motion
+                data-sa-skip
                 onClick={() => setActiveIndex(idx)}
                 className={`p-4 rounded-2xl text-left border transition-all cursor-pointer flex items-center justify-between ${
                   isActive

@@ -67,6 +67,7 @@
 .mv-on .mv:not(.mv-in) { opacity: 0; translate: 0 22px; }
 .mv-on .mv { transition: opacity 0.7s var(--mv-ease), translate 0.7s var(--mv-ease); }
 .mv-on :is(h1, h2, h3, h4).mv:not(.mv-in) { translate: 0 28px; }
+.mv-on button, .mv-on [role="button"], .mv-on [role="tab"] { opacity: 1 !important; visibility: visible !important; }
 
 /* ---- Image reveal: soft unveil ---- */
 .mv-on .mv-img:not(.mv-in) { opacity: 0; clip-path: inset(0 0 100% 0); }
