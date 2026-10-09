@@ -1,0 +1,6 @@
+{
+  "name": "SkyMirr - Antenna-First 5G & RF Wireless Solutions",
+  "description": "Minimalistic and high-performance redesign of SkyMirr Technologies website featuring MuLCAT antenna technology, Sky5G Router, RF products catalog, and applications.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

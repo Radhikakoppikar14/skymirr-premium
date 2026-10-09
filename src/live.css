@@ -1,0 +1,219 @@
+/* ==========================================================================
+   SKYMIRR LIVE LAYER  -  Midnight Navy & Electric Cyan
+   Additive "alive" motion for text + images on scroll and on slide change.
+   - Pure presentation: never changes content, images, routes or layout flow.
+   - Everything lives inside @media (prefers-reduced-motion: no-preference).
+   - Only opacity / filter / transform-type properties are animated.
+   Driven by classes added in src/lib/live.ts  (lv-shine, lv-float, lv-sheen, lv-vis, lv-in)
+   ========================================================================== */
+:root {
+  --lv-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --lv-violet: #4C8DF6;
+  --lv-violet-deep: #1F4FD8;
+  --lv-lilac: #4C8DF6;
+  --lv-fuchsia: #4C8DF6;
+  --lv-ink: #0b1f3a;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* ---------------------------------------------------------------- 1. TEXT */
+
+  /* Scroll reveal gets a soft focus-pull: text un-blurs as it rises into place */
+  .mv-on .mv:not(.mv-in) { filter: blur(7px); }
+  .mv-on .mv { transition: opacity 0.7s var(--lv-ease), translate 0.7s var(--lv-ease), filter 0.8s var(--lv-ease); }
+  .mv-on :is(h1, h2).mv {
+    transition: opacity 0.5s ease, translate 0.9s var(--lv-ease), clip-path 1s var(--lv-ease), filter 0.9s var(--lv-ease);
+  }
+
+  /* Headlines: a light-sweep glides across the lettering (loops with a long rest) */
+  .lv-shine {
+    --lv-hi: var(--lv-violet);
+    background-image: linear-gradient(105deg, var(--lv-c) 0 41%, var(--lv-hi) 50%, var(--lv-c) 59% 100%);
+    background-size: 280% 100%;
+    background-position: 100% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: lvShine 10s var(--lv-delay, 0s) ease-in-out infinite;
+    animation-play-state: paused;
+  }
+  .lv-shine.lv-vis { animation-play-state: running; }
+  .lv-shine.lv-light { --lv-hi: #C9D6EE; }
+  @keyframes lvShine {
+    0%, 62%, 100% { background-position: 100% 0; }
+    32% { background-position: 0% 0; }
+  }
+
+  /* Eyebrow dots / small signal markers breathe */
+  .sm-eyebrow i, .hy-label i { animation: lvBreath 2.6s ease-in-out infinite; }
+  @keyframes lvBreath {
+    0%, 100% { opacity: 1; scale: 1; }
+    50% { opacity: 0.55; scale: 0.8; }
+  }
+
+  /* Primary buttons: slowly drifting violet gradient with a sheen on hover */
+  a[class*="bg-blue-600"], button[class*="bg-blue-600"] {
+    background-image: linear-gradient(110deg, #1F4FD8 0%, #4C8DF6 38%, #4C8DF6 62%, #1F4FD8 100%);
+    background-size: 240% 100%;
+    animation: lvDrift 9s ease-in-out infinite;
+  }
+  @keyframes lvDrift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* ---------------------------------------------------------------- 2. IMAGES */
+
+  /* Entrance: image comes into focus and settles (colour is a touch richer, then calms) */
+  .mv-on .mv-img:not(.mv-in) { filter: saturate(1.6) contrast(1.02) blur(14px); }
+  .mv-on .mv-img { transition: opacity 0.6s ease, clip-path 1.2s var(--lv-ease), filter 1.3s var(--lv-ease); }
+
+  /* Product / feature images float gently so the page feels live */
+  .lv-float {
+    animation: lvFloat var(--lv-dur, 8s) var(--lv-delay, 0s) ease-in-out infinite;
+    animation-play-state: paused;
+    will-change: translate;
+  }
+  .lv-float.lv-vis { animation-play-state: running; }
+  @keyframes lvFloat {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -9px; }
+  }
+
+  /* A soft light glides across large image frames every few seconds */
+  .lv-sheen { isolation: isolate; }
+  .lv-sheen::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(112deg, transparent 38%, rgba(255,255,255, 0.34) 50%, transparent 62%);
+    transform: translateX(-120%);
+    animation: lvSheen 7.5s var(--lv-delay, 0s) ease-in-out infinite;
+    animation-play-state: paused;
+  }
+  .lv-sheen.lv-vis::before { animation-play-state: running; }
+  @keyframes lvSheen {
+    0%, 55% { transform: translateX(-120%); }
+    80%, 100% { transform: translateX(120%); }
+  }
+
+  /* ------------------------------------------------- 3. HERO SLIDER (on slide change) */
+
+  /* Every time a slide becomes the active one: image un-blurs + settles, light sweeps over it */
+  .hy-slide[data-pos="active"] .hy-slide-img { animation: lvSlideIn 1.5s var(--lv-ease) both; }
+  .hy-slide[data-pos="active"] .hy-slide-bg { animation: lvBgIn 1.8s var(--lv-ease) both, lvBgDrift 14s 1.8s ease-in-out infinite alternate; }
+  .hy-slide::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0;
+    background: linear-gradient(105deg, transparent 30%, rgba(255,255,255, 0.28) 48%, rgba(76,141,246, 0.22) 54%, transparent 70%);
+    transform: translateX(-110%);
+  }
+  .hy-slide[data-pos="active"]::before { animation: lvSlideSweep 1.7s 0.25s var(--lv-ease) both; }
+  @keyframes lvSlideIn {
+    0% { opacity: 0; scale: 1.06; filter: blur(12px) saturate(1.5); }
+    55% { opacity: 1; }
+    100% { opacity: 1; scale: 1; filter: blur(0) saturate(1); }
+  }
+  @keyframes lvBgIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @keyframes lvBgDrift {
+    0% { translate: -1.6% 0; }
+    100% { translate: 1.6% -1%; }
+  }
+  @keyframes lvSlideSweep {
+    0% { opacity: 1; transform: translateX(-110%); }
+    100% { opacity: 1; transform: translateX(110%); }
+  }
+
+  /* Ticker text slides in each time the headline changes */
+  .hy-link.fx-ticker-swap span { animation: lvTick 0.8s var(--lv-ease) both; }
+  @keyframes lvTick {
+    0% { opacity: 0; translate: 0 10px; filter: blur(4px); }
+    100% { opacity: 1; translate: 0 0; filter: blur(0); }
+  }
+
+  /* ------------------------------------------------- 4. SECTIONS */
+
+  /* The hairline between sections draws itself when the section scrolls in */
+  .lv-on .px-band + .px-band::before { transform-origin: center; scale: 0.2 1; opacity: 0; transition: scale 1.4s var(--lv-ease), opacity 1s ease; }
+  .lv-on .px-band + .px-band.lv-in::before { scale: 1 1; opacity: 1; }
+
+  /* Rail / progress accents shimmer */
+  .px-rail a[data-active] { animation: lvRail 2.8s ease-in-out infinite; }
+  @keyframes lvRail {
+    0%, 100% { box-shadow: 0 0 10px rgba(76,141,246, 0.45); }
+    50% { box-shadow: 0 0 20px rgba(76,141,246, 0.85); }
+  }
+
+  /* Cards: image inside brightens + gently lifts on hover (adds to existing hover) */
+  main div.group:hover img { filter: saturate(1.12) contrast(1.03); }
+
+  /* ---------------------------------------------------------------- 5. MORE LIVE EFFECTS */
+
+  /* Headlines: words rise in one by one (original text is restored afterwards by live.ts) */
+  .lv-on .lv-pre { opacity: 0; }
+  .lv-w {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(0.6em) rotateX(-45deg);
+    transform-origin: 50% 100%;
+    filter: blur(6px);
+    animation: lvWord 0.85s var(--lv-ease) forwards;
+    animation-delay: calc(var(--i, 0) * 80ms);
+    will-change: transform, opacity;
+  }
+  .mv-on .lv-w { translate: none; }
+  @keyframes lvWord {
+    0% { opacity: 0; transform: translateY(0.6em) rotateX(-45deg); filter: blur(6px); }
+    100% { opacity: 1; transform: none; filter: blur(0); }
+  }
+  /* the heading's own reveal must not hide the words while they animate */
+  .mv-on .lv-w, .mv-on .lv-pre.mv:not(.mv-in) { clip-path: none; }
+  .mv-on :is(h1, h2).mv:not(.mv-in):has(.lv-w) { opacity: 1; translate: none; clip-path: none; filter: none; }
+
+  /* Cards enter from alternating sides with a small scale-up instead of all rising the same way */
+  .mv-on .mv { transition: opacity 0.7s var(--lv-ease), translate 0.7s var(--lv-ease), filter 0.8s var(--lv-ease), scale 0.8s var(--lv-ease); }
+  .mv-on [class*="grid-cols"] > [class*="rounded"].mv:nth-child(3n + 1):not(.mv-in) { translate: -36px 24px; scale: 0.96; }
+  .mv-on [class*="grid-cols"] > [class*="rounded"].mv:nth-child(3n + 2):not(.mv-in) { translate: 0 40px; scale: 0.96; }
+  .mv-on [class*="grid-cols"] > [class*="rounded"].mv:nth-child(3n):not(.mv-in) { translate: 36px 24px; scale: 0.96; }
+
+  /* Cursor spotlight follows the pointer across cards */
+  .lv-spot:hover {
+    background-image: radial-gradient(380px circle at var(--mx, 50%) var(--my, 50%), rgba(76,141,246, 0.13), transparent 62%);
+  }
+
+  /* Call-to-action buttons: a soft ring pulses outward every few seconds */
+  a[class*="bg-blue-600"], button[class*="bg-blue-600"],
+  main button[class*="from-[#1F4FD8]"], main a[class*="from-[#1F4FD8]"] {
+    animation: lvDrift 9s ease-in-out infinite, lvPulse 3.8s ease-out infinite;
+  }
+  a[class*="bg-blue-600"]:hover, button[class*="bg-blue-600"]:hover,
+  main button[class*="from-[#1F4FD8]"]:hover, main a[class*="from-[#1F4FD8]"]:hover { animation: lvDrift 9s ease-in-out infinite; }
+  @keyframes lvPulse {
+    0% { box-shadow: 0 12px 26px -14px rgba(31,79,216, 0.6), 0 0 0 0 rgba(76,141,246, 0.5); }
+    70%, 100% { box-shadow: 0 12px 26px -14px rgba(31,79,216, 0.6), 0 0 0 16px rgba(76,141,246, 0); }
+  }
+
+  /* Footer logo glows softly */
+  footer img[alt^="SkyMirr"] { animation: lvLogo 4.5s ease-in-out infinite; }
+  @keyframes lvLogo {
+    0%, 100% { filter: drop-shadow(0 0 0 rgba(76,141,246, 0)); }
+    50% { filter: drop-shadow(0 0 14px rgba(76,141,246, 0.55)); }
+  }
+
+}
+
+/* Safety: reduced-motion users get the static, fully visible page */
+@media (prefers-reduced-motion: reduce) {
+  .lv-shine { animation: none; }
+  .lv-float, .lv-sheen::before { animation: none; }
+}
