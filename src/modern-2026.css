@@ -389,3 +389,8 @@ header.sm-header .sm-pop:not(.sm-mega) .sm-pop-ico svg {
     text-wrap: balance; /* one line if it fits, otherwise two even lines */
   }
 }
+
+/* ---------- Home hero: push the slider below the single-line "Latest" chip ---------- */
+@media (min-width: 1200px) {
+  .hz-stage { margin-top: 88px; }
+}
