@@ -15,3 +15,9 @@ coverage/
 
 .vercel
 .env*
+<<<<<<< HEAD
+=======
+
+.vercel
+.env*
+>>>>>>> ec859e7 (Update website)

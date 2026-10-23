@@ -31,7 +31,11 @@
   --color-royal: #1F4FD8;
   --color-sky: #4C8DF6;
   --color-ice: #E8F0FE;
+<<<<<<< HEAD
   --color-beige: #F6F0E6;
+=======
+  --color-beige: #FFFFFF;
+>>>>>>> ec859e7 (Update website)
   --color-sand: #E3D4BA;
   --color-slate: #5B6B82;
   --color-mist: #C9D6EE;
@@ -341,7 +345,11 @@ a[href]:active {
 }
 
 /* Form input focus states */
+<<<<<<< HEAD
 input:focus,
+=======
+input:focus:not(.sm-search-input):not([data-no-ring]),
+>>>>>>> ec859e7 (Update website)
 textarea:focus,
 select:focus {
   border-color: #4C8DF6 !important;

@@ -22,7 +22,11 @@ export function initPopAssemble() {
   const scan = () => {
     // inner pages: every card grid in the overlapping content sections assembles too
     document.querySelectorAll<HTMLElement>('main section[class*="-mt-8"], main section[class*="-mt-8"] .grid').forEach((g) => {
+<<<<<<< HEAD
       if (g.classList.contains("grid") && g.children.length >= 2) g.setAttribute("data-pop-grid", "");
+=======
+      if (g.classList.contains("grid") && g.children.length >= 2 && !g.hasAttribute("data-no-pop")) g.setAttribute("data-pop-grid", "");
+>>>>>>> ec859e7 (Update website)
     });
     document.querySelectorAll<HTMLElement>("[data-pop-grid]").forEach((g) => {
       index(g);

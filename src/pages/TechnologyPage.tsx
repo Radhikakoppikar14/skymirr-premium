@@ -24,7 +24,10 @@ interface LightboxState {
 }
 
 export const TechnologyPage: React.FC = () => {
+<<<<<<< HEAD
   const [couplingMode, setCouplingMode] = useState<"positive" | "parasitic">("positive");
+=======
+>>>>>>> ec859e7 (Update website)
   const [lightbox, setLightbox] = useState<LightboxState>({
     isOpen: false,
     src: "",
@@ -45,24 +48,43 @@ export const TechnologyPage: React.FC = () => {
       {/* ============================================================== */}
       {/* 1. EXECUTIVE HERO COMMAND DECK WITH LIVE WAVE ANIMATIONS       */}
       {/* ============================================================== */}
+<<<<<<< HEAD
       <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#0B1F3A] via-[#0B1F3A] to-[#0B1F3A] text-white py-16 sm:py-24">
         <PageBackdrop />
+=======
+      <section className="technology-hero relative isolate overflow-hidden bg-gradient-to-b from-[#0B1F3A] via-[#0B1F3A] to-[#0B1F3A] text-white py-16 sm:py-24">
+        <PageBackdrop variant="illustration" />
+>>>>>>> ec859e7 (Update website)
         
         {/* Live Electromagnetic Sinusoidal Wave Canvas (NO background image) */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden opacity-50">
           <LiveWaveCanvas
+<<<<<<< HEAD
             frequency={couplingMode === "positive" ? 0.022 : 0.009}
             amplitude={couplingMode === "positive" ? 36 : 14}
             speed={0.025}
             colorScheme="cyan"
             interactive={true}
             showParticles={true}
+=======
+            frequency={0.022}
+            amplitude={36}
+            speed={0.025}
+            colorScheme="cyan"
+            interactive={false}
+            showParticles={false}
+>>>>>>> ec859e7 (Update website)
           />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+<<<<<<< HEAD
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0B1F3A] border border-[#4C8DF6]/40 text-xs font-mono font-bold tracking-widest uppercase text-[#4C8DF6]">
             <Sparkles className="w-3.5 h-3.5 text-[#4C8DF6] animate-pulse" />
+=======
+          <div className="technology-hero-badge inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0B1F3A] border border-[#4C8DF6]/40 text-xs font-mono font-bold tracking-widest uppercase text-[#4C8DF6]">
+            <Sparkles className="w-3.5 h-3.5 text-[#4C8DF6]" />
+>>>>>>> ec859e7 (Update website)
             <span>RF Core Innovation &middot; Patents Pending</span>
           </div>
 
@@ -74,6 +96,7 @@ export const TechnologyPage: React.FC = () => {
               Multi-Layer Coupling Controlled Antenna Technology (Patents &amp; Trademarks Pending). Transforming mutual antenna coupling from destructive interference into constructive radiated power.
             </p>
           </div>
+<<<<<<< HEAD
 
           {/* Interactive Coupling Comparison Switcher */}
           <div className="pt-2 flex flex-wrap items-center gap-3">
@@ -103,6 +126,8 @@ export const TechnologyPage: React.FC = () => {
               </button>
             </div>
           </div>
+=======
+>>>>>>> ec859e7 (Update website)
         </div>
       </section>
 
@@ -186,22 +211,37 @@ export const TechnologyPage: React.FC = () => {
                   Patent &amp; Trademark Pending
                 </span>
               </div>
+<<<<<<< HEAD
               <span className="text-xs font-mono bg-[#E8F0FE] text-[#1F4FD8] px-2.5 py-1 rounded-full border border-[#E3D4BA]">
+=======
+              <span className="technology-figure-tag text-xs font-mono bg-[#E8F0FE] text-[#1F4FD8] px-2.5 py-1 rounded-full border border-[#E3D4BA]">
+>>>>>>> ec859e7 (Update website)
                 FIG. 01
               </span>
             </div>
 
             <div
               onClick={() => openLightbox("/images/mulcat.jpg", "MuLCAT Technology Architecture Diagram")}
+<<<<<<< HEAD
               className="relative w-full rounded-2xl bg-[#0B1F3A] p-4 flex items-center justify-center cursor-pointer group overflow-hidden border border-[#4C8DF6]/30 shadow-inner"
+=======
+              className="technology-blueprint-frame relative w-full rounded-2xl bg-[#0B1F3A] p-4 flex items-center justify-center cursor-pointer group overflow-hidden border border-[#4C8DF6]/30 shadow-inner"
+>>>>>>> ec859e7 (Update website)
             >
               <img
                 src="/images/mulcat.jpg"
                 alt="MuLCAT Technology Architecture Diagram"
+<<<<<<< HEAD
                 className="max-h-72 w-auto max-w-full object-contain rounded-xl bg-white p-2 group-hover:scale-103 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-[#0B1F3A]/0 group-hover:bg-[#0B1F3A]/30 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                 <span className="p-3 rounded-2xl bg-white text-[#1F4FD8] shadow-xl">
+=======
+                className="max-h-72 w-auto max-w-full object-contain rounded-xl bg-white p-2"
+              />
+              <div className="absolute inset-0 bg-[#0B1F3A]/0 group-hover:bg-[#0B1F3A]/30 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <span className="technology-blueprint-zoom p-3 rounded-2xl bg-white text-[#1F4FD8]">
+>>>>>>> ec859e7 (Update website)
                   <ZoomIn className="w-5 h-5" />
                 </span>
               </div>
@@ -223,22 +263,37 @@ export const TechnologyPage: React.FC = () => {
                   Compact Form Factor Integration
                 </span>
               </div>
+<<<<<<< HEAD
               <span className="text-xs font-mono bg-[#E8F0FE] text-[#1F4FD8] px-2.5 py-1 rounded-full border border-[#E3D4BA]">
+=======
+              <span className="technology-figure-tag text-xs font-mono bg-[#E8F0FE] text-[#1F4FD8] px-2.5 py-1 rounded-full border border-[#E3D4BA]">
+>>>>>>> ec859e7 (Update website)
                 FIG. 02
               </span>
             </div>
 
             <div
               onClick={() => openLightbox("/images/technology2.jpg", "MuLCAT Compact Ant for Wireless Health & Terrestrial Comm")}
+<<<<<<< HEAD
               className="relative w-full rounded-2xl bg-[#0B1F3A] p-4 flex items-center justify-center cursor-pointer group overflow-hidden border border-[#4C8DF6]/30 shadow-inner"
+=======
+              className="technology-blueprint-frame relative w-full rounded-2xl bg-[#0B1F3A] p-4 flex items-center justify-center cursor-pointer group overflow-hidden border border-[#4C8DF6]/30 shadow-inner"
+>>>>>>> ec859e7 (Update website)
             >
               <img
                 src="/images/technology2.jpg"
                 alt="MuLCAT Compact Ant for Wireless Health & Terrestrial Comm"
+<<<<<<< HEAD
                 className="max-h-72 w-auto max-w-full object-contain rounded-xl bg-white p-2 group-hover:scale-103 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-[#0B1F3A]/0 group-hover:bg-[#0B1F3A]/30 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                 <span className="p-3 rounded-2xl bg-white text-[#1F4FD8] shadow-xl">
+=======
+                className="max-h-72 w-auto max-w-full object-contain rounded-xl bg-white p-2"
+              />
+              <div className="absolute inset-0 bg-[#0B1F3A]/0 group-hover:bg-[#0B1F3A]/30 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <span className="technology-blueprint-zoom p-3 rounded-2xl bg-white text-[#1F4FD8]">
+>>>>>>> ec859e7 (Update website)
                   <ZoomIn className="w-5 h-5" />
                 </span>
               </div>
@@ -394,7 +449,11 @@ export const TechnologyPage: React.FC = () => {
               <span className="font-mono text-[11px]">SkyMirr Technologies &middot; Patents &amp; Trademarks Pending</span>
               <button
                 onClick={closeLightbox}
+<<<<<<< HEAD
                 className="px-4 py-2 rounded-xl bg-[#1F4FD8] hover:bg-[#1F4FD8] text-white font-bold text-xs uppercase tracking-wider cursor-pointer"
+=======
+                className="technology-action-button px-4 py-2 rounded-xl bg-[#1F4FD8] hover:bg-[#1F4FD8] text-white font-bold text-xs uppercase tracking-wider cursor-pointer"
+>>>>>>> ec859e7 (Update website)
               >
                 Close Blueprint
               </button>
@@ -405,4 +464,8 @@ export const TechnologyPage: React.FC = () => {
 
     </div>
   );
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> ec859e7 (Update website)

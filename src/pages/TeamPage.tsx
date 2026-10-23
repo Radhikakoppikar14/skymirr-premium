@@ -7,6 +7,10 @@ import {
   Users,
 } from "lucide-react";
 import { LiveWaveCanvas } from "../components/fx/LiveWaveCanvas";
+<<<<<<< HEAD
+=======
+import { ModalShell } from "../components/sm/Modalshell";
+>>>>>>> ec859e7 (Update website)
 
 interface TeamMember {
   name: string;
@@ -342,6 +346,7 @@ export const TeamPage: React.FC = () => {
       {/* 3. EXECUTIVE DOSSIER MODAL                                     */}
       {/* ============================================================== */}
       {selectedBio && (
+<<<<<<< HEAD
         <div
           onClick={() => setSelectedBio(null)}
           className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#0B1F3A]/80 backdrop-blur-md animate-in fade-in duration-200"
@@ -422,6 +427,62 @@ export const TeamPage: React.FC = () => {
             </div>
           </div>
         </div>
+=======
+        <ModalShell
+          size="md"
+          onClose={() => setSelectedBio(null)}
+          closeLabel="Close Profile"
+          header={
+            <>
+              <span className="sm-m-role text-[11px] font-mono uppercase tracking-widest font-bold block">
+                {selectedBio.role}
+              </span>
+              <h3 className="sm-m-title text-xl sm:text-2xl">{selectedBio.name}</h3>
+            </>
+          }
+        >
+          <div className="flex items-center gap-5">
+            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-[#E8F0FE] p-2 flex items-center justify-center shrink-0 border border-[#E3D4BA]">
+              <img src={selectedBio.photo} alt={selectedBio.name} className="max-h-full max-w-full object-contain" />
+            </div>
+            <div className="space-y-2">
+              <div className="sm-m-meta text-sm font-medium leading-relaxed">{selectedBio.highlight}</div>
+              <a
+                href={selectedBio.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="sm-m-link inline-flex items-center gap-1.5 text-xs font-mono font-bold hover:underline"
+              >
+                <Linkedin className="w-3.5 h-3.5" />
+                <span>View LinkedIn Profile</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="space-y-2 pt-4 border-t border-[#E3D4BA]">
+            <h4 className="sm-m-label text-xs font-mono font-bold uppercase tracking-wider">
+              Biography &amp; Industry Track Record:
+            </h4>
+            <p className="sm-m-text">{selectedBio.fullBio}</p>
+          </div>
+
+          {selectedBio.bullets && (
+            <div className="space-y-2 pt-4 border-t border-[#E3D4BA]">
+              <h4 className="sm-m-label text-xs font-mono font-bold uppercase tracking-wider">
+                Key Career Milestones &amp; Credentials:
+              </h4>
+              <ul className="sm-m-list space-y-1.5">
+                {selectedBio.bullets.map((b, idx) => (
+                  <li key={idx} className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#1F4FD8] shrink-0 mt-2" />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </ModalShell>
+>>>>>>> ec859e7 (Update website)
       )}
 
     </div>

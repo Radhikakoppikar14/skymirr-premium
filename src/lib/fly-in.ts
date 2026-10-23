@@ -26,7 +26,11 @@ export function initFlyIn() {
 
   const prep = (node: Element) => {
     let el = node as HTMLElement;
+<<<<<<< HEAD
     if (el.dataset.fly || el.closest(".hz")) return;
+=======
+    if (el.dataset.fly || el.closest(".hz") || el.closest("#home-hero")) return;
+>>>>>>> ec859e7 (Update website)
     const r = el.getBoundingClientRect();
     if (r.width < 120 || r.height < 80) return; // icons, logos, avatars
     const isMedia = el.tagName === "VIDEO" || el.tagName === "IFRAME";

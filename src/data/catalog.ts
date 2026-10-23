@@ -12,11 +12,19 @@ export interface CatalogItem {
 
 export const CATALOG_ITEMS: Record<string, CatalogItem[]> = {
   cellular: [
+<<<<<<< HEAD
   { id: "tamp-114", name: "TAMP 114", subtitle: "4G LTE / 5G Wideband Omni Antenna", image: "/images/antennas/tamp114.png" },
   { id: "tamp-141", name: "TAMP 141", subtitle: "4G LTE / 5G Ultra Broadband Omni Antenna", image: "/images/antennas/tamp141.png" },
   { id: "tamp-161", name: "TAMP 161", subtitle: "4G LTE / 5G External MIMO Broadband High Performing Omnidirectional Antenna Module", image: "/images/antennas/tamp161-round.png", badge: "NEW", detailRoute: "tamp-161" },
   { id: "tamp-154", name: "TAMP 154", subtitle: "High Gain Broadband 4G/5G External MIMO Directional Antenna Module", image: "/images/antennas/tamp154-round.png", badge: "NEW" },
   { id: "taep-162", name: "TAEP 162", subtitle: "4G LTE/5G Compact Broadband Chip Antenna", image: "/images/antennas/taep162.png", badge: "NEW" },
+=======
+  { id: "tamp-161", name: "TAMP 161", subtitle: "4G LTE / 5G External MIMO Broadband High Performing Omnidirectional Antenna Module", image: "/images/antennas/tamp161-round.png", badge: "NEW", detailRoute: "tamp-161" },
+  { id: "tamp-114", name: "TAMP 114", subtitle: "4G LTE / 5G Wideband Omni Antenna", image: "/images/antennas/tamp114.png" },
+  { id: "tamp-141", name: "TAMP 141", subtitle: "4G LTE / 5G Ultra Broadband Omni Antenna", image: "/images/antennas/tamp141.png" },
+  { id: "tamp-154", name: "TAMP 154", subtitle: "High Gain Broadband 4G/5G External MIMO Directional Antenna Module", image: "/images/antennas/tamp154-round.png", badge: "NEW" },
+  { id: "taep-162", name: "TAEP 162", subtitle: "4G LTE/5G Compact Broadband Chip Antenna", image: "/images/TAEP_162.png", badge: "NEW" },
+>>>>>>> ec859e7 (Update website)
   { id: "tamp-172", name: "TAMP 172", subtitle: "LTE Omni Antenna With Magnetic Mount", image: "/images/antennas/tamp172.png" },
   { id: "tamp-173", name: "TAMP 173", subtitle: "LTE Low Profile Antenna With Screw Mount", image: "/images/antennas/tamp173.png" },
   { id: "tamp-163", name: "TAMP 163", subtitle: "Direct-To-Satellite 4G/5G Cellular Antenna", image: "/images/antennas/tamp163.png" },

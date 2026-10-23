@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
+=======
+import React, { useState, useEffect, useRef, useCallback } from "react";
+>>>>>>> ec859e7 (Update website)
 import { ScrollProgressBar } from "./components/ScrollProgressBar";
 import { Navbar } from "./components/Navbar";
 import { HomePage } from "./pages/HomePage";
@@ -16,6 +20,10 @@ import { Sky5GDetailPage } from "./pages/Sky5GDetailPage";
 import { SkyTrackerDetailPage } from "./pages/SkyTrackerDetailPage";
 import { CatalogProductDetailPage } from "./pages/CatalogProductDetailPage";
 import { Footer } from "./components/Footer";
+<<<<<<< HEAD
+=======
+import { ContactPopup } from "./components/ContactPopup";
+>>>>>>> ec859e7 (Update website)
 import { resolveProduct } from "./data/catalog";
 import { ChevronUp } from "lucide-react";
 import { PageTransition } from "./components/fx/PageTransition";
@@ -42,8 +50,23 @@ type Route =
 
 export default function App() {
   const [route, setRoute] = useState<Route>("home");
+<<<<<<< HEAD
   const [detailProductId, setDetailProductId] = useState<string | null>(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
+=======
+  const routeRef = useRef<Route>("home");
+  const [detailProductId, setDetailProductId] = useState<string | null>(null);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const [contactPopupOpen, setContactPopupOpen] = useState(false);
+
+  const changeRoute = (nextRoute: Route) => {
+    const currentRoute = routeRef.current;
+    if (currentRoute !== nextRoute) {
+      routeRef.current = nextRoute;
+      setRoute(nextRoute);
+    }
+  };
+>>>>>>> ec859e7 (Update website)
 
   // Monitor scroll for back-to-top button
   useEffect(() => {
@@ -67,9 +90,15 @@ export default function App() {
         const productExists = !!resolveProduct(productId);
         if (productExists) {
           setDetailProductId(productId);
+<<<<<<< HEAD
           setRoute("product-detail");
         } else {
           setRoute("home");
+=======
+          changeRoute("product-detail");
+        } else {
+          changeRoute("home");
+>>>>>>> ec859e7 (Update website)
         }
         window.scrollTo({ top: 0, behavior: "smooth" });
         return;
@@ -91,10 +120,17 @@ export default function App() {
       ];
       if (validRoutes.includes(hash as Route)) {
         setDetailProductId(null);
+<<<<<<< HEAD
         setRoute(hash as Route);
       } else if (!hash) {
         setDetailProductId(null);
         setRoute("home");
+=======
+        changeRoute(hash as Route);
+      } else if (!hash) {
+        setDetailProductId(null);
+        changeRoute("home");
+>>>>>>> ec859e7 (Update website)
       }
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
@@ -123,18 +159,34 @@ export default function App() {
       ? (newRoute as Route)
       : "home";
     setDetailProductId(null);
+<<<<<<< HEAD
     setRoute(targetRoute);
+=======
+    changeRoute(targetRoute);
+>>>>>>> ec859e7 (Update website)
     window.location.hash = "#/" + (targetRoute === "home" ? "" : targetRoute);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleOpenContact = () => {
+<<<<<<< HEAD
     navigateTo("contact");
   };
 
   const handleOpenProductDetail = (productId: string) => {
     setDetailProductId(productId);
     setRoute("product-detail");
+=======
+    setContactPopupOpen(true);
+  };
+  const handleCloseContact = useCallback(() => {
+    setContactPopupOpen(false);
+  }, []);
+
+  const handleOpenProductDetail = (productId: string) => {
+    setDetailProductId(productId);
+    changeRoute("product-detail");
+>>>>>>> ec859e7 (Update website)
     window.location.hash = `#/product-detail/${encodeURIComponent(productId)}`;
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -164,7 +216,11 @@ export default function App() {
       />
 
       {/* Page Content based on active route */}
+<<<<<<< HEAD
       <main className="flex-1">
+=======
+      <main className="flex-1 page-transition-viewport">
+>>>>>>> ec859e7 (Update website)
         <PageTransition routeKey={route + (detailProductId ?? "")}>
         <SectionDecor side={route.length % 2 ? "right" : "left"} className={route === "home" ? "!overflow-visible [&>div[aria-hidden]]:hidden" : "!overflow-visible"}>
         {route === "home" && <HomePage onNavigate={navigateTo} />}
@@ -230,6 +286,13 @@ export default function App() {
       {route !== "contact" && <CtaBand onContact={handleOpenContact} />}
       <Footer />
       <ToastHost />
+<<<<<<< HEAD
     </>
   );
 }
+=======
+      <ContactPopup isOpen={contactPopupOpen} onClose={handleCloseContact} />
+    </>
+  );
+}
+>>>>>>> ec859e7 (Update website)

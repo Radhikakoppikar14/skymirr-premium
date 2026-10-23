@@ -8,6 +8,10 @@ import {
   ChevronRight
 } from "lucide-react";
 import { LiveWaveCanvas } from "../components/fx/LiveWaveCanvas";
+<<<<<<< HEAD
+=======
+import { ModalShell } from "../components/sm/Modalshell";
+>>>>>>> ec859e7 (Update website)
 
 interface LatestItem {
   id: string;
@@ -327,6 +331,7 @@ export const TheLatestPage: React.FC = () => {
       {/* 3. ARTICLE READER MODAL                                        */}
       {/* ============================================================== */}
       {selectedItem && (
+<<<<<<< HEAD
         <div
           onClick={() => setSelectedItem(null)}
           className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#0B1F3A]/80 backdrop-blur-md animate-in fade-in duration-200"
@@ -373,6 +378,24 @@ export const TheLatestPage: React.FC = () => {
             </div>
           </div>
         </div>
+=======
+        <ModalShell
+          onClose={() => setSelectedItem(null)}
+          closeLabel="Close Dispatch"
+          header={
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="sm-m-badge text-xs font-mono font-bold px-3 py-1 rounded-full">{selectedItem.badge}</span>
+              <span className="sm-m-meta text-sm font-mono font-semibold">{selectedItem.date}</span>
+            </div>
+          }
+        >
+          <h2 className="sm-m-title text-xl sm:text-2xl">{selectedItem.title}</h2>
+          <div className="sm-m-media">
+            <img src={selectedItem.image} alt={selectedItem.title} />
+          </div>
+          <div className="sm-m-text">{selectedItem.content}</div>
+        </ModalShell>
+>>>>>>> ec859e7 (Update website)
       )}
 
     </div>

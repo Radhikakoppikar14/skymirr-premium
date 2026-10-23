@@ -7,6 +7,11 @@ import './premium-home.css';
 import './live.css';
 import './sm-theme.css';
 import './modern-2026.css';
+<<<<<<< HEAD
+=======
+import './brand-refresh.css';
+import './contact-page.css';
+>>>>>>> ec859e7 (Update website)
 import { initMotion } from './lib/motion';
 import { initPremium } from './lib/premium';
 import { initLive } from './lib/live';
@@ -22,4 +27,8 @@ initLive();
 initSmEffects();
 initFlyIn();
 initPopAssemble();
+<<<<<<< HEAD
 initScrollAnim();
+=======
+initScrollAnim();
+>>>>>>> ec859e7 (Update website)

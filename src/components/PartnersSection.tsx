@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import React, { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight, Sparkles, ShieldCheck, Play, ArrowUpRight } from "lucide-react";
+=======
+import React, { useEffect, useRef } from "react";
+import { ChevronLeft, ChevronRight, ArrowRight, Sparkles, ShieldCheck } from "lucide-react";
+>>>>>>> ec859e7 (Update website)
 import { PARTNERS_DATA } from "../data/skymirrData";
 
 interface PartnersSectionProps {
@@ -7,6 +12,7 @@ interface PartnersSectionProps {
 }
 
 
+<<<<<<< HEAD
 /* Endless, gentle auto-scroll for a logo strip. The strip renders its logos twice, so when the
    first set has fully passed we jump back by exactly one set (seamless loop). Pauses on hover,
    touch, keyboard focus and briefly after the arrow buttons; manual scrolling still works.
@@ -87,17 +93,157 @@ export const PartnersSection: React.FC<PartnersSectionProps> = ({
     distMarquee.hold();
     distScrollRef.current?.scrollBy({ left: 260, behavior: "smooth" });
   };
+=======
+export const PartnersSection: React.FC<PartnersSectionProps> = ({
+  onExploreProducts,
+}) => {
+  const onlineRef = useRef<HTMLDivElement>(null);
+  const distRef = useRef<HTMLDivElement>(null);
+
+  const scrollBy = (ref: React.RefObject<HTMLDivElement | null>, dir: -1 | 1) => {
+    const el = ref.current;
+    if (!el) return;
+    const k = ref === onlineRef ? "online" : "dist";
+    holdUntilRef.current[k] = performance.now() + 800;
+    el.scrollBy({ left: dir * Math.max(el.clientWidth * 0.8, 240), behavior: "smooth" });
+  };
+
+  /* Logos move continuously (like a marquee): each strip drifts left at a steady speed and
+     loops seamlessly because the list is rendered twice. Pauses on hover/touch; arrows still work. */
+  const pausedRef = useRef({ online: false, dist: false });
+  const holdUntilRef = useRef({ online: 0, dist: 0 });
+  const reducedMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  useEffect(() => {
+    if (reducedMotion) return;
+    const SPEED = 45; // px per second
+    const state = {
+      online: { pos: 0, last: 0 },
+      dist: { pos: 0, last: 0 },
+    };
+    let raf = 0;
+    let prevT = performance.now();
+
+    const tick = (t: number) => {
+      const dt = Math.min((t - prevT) / 1000, 0.1);
+      prevT = t;
+      (["online", "dist"] as const).forEach((key) => {
+        const el = (key === "online" ? onlineRef : distRef).current;
+        if (!el || el.children.length < 2) return;
+        const st = state[key];
+        // someone scrolled (arrow / touch drag): continue from where they are
+        if (Math.abs(el.scrollLeft - st.last) > 1.5) st.pos = el.scrollLeft;
+        if (pausedRef.current[key] || document.hidden || t < holdUntilRef.current[key]) {
+          st.pos = el.scrollLeft;
+          st.last = el.scrollLeft;
+          return;
+        }
+        const half = el.children.length / 2;
+        const setW =
+          (el.children[half] as HTMLElement).offsetLeft -
+          (el.children[0] as HTMLElement).offsetLeft;
+        if (setW <= 0) return;
+        st.pos += SPEED * dt;
+        if (st.pos >= setW) st.pos -= setW;
+        if (st.pos < 0) st.pos += setW;
+        el.scrollLeft = st.pos;
+        st.last = el.scrollLeft;
+      });
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [reducedMotion]);
+>>>>>>> ec859e7 (Update website)
 
   const getPartnerUrl = (name: string): string => {
     const lower = name.toLowerCase();
     if (lower.includes("amazon")) return "https://www.amazon.com/s?k=skymirr";
     if (lower.includes("digikey")) return "https://www.digikey.com/en/supplier-centers/skymirr";
     if (lower.includes("walmart")) return "https://www.walmart.com/search?q=skymirr";
+<<<<<<< HEAD
     return "#";
   };
 
   const smallArrow =
     "w-9 h-9 rounded-xl hover:bg-[#E8F0FE] text-[#5B6B82] hover:text-[#1F4FD8] flex items-center justify-center transition-colors cursor-pointer border border-[#E3D4BA] bg-white shadow-2xs";
+=======
+    return "";
+  };
+
+  const renderStrip = (
+    title: string,
+    ref: React.RefObject<HTMLDivElement | null>,
+    key: "online" | "dist",
+    items: { name: string; region: string; logo: string }[]
+  ) => (
+    <div className="space-y-6">
+      <div className="flex items-center justify-between gap-4" data-no-motion data-sa-skip>
+        <div className="flex items-center gap-3">
+          <span className="w-1.5 h-7 rounded-full bg-gradient-to-b from-[#1F4FD8] to-[#FD4401]" />
+          <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#0b1f3a] font-sans">
+            {title}
+          </h3>
+        </div>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => scrollBy(ref, -1)}
+            className="pt-nav-btn"
+            aria-label={`Scroll ${title} left`}
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            type="button"
+            onClick={() => scrollBy(ref, 1)}
+            className="pt-nav-btn"
+            aria-label={`Scroll ${title} right`}
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
+
+      <div
+        ref={ref}
+        onMouseEnter={() => { pausedRef.current[key] = true; }}
+        onMouseLeave={() => { pausedRef.current[key] = false; }}
+        onTouchStart={() => { pausedRef.current[key] = true; }}
+        onTouchEnd={() => { pausedRef.current[key] = false; }}
+        className="flex gap-5 overflow-x-auto scrollbar-none py-3 px-1"
+      >
+        {(reducedMotion ? items : [...items, ...items]).map((item, idx) => {
+          const isClone = !reducedMotion && idx >= items.length;
+          const url = getPartnerUrl(item.name);
+          const Wrapper: React.ElementType = url ? "a" : "div";
+          const linkProps = url ? { href: url, target: "_blank", rel: "noreferrer" } : {};
+          return (
+            <Wrapper
+              key={`${item.name}-${idx}`}
+              {...linkProps}
+              {...(isClone ? { "aria-hidden": true, tabIndex: -1 } : {})}
+              className="pt-card shrink-0 basis-[78%] sm:basis-[calc(50%-10px)] lg:basis-[calc(33.333%-14px)] select-none"
+            >
+              <div className="h-24 w-full flex items-center justify-center">
+                <img
+                  src={item.logo}
+                  alt={item.name}
+                  className="max-h-20 w-auto max-w-[80%] object-contain"
+                />
+              </div>
+              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.25em] text-[#5B6B82]">
+                {item.region}
+              </span>
+            </Wrapper>
+          );
+        })}
+      </div>
+    </div>
+  );
+>>>>>>> ec859e7 (Update website)
 
   return (
     <div className="space-y-0">
@@ -107,7 +253,11 @@ export const PartnersSection: React.FC<PartnersSectionProps> = ({
           ======================================================== */}
       <section
         id="demo-video"
+<<<<<<< HEAD
         className="relative isolate overflow-hidden py-24 sm:py-32 bg-gradient-to-br from-[#0B1F3A] via-[#0B1F3A] to-[#0B1F3A] text-white"
+=======
+        className="relative isolate overflow-hidden py-24 sm:py-32 bg-gradient-to-br from-[#0A2142] via-[#153966] to-[#244A78] text-white"
+>>>>>>> ec859e7 (Update website)
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
           
@@ -177,6 +327,7 @@ export const PartnersSection: React.FC<PartnersSectionProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           {/* Header */}
+<<<<<<< HEAD
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#E3D4BA] pb-8">
             <div className="space-y-3 max-w-2xl">
               <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-[0.2em] uppercase text-[#1F4FD8]">
@@ -315,6 +466,23 @@ export const PartnersSection: React.FC<PartnersSectionProps> = ({
               </div>
             </div>
           )}
+=======
+          <div className="space-y-3 border-b border-[#E3D4BA] pb-8">
+            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-[0.2em] uppercase text-[#1F4FD8]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FD4401] animate-ping" />
+              06 &middot; Global Ecosystem
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight font-sans text-[#0b1f3a] lg:whitespace-nowrap">
+              Trusted by Leaders &amp; Global Networks.
+            </h2>
+            <div className="text-sm sm:text-base text-[#5B6B82] leading-relaxed font-normal lg:whitespace-nowrap">
+              SkyMirr RF hardware and antenna systems are stocked by premier industrial distributors and certified across Tier-1 carriers worldwide.
+            </div>
+          </div>
+
+          {renderStrip("Online Partners", onlineRef, "online", PARTNERS_DATA.online)}
+          {renderStrip("Partners & Distributors", distRef, "dist", PARTNERS_DATA.distributors)}
+>>>>>>> ec859e7 (Update website)
 
         </div>
       </section>

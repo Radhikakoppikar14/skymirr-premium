@@ -40,9 +40,17 @@ export const ScrollProgressBar: React.FC = () => {
       aria-hidden="true"
     >
       <div
+<<<<<<< HEAD
         className="h-full bg-gradient-to-r from-blue-600 via-sky-500 to-indigo-600 transition-[width] duration-75 ease-out shadow-[0_0_8px_rgba(31,79,216,0.5)]"
+=======
+        className="h-full bg-[#D7783B] transition-[width] duration-75 ease-out"
+>>>>>>> ec859e7 (Update website)
         style={{ width: `${scrollProgress}%` }}
       />
     </div>
   );
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> ec859e7 (Update website)

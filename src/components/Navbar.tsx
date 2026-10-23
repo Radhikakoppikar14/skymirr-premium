@@ -9,7 +9,10 @@ import {
   ArrowRight,
   Radio,
   Cpu,
+<<<<<<< HEAD
   Layers,
+=======
+>>>>>>> ec859e7 (Update website)
   Sparkles,
   Users,
   Building2,
@@ -25,6 +28,7 @@ import {
   CornerDownLeft,
   SlidersHorizontal as Sliders,
 } from "lucide-react";
+<<<<<<< HEAD
 import { COMPANY_INFO, PRODUCTS_DATA } from "../data/skymirrData";
 import { CATALOG_ITEMS } from "../data/catalog";
 
@@ -40,6 +44,10 @@ const ANTENNA_CATS: { id: string; label: string }[] = [
 ];
 const ROUTERS = PRODUCTS_DATA.filter((p) => p.category === "router");
 const TRACKERS = PRODUCTS_DATA.filter((p) => p.category === "tracker");
+=======
+import { PRODUCTS_DATA } from "../data/skymirrData";
+
+>>>>>>> ec859e7 (Update website)
 
 interface NavbarProps {
   currentRoute?: string;
@@ -60,6 +68,27 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [openMenu, setOpenMenu] = useState<MenuKey>(null);
   const [accOpen, setAccOpen] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
+<<<<<<< HEAD
+=======
+  const menuCloseTimer = useRef<number | null>(null);
+
+  const cancelMenuClose = () => {
+    if (menuCloseTimer.current !== null) {
+      window.clearTimeout(menuCloseTimer.current);
+      menuCloseTimer.current = null;
+    }
+  };
+
+  const closeMenuAfterPointerLeaves = () => {
+    cancelMenuClose();
+    menuCloseTimer.current = window.setTimeout(() => {
+      setOpenMenu(null);
+      menuCloseTimer.current = null;
+    }, 320);
+  };
+
+  useEffect(() => () => cancelMenuClose(), []);
+>>>>>>> ec859e7 (Update website)
 
   // Search Results
   const searchResults = useMemo(() => {
@@ -132,6 +161,13 @@ export const Navbar: React.FC<NavbarProps> = ({
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+<<<<<<< HEAD
+=======
+  const handleContactClick = () => {
+    handleNavClick("contact");
+  };
+
+>>>>>>> ec859e7 (Update website)
   /* Antenna category -> products page with that category tab selected */
   const goCategory = (cat: string) => {
     window.history.replaceState({}, "", `${window.location.pathname}?cat=${cat}`);
@@ -139,12 +175,15 @@ export const Navbar: React.FC<NavbarProps> = ({
     window.dispatchEvent(new CustomEvent("sm:category", { detail: { cat } }));
   };
 
+<<<<<<< HEAD
   const goProduct = (id: string) => {
     setOpenMenu(null);
     setMobileMenuOpen(false);
     openProduct(id);
   };
 
+=======
+>>>>>>> ec859e7 (Update website)
   const isActive = (route: string) => currentRoute === route;
 
   const getCategoryBadgeClass = (cat: string) => {
@@ -176,9 +215,21 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   /* wrapper for a dropdown: hover + keyboard focus both open it */
   const dropdownHandlers = (key: Exclude<MenuKey, null>) => ({
+<<<<<<< HEAD
     onMouseEnter: () => setOpenMenu(key),
     onMouseLeave: () => setOpenMenu(null),
     onFocus: () => setOpenMenu(key),
+=======
+    onMouseEnter: () => {
+      cancelMenuClose();
+      setOpenMenu(key);
+    },
+    onMouseLeave: closeMenuAfterPointerLeaves,
+    onFocus: () => {
+      cancelMenuClose();
+      setOpenMenu(key);
+    },
+>>>>>>> ec859e7 (Update website)
     onBlur: (e: React.FocusEvent<HTMLDivElement>) => {
       if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setOpenMenu(null);
     },
@@ -198,7 +249,11 @@ export const Navbar: React.FC<NavbarProps> = ({
           aria-label="SkyMirr Home"
         >
           <img
+<<<<<<< HEAD
             src={COMPANY_INFO.logo}
+=======
+            src="/images/SkyMirr-new-logo-footer.png"
+>>>>>>> ec859e7 (Update website)
             alt="SkyMirr Technologies"
             className="sm-brand-img"
           />
@@ -217,15 +272,25 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Products - mega menu: columns, sub-links and a featured image card */}
           <div className="sm-dd sm-dd-mega" {...dropdownHandlers("products")}>
             <button
+<<<<<<< HEAD
               onClick={() => handleNavClick("products")}
+=======
+              type="button"
+              onClick={() => setOpenMenu("products")}
+>>>>>>> ec859e7 (Update website)
               className="sm-link text-white hover:text-cyan-400 transition-colors flex items-center gap-1"
               data-active={productsActive || undefined}
               aria-haspopup="true"
               aria-expanded={openMenu === "products"}
+<<<<<<< HEAD
+=======
+              aria-controls="products-mega-menu"
+>>>>>>> ec859e7 (Update website)
             >
               <span>Products</span>
               <ChevronDown className="sm-chev" />
             </button>
+<<<<<<< HEAD
             <div className="nav-pop sm-pop sm-mega" data-open={openMenu === "products"}>
               <div className="sm-mega-cols">
                 <div className="sm-mega-col">
@@ -270,6 +335,34 @@ export const Navbar: React.FC<NavbarProps> = ({
                   </div>
                 </div>
                 </div>
+=======
+            <div
+              id="products-mega-menu"
+              className="nav-pop sm-pop sm-mega"
+              data-open={openMenu === "products"}
+              style={{ width: "min(340px, calc(100vw - 48px))" }}
+            >
+              <div className="sm-mega-cols" style={{ gridTemplateColumns: "1fr" }}>
+                <div className="sm-mega-stack">
+                  {/* 1. Antennas */}
+                  <div className="sm-mega-col">
+                    <button onClick={() => handleNavClick("products")} className="sm-mega-head w-full">
+                      <span className="sm-pop-ico"><Radio /></span>
+                      <span className="sm-pop-txt"><b>Antennas</b><small>600–6000 MHz Wideband &amp; MIMO</small></span>
+                      <ArrowUpRight className="ml-auto w-4 h-4 text-[#9db4dc]" />
+                    </button>
+                  </div>
+
+                  {/* 2. 5G Routers */}
+                  <div className="sm-mega-col">
+                    <button onClick={() => handleNavClick("sky5g-router")} className="sm-mega-head w-full">
+                      <span className="sm-pop-ico"><Cpu /></span>
+                      <span className="sm-pop-txt"><b>5G Routers</b><small>Sky5G Carrier Certified CPE</small></span>
+                      <ArrowUpRight className="ml-auto w-4 h-4 text-[#9db4dc]" />
+                    </button>
+                  </div>
+                </div>
+>>>>>>> ec859e7 (Update website)
               </div>
             </div>
           </div>
@@ -290,7 +383,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             <span>Services</span>
           </button>
 
+<<<<<<< HEAD
           {/* The Latest */}
+=======
+          {/* The Latest & Beyond */}
+>>>>>>> ec859e7 (Update website)
           <div className="sm-dd" {...dropdownHandlers("latest")}>
             <button
               onClick={() => handleNavClick("press-releases")}
@@ -299,7 +396,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               aria-haspopup="true"
               aria-expanded={openMenu === "latest"}
             >
+<<<<<<< HEAD
               <span>The Latest</span>
+=======
+              <span>The Latest &amp; Beyond</span>
+>>>>>>> ec859e7 (Update website)
               <ChevronDown className="sm-chev" />
             </button>
             <div className="nav-pop sm-pop" data-open={openMenu === "latest"}>
@@ -341,6 +442,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               </button>
             </div>
           </div>
+<<<<<<< HEAD
           <button
             onClick={() => handleNavClick("contact")}
             className="sm-link text-white hover:text-cyan-400 transition-colors"
@@ -352,13 +454,31 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Utilities */}
         <div className="sm-actions text-white flex items-center gap-3">
+=======
+        </nav>
+
+        {/* Utilities */}
+        <div className="sm-actions text-white flex items-center gap-2.5 sm:gap-3">
+>>>>>>> ec859e7 (Update website)
           <button
             type="button"
             onClick={openSearch}
             className="sm-icon-btn text-white hover:text-cyan-400 transition-colors"
             aria-label="Search"
           >
+<<<<<<< HEAD
             <Search />
+=======
+            <Search className="w-4 h-4" />
+          </button>
+
+          <button
+            onClick={handleContactClick}
+            className="hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-white border border-white/30 hover:border-[#E29A69] hover:text-[#E29A69] transition-colors"
+          >
+            <span>Contact Us</span>
+            <ArrowRight className="w-3.5 h-3.5 text-[#E29A69]" />
+>>>>>>> ec859e7 (Update website)
           </button>
 
           <button
@@ -375,10 +495,32 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Mobile drawer */}
       <div className="nav-drawer sm-drawer" data-open={mobileMenuOpen}>
         <div>
+<<<<<<< HEAD
           <nav className="sm-drawer-list" aria-label="Mobile">
             {([
               { type: "link", route: "home", label: "Home" },
               { type: "group", key: "products", label: "Products", items: [["products", "Products"], ["sky5g-router", "Sky5G Router"], ["tracker-detail", "Asset Trackers"]] },
+=======
+          {/* Quick search button for mobile drawer */}
+          <div className="px-4 pt-3 pb-2 border-b border-white/10">
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                openSearch();
+              }}
+              className="w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white/90 hover:text-white border border-white/15 text-xs font-mono transition-colors text-left"
+            >
+              <Search className="w-4 h-4 text-[#4C8DF6]" />
+              <span>Search antennas, routers, specs...</span>
+            </button>
+          </div>
+
+          <nav className="sm-drawer-list" aria-label="Mobile">
+            {([
+              { type: "link", route: "home", label: "Home" },
+              { type: "group", key: "products", label: "Products", items: [["products", "Antennas"], ["sky5g-router", "5G Routers"]] },
+>>>>>>> ec859e7 (Update website)
               { type: "link", route: "technology", label: "Technology (MuLCAT™)" },
               { type: "link", route: "services", label: "Design Services & Consulting" },
               { type: "group", key: "latest", label: "The Latest", items: [["the-latest", "All Dispatches"], ["press-releases", "Press Releases"], ["blogs", "Technical Blogs"]] },
@@ -416,7 +558,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                       {entry.items.map(([route, label]) => (
                         <button
                           key={route}
+<<<<<<< HEAD
                           onClick={() => handleNavClick(route)}
+=======
+                          onClick={() => (route.startsWith("cat:") ? goCategory(route.slice(4)) : handleNavClick(route))}
+>>>>>>> ec859e7 (Update website)
                           className="sm-drawer-item sm-acc-item text-white"
                           data-active={isActive(route) || undefined}
                           tabIndex={mobileMenuOpen && accOpen === entry.key ? 0 : -1}
@@ -452,7 +598,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                   autoFocus
                   data-no-ring
                   className="sm-search-input"
+<<<<<<< HEAD
                   placeholder="Search antennas, frequencies, routers, trackers, patents..."
+=======
+                  placeholder="Search antennas, frequencies, routers..."
+>>>>>>> ec859e7 (Update website)
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
@@ -476,6 +626,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                         className="sm-result group"
                       >
                         <div className="min-w-0 flex-1">
+<<<<<<< HEAD
                           <div className="flex items-center gap-2">
                             <span className="sm-result-name group-hover:text-[#1F4FD8] transition-colors">
                               {item.name}
@@ -485,6 +636,17 @@ export const Navbar: React.FC<NavbarProps> = ({
                             </span>
                           </div>
                           <div className="sm-result-tag">{item.tagline}</div>
+=======
+                          <div className="flex flex-wrap items-center gap-1.5">
+                            <span className="sm-result-name group-hover:text-[#1F4FD8] transition-colors">
+                              {item.name}
+                            </span>
+                            <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full border font-bold bg-[#E8F0FE] text-[#1F4FD8] border-[#4C8DF6]/30 shrink-0">
+                              {item.category}
+                            </span>
+                          </div>
+                          <div className="sm-result-tag line-clamp-2 sm:line-clamp-1">{item.tagline}</div>
+>>>>>>> ec859e7 (Update website)
                           {item.frequencyRange && (
                             <div className="sm-result-freq">{item.frequencyRange}</div>
                           )}
@@ -511,7 +673,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                             setSearchQuery(tag);
                             inputRef.current?.focus();
                           }}
+<<<<<<< HEAD
                           className="px-3 py-1 rounded-full text-xs font-mono bg-[#FAF7F2] hover:bg-[#E8F0FE] text-[#5B6B82] hover:text-[#1F4FD8] border border-[#E3D4BA] transition-colors cursor-pointer"
+=======
+                          className="px-3 py-1 rounded-full text-xs font-mono bg-white hover:bg-[#E8F0FE] text-[#5B6B82] hover:text-[#1F4FD8] border border-[#E3D4BA] transition-colors cursor-pointer"
+>>>>>>> ec859e7 (Update website)
                         >
                           {tag}
                         </button>

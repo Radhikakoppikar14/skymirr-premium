@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { PageBackdrop } from "../components/fx/PageBackdrop";
 import { ArrowRight, Calendar, Clock, Sparkles } from "lucide-react";
 import { LiveWaveCanvas } from "../components/fx/LiveWaveCanvas";
+<<<<<<< HEAD
+=======
+import { ModalShell } from "../components/sm/Modalshell";
+>>>>>>> ec859e7 (Update website)
 
 interface BlogPost {
   id: string;
@@ -48,7 +52,11 @@ export const BlogsPage: React.FC = () => {
       
       {/* Executive Hero Command Deck */}
       <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#0B1F3A] via-[#0B1F3A] to-[#0B1F3A] text-white py-16 sm:py-24">
+<<<<<<< HEAD
         <PageBackdrop />
+=======
+        <PageBackdrop variant="illustration" />
+>>>>>>> ec859e7 (Update website)
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden opacity-45">
           <LiveWaveCanvas
             frequency={0.015}
@@ -128,6 +136,7 @@ export const BlogsPage: React.FC = () => {
 
       {/* Reader Modal */}
       {selectedPost && (
+<<<<<<< HEAD
         <div
           onClick={() => setSelectedPost(null)}
           className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#0B1F3A]/80 backdrop-blur-md animate-in fade-in duration-200"
@@ -138,10 +147,18 @@ export const BlogsPage: React.FC = () => {
           >
             {/* Header (close X removed) */}
             <div className="flex items-center gap-4 p-6 border-b border-[#E3D4BA] bg-[#FFFFFF] text-xs font-mono text-[#5B6B82]">
+=======
+        <ModalShell
+          onClose={() => setSelectedPost(null)}
+          closeLabel="Close Article"
+          header={
+            <div className="sm-m-meta flex items-center gap-3 text-sm font-mono font-semibold">
+>>>>>>> ec859e7 (Update website)
               <span>{selectedPost.date}</span>
               <span>&middot;</span>
               <span>{selectedPost.readTime}</span>
             </div>
+<<<<<<< HEAD
 
             <div className="p-6 sm:p-8 space-y-6 max-h-[70vh] overflow-y-auto sm-scroll">
               <h2 className="text-xl sm:text-2xl font-black text-[#0b1f3a] leading-tight">
@@ -171,6 +188,16 @@ export const BlogsPage: React.FC = () => {
             </div>
           </div>
         </div>
+=======
+          }
+        >
+          <h2 className="sm-m-title text-xl sm:text-2xl">{selectedPost.title}</h2>
+          <div className="sm-m-media">
+            <img src={selectedPost.image} alt={selectedPost.title} />
+          </div>
+          <div className="sm-m-text">{selectedPost.content}</div>
+        </ModalShell>
+>>>>>>> ec859e7 (Update website)
       )}
 
     </div>

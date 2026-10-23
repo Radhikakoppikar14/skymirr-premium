@@ -3,7 +3,11 @@ import { Instagram, Linkedin, Youtube, ArrowUpRight } from "lucide-react";
 
 export const Footer: React.FC = () => {
   return (
+<<<<<<< HEAD
     <footer className="bg-[#0B1F3A] text-[#C9D6EE] border-t border-[#4C8DF6]/25 relative isolate overflow-hidden">
+=======
+    <footer className="bg-[#0B1F3A] text-[#C9D6EE] border-t border-[#4C8DF6]/20 relative isolate overflow-hidden">
+>>>>>>> ec859e7 (Update website)
       {/* Subtle ambient gradient mesh for depth */}
       <div
         aria-hidden="true"
@@ -26,13 +30,21 @@ export const Footer: React.FC = () => {
                 alt="SkyMirr BE AMAZED"
                 className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 onError={(e) => {
+<<<<<<< HEAD
                   (e.target as HTMLImageElement).src = "/images/skymirr-logo-3d.png";
+=======
+                  (e.target as HTMLImageElement).src = "/images/SkyMirr-new-logo-footer.png";
+>>>>>>> ec859e7 (Update website)
                 }}
               />
             </a>
 
             <p className="text-xs sm:text-sm text-[#C9D6EE]/90 leading-relaxed font-normal max-w-sm">
+<<<<<<< HEAD
               Pioneering antenna-first RF engineering, MuLCAT™ positive-coupling resonance, carrier-certified 5G gateways, and real-time asset telemetry for mission-critical operations.
+=======
+              Antenna-first RF engineering, carrier-certified 5G gateways, and real-time IoT telemetry for critical operations.
+>>>>>>> ec859e7 (Update website)
             </p>
 
             <div className="space-y-3 pt-2">
@@ -210,7 +222,11 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* Bottom Deep Navy Copyright Bar */}
+<<<<<<< HEAD
       <div className="bg-[#0B1F3A] text-[#5B6B82] text-xs py-4 text-center border-t border-[#4C8DF6]/15">
+=======
+      <div className="bg-[#07172D] text-[#C9D6EE] text-xs py-4 text-center border-t border-white/10">
+>>>>>>> ec859e7 (Update website)
         <p className="font-medium tracking-wide">
           SkyMirr &copy; 2026. All Rights Reserved.
         </p>

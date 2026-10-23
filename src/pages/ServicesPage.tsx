@@ -41,7 +41,11 @@ export const ServicesPage: React.FC = () => {
       icon: <Cpu className="w-5 h-5 text-[#1F4FD8]" />,
       tagline: "Tailored Sub-6, IoT, and Wearable Antenna Systems",
       description:
+<<<<<<< HEAD
         "SkyMirr delivers rapid, high-performance custom antenna design services that help device makers, OEMs, and system integrators solve complex connectivity challenges fast. Whether you're developing a next-gen IoT solution, enhancing a wireless medical device, or optimizing signal performance in rugged environments, our expert engineering team tailors RF solutions to your exact specifications. From concept to prototype, SkyMirr turns ideas into tested, ready-to-integrate antenna solutions with speed, precision, and unmatched technical support.",
+=======
+        "Custom Sub-6, IoT, and wearable antenna design for OEMs and system integrators—from RF simulation and tuning through tested, ready-to-integrate prototypes.",
+>>>>>>> ec859e7 (Update website)
       deliverables: [
         "Full 3D electromagnetic CAD simulation & tuning",
         "Prototypes with verified S11, VSWR, and radiation efficiency",
@@ -57,7 +61,11 @@ export const ServicesPage: React.FC = () => {
       icon: <Settings className="w-5 h-5 text-[#1F4FD8]" />,
       tagline: "Holistic Device Architecture & Interference Elimination",
       description:
+<<<<<<< HEAD
         "In addition to antenna design, SkyMirr offers specialized consulting on system-level design to ensure seamless integration and peak performance across your wireless device architecture. We work with your team to optimize RF pathways, reduce interference, improve energy efficiency, and align antenna placement with mechanical and thermal constraints. Whether you're refining an existing product or launching a new platform, our engineers bring deep experience in embedded systems, wireless standards, and certification requirements to accelerate development and reduce costly redesigns.",
+=======
+        "System-level RF guidance to improve signal paths, reduce interference, and fit antenna placement to mechanical, thermal, and certification requirements.",
+>>>>>>> ec859e7 (Update website)
       deliverables: [
         "Noise floor mitigation & co-existence analysis",
         "Thermal & mechanical constraint co-design",
@@ -109,7 +117,11 @@ export const ServicesPage: React.FC = () => {
       {/* 1. EXECUTIVE HERO COMMAND DECK (ZERO BACKGROUND IMAGE)          */}
       {/* ============================================================== */}
       <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#0B1F3A] via-[#0B1F3A] to-[#0B1F3A] text-white py-16 sm:py-24">
+<<<<<<< HEAD
         <PageBackdrop />
+=======
+        <PageBackdrop variant="illustration" />
+>>>>>>> ec859e7 (Update website)
         
         {/* Live Electromagnetic Sinusoidal Wave Canvas */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden opacity-45">
@@ -123,9 +135,15 @@ export const ServicesPage: React.FC = () => {
           />
         </div>
 
+<<<<<<< HEAD
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0B1F3A] border border-[#4C8DF6]/40 text-xs font-mono font-bold tracking-widest uppercase text-[#4C8DF6]">
             <Sparkles className="w-3.5 h-3.5 text-[#4C8DF6] animate-pulse" />
+=======
+        <div className="services-hero-content relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0B1F3A] border border-[#D7783B]/60 text-xs font-mono font-bold tracking-widest uppercase text-[#F1B58F]">
+            <Sparkles className="w-3.5 h-3.5 text-[#F1B58F] animate-pulse" />
+>>>>>>> ec859e7 (Update website)
             <span>Custom RF Engineering &amp; Consulting</span>
           </div>
 
@@ -140,11 +158,19 @@ export const ServicesPage: React.FC = () => {
 
           <div className="flex flex-wrap items-center gap-6 pt-2 text-xs font-mono text-[#C9D6EE]">
             <div className="flex items-center gap-2">
+<<<<<<< HEAD
               <Clock className="w-4 h-4 text-[#4C8DF6]" />
               <span>Response Within 24 Hours</span>
             </div>
             <div className="flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-[#4C8DF6]" />
+=======
+              <Clock className="w-4 h-4 text-[#F1B58F]" />
+              <span>Response Within 24 Hours</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4 text-[#F1B58F]" />
+>>>>>>> ec859e7 (Update website)
               <span>Full 3D Spherical Chamber In-House</span>
             </div>
           </div>
@@ -315,4 +341,8 @@ export const ServicesPage: React.FC = () => {
 
     </div>
   );
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> ec859e7 (Update website)
