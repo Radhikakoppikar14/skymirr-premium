@@ -518,16 +518,16 @@ const css = `
 .s5g-page .sky5g-content{width:100%;max-width:none!important;padding-left:clamp(1rem,3vw,3rem)!important;padding-right:clamp(1rem,3vw,3rem)!important}
 .s5g-page .sky5g-content > div{grid-template-columns:minmax(250px,285px) minmax(0,1fr)!important;gap:clamp(1.25rem,2.4vw,2.5rem)!important;align-items:start}
 .s5g-page .s5g-sidebar{min-width:0;align-self:start;display:flex;flex-direction:column;gap:.7rem;padding:1.1rem;border:1px solid #dce6f3;border-radius:18px;background:linear-gradient(160deg,#fff 0%,#f5f8fd 100%);box-shadow:0 12px 32px rgba(11,31,58,.07)}
-.s5g-page .s5g-sidebar:before{content:"SKY5G RESOURCES";display:block;padding:0 0 .8rem;border-bottom:1px solid #e2eaf5;color:#6a7b93;font-size:.68rem;font-weight:850;letter-spacing:.16em}
+.s5g-page .s5g-sidebar:before{display:none!important}
 .s5g-page .s5g-sidebar > button.s5g-shine{min-height:46px;width:100%;padding:.75rem 1rem!important;border:1px solid #d9e4f4!important;border-radius:10px!important;background:#fff!important;color:#16345c!important;box-shadow:none!important;font-size:.86rem!important;font-weight:750!important;line-height:1.35;justify-content:flex-start;transition:background .22s ease,border-color .22s ease,transform .22s ease!important}
-.s5g-page .s5g-sidebar > button.s5g-shine:before{content:"↓";display:inline-grid;place-items:center;flex:0 0 28px;width:28px;height:28px;margin-right:.65rem;border-radius:8px;background:#eaf1ff;color:#245bd0;font-size:1rem;font-weight:900}
+.s5g-page .s5g-sidebar > button.s5g-shine:before{display:none!important;content:none!important}
 .s5g-page .s5g-sidebar > button.s5g-shine:hover{background:#f0f5ff!important;border-color:#9dbbf4!important;transform:translateX(2px)!important}
 .s5g-page .s5g-sidebar > a{display:block;overflow:hidden;border:1px solid #dce6f3!important;border-radius:12px!important;background:#fff;line-height:0;transition:border-color .2s ease,box-shadow .2s ease!important}
 .s5g-page .s5g-sidebar > a:hover{border-color:#9dbbf4!important;box-shadow:0 8px 20px rgba(11,31,58,.09)}
 .s5g-page .s5g-sidebar > a img{display:block;width:100%;height:auto;max-height:250px;object-fit:contain;background:#fff}
 .s5g-page .s5g-sidebar > div{padding:.95rem;border:1px solid #e0e8f3;border-radius:12px;background:#fff}
 .s5g-page .s5g-sidebar > div > p{margin:0!important;display:flex;align-items:center;justify-content:space-between!important;text-align:left!important;padding:0 0 .8rem!important;border-bottom:1px solid #e7edf6!important;font-size:.86rem!important;letter-spacing:.01em}
-.s5g-page .s5g-sidebar > div > p:after{content:"Official retailers";color:#7b8ba1;font-size:.68rem;font-weight:600}
+.s5g-page .s5g-sidebar > div > p:after{display:none!important;content:none!important}
 .s5g-page .s5g-sidebar .mt-4.grid{margin-top:.8rem!important;gap:.55rem!important}
 .s5g-page .s5g-sidebar .s5g-marketplace{min-width:0;min-height:44px;padding:.45rem!important;border-radius:9px!important;background:#fbfcff!important;transition:transform .2s ease,border-color .2s ease,background .2s ease!important}
 .s5g-page .s5g-sidebar .s5g-marketplace:hover{transform:translateY(-2px)!important;background:#fff!important;border-color:#9dbbf4!important}
@@ -537,6 +537,184 @@ const css = `
 @media(max-width:1023px){.s5g-page .sky5g-content > div{grid-template-columns:minmax(0,1fr)!important}.s5g-page .s5g-sidebar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;margin-bottom:1rem}.s5g-page .s5g-sidebar:before{grid-column:1/-1}.s5g-page .s5g-sidebar > a{grid-column:1/-1}.s5g-page .s5g-sidebar > a img{max-height:300px;margin:0 auto}.s5g-page .s5g-sidebar > div{grid-column:1/-1}.s5g-page .s5g-sidebar > div > button{grid-column:1/-1}}
 @media(max-width:520px){.s5g-page .sky5g-content{padding-left:1rem!important;padding-right:1rem!important}.s5g-page .s5g-sidebar{padding:.8rem;border-radius:14px}.s5g-page .s5g-sidebar > button.s5g-shine{font-size:.78rem!important;padding:.65rem .7rem!important}.s5g-page .s5g-sidebar > button.s5g-shine:before{flex-basis:24px;width:24px;height:24px;margin-right:.45rem}}
 @media(prefers-reduced-motion:reduce){.s5g-page .s5g-sidebar *{transition:none!important}}
+
+
+/* Full-width layout: place resources in a compact top rail so the main sections never leave an empty sidebar column. */
+.s5g-page .sky5g-content{width:100%!important;max-width:none!important;margin:0!important;padding-left:clamp(1rem,2.2vw,2.5rem)!important;padding-right:clamp(1rem,2.2vw,2.5rem)!important}
+.s5g-page .sky5g-content > div{display:flex!important;flex-direction:column!important;gap:1.5rem!important;grid-template-columns:minmax(0,1fr)!important}
+.s5g-page .s5g-sidebar{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;align-items:stretch;gap:.65rem!important;padding:0!important;margin:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+.s5g-page .s5g-sidebar > button.s5g-shine{min-height:44px!important;justify-content:center!important;text-align:center!important;padding:.65rem .8rem!important}
+.s5g-page .s5g-sidebar > a{grid-column:span 2;align-self:stretch;border:0!important;border-radius:0!important;background:transparent!important}
+.s5g-page .s5g-sidebar > a img{width:100%;height:100%;max-height:190px;object-fit:contain;object-position:left center;background:transparent!important}
+.s5g-page .s5g-sidebar > div{grid-column:span 2;align-self:stretch;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important}
+.s5g-page .s5g-sidebar > div > p{padding:.2rem 0 .6rem!important}
+.s5g-page .s5g-sidebar > div > button{width:100%}
+.s5g-page .sky5g-content main{width:100%;min-width:0;display:flex;flex-direction:column;gap:clamp(1.5rem,2.5vw,2.5rem)!important}
+.s5g-page .sky5g-content main > section{min-width:0}
+.s5g-page .s5g-editorial-grid{margin:0!important}
+@media(max-width:760px){.s5g-page .s5g-sidebar{grid-template-columns:repeat(2,minmax(0,1fr))!important}.s5g-page .s5g-sidebar > a,.s5g-page .s5g-sidebar > div{grid-column:span 2}.s5g-page .s5g-sidebar > a img{max-height:220px;object-position:center}.s5g-page .sky5g-content{padding-left:1rem!important;padding-right:1rem!important}}
+
+
+/* Final cleanup: flatter surfaces, no decorative download icons, and reclaim unused width */
+.s5g-page .sky5g-content{
+  padding-left:clamp(.75rem,1.6vw,1.5rem)!important;
+  padding-right:clamp(.75rem,1.6vw,1.5rem)!important;
+  padding-top:1.5rem!important;
+}
+.s5g-page .sky5g-content > div{
+  grid-template-columns:minmax(220px,250px) minmax(0,1fr)!important;
+  gap:clamp(1rem,1.6vw,1.5rem)!important;
+}
+.s5g-page .s5g-sidebar{
+  padding:0!important;
+  gap:.55rem!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.s5g-page .s5g-sidebar > button.s5g-shine{
+  min-height:42px!important;
+  padding:.65rem .85rem!important;
+  border:1px solid #dce5f0!important;
+  border-radius:8px!important;
+  background:#fff!important;
+  color:#17365f!important;
+  box-shadow:none!important;
+  justify-content:center!important;
+}
+.s5g-page .s5g-sidebar > button.s5g-shine:hover{
+  background:#f4f7fc!important;
+  border-color:#a9bddb!important;
+  transform:none!important;
+}
+.s5g-page .s5g-sidebar > a{
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.s5g-page .s5g-sidebar > a img{
+  width:100%!important;
+  height:auto!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+}
+.s5g-page .s5g-sidebar > div{
+  padding:.75rem 0 0!important;
+  border:0!important;
+  border-top:1px solid #dce5f0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.s5g-page .s5g-sidebar > div > p{
+  border:0!important;
+  padding:0 0 .55rem!important;
+  font-size:.9rem!important;
+}
+.s5g-page .s5g-sidebar .s5g-marketplace{
+  min-height:42px!important;
+  border:1px solid #e1e7ef!important;
+  border-radius:8px!important;
+  background:#fff!important;
+}
+.s5g-page .s5g-sidebar .s5g-marketplace:hover{
+  background:#f7f9fc!important;
+  border-color:#b7c7dd!important;
+  transform:none!important;
+}
+/* Product imagery stays on the page canvas instead of inside decorative frames */
+.s5g-page .s5g-product-showcase,
+.s5g-page .s5g-product-showcase img,
+.s5g-page .s5g-info-card{
+  box-shadow:none!important;
+}
+.s5g-page .s5g-product-showcase{
+  border:0!important;
+  background:transparent!important;
+  border-radius:0!important;
+}
+.s5g-page .s5g-product-showcase:after{display:none!important}
+.s5g-page main img{
+  background:transparent;
+}
+.s5g-page .s5g-editorial-panel{
+  border-color:transparent!important;
+  border-radius:.35rem!important;
+  box-shadow:none!important;
+}
+.s5g-page .s5g-editorial-panel:hover{
+  transform:none!important;
+  box-shadow:none!important;
+}
+@media(max-width:1023px){
+  .s5g-page .sky5g-content > div{grid-template-columns:minmax(0,1fr)!important;gap:1.25rem!important}
+  .s5g-page .s5g-sidebar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem!important;margin-bottom:0}
+  .s5g-page .s5g-sidebar > a,.s5g-page .s5g-sidebar > div{grid-column:1/-1}
+  .s5g-page .s5g-sidebar > a img{max-height:none!important;margin:0 auto}
+}
+@media(max-width:520px){
+  .s5g-page .sky5g-content{padding-left:.75rem!important;padding-right:.75rem!important}
+  .s5g-page .s5g-sidebar{padding:0!important}
+}
+
+/* Fix the resource rail: occupy the entire viewport width instead of stopping early. */
+.s5g-page .sky5g-content,
+.s5g-page .sky5g-content > div,
+.s5g-page .s5g-sidebar { width:100%!important; max-width:none!important; }
+.s5g-page .s5g-sidebar {
+  display:grid!important;
+  grid-template-columns:repeat(12,minmax(0,1fr))!important;
+  gap:.75rem!important;
+  align-items:start!important;
+}
+.s5g-page .s5g-sidebar > button.s5g-shine {
+  grid-column:span 3!important;
+  width:100%!important;
+  min-width:0!important;
+}
+.s5g-page .s5g-sidebar > a {
+  grid-column:span 4!important;
+  width:100%!important;
+  min-width:0!important;
+  align-self:stretch!important;
+}
+.s5g-page .s5g-sidebar > a img {
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-height:clamp(12rem,22vw,20rem)!important;
+  object-fit:contain!important;
+  object-position:center top!important;
+}
+.s5g-page .s5g-sidebar > div {
+  grid-column:span 8!important;
+  width:100%!important;
+  min-width:0!important;
+  padding:.25rem 0 0!important;
+  border-top:0!important;
+}
+.s5g-page .s5g-sidebar > div > p { justify-content:flex-start!important; text-align:left!important; }
+.s5g-page .s5g-sidebar > div > div { grid-template-columns:repeat(4,minmax(0,1fr))!important; }
+.s5g-page .s5g-sidebar > div > button { max-width:none!important; }
+@media(max-width:900px){
+  .s5g-page .s5g-sidebar > button.s5g-shine{grid-column:span 6!important}
+  .s5g-page .s5g-sidebar > a{grid-column:span 5!important}
+  .s5g-page .s5g-sidebar > div{grid-column:span 7!important}
+  .s5g-page .s5g-sidebar > div > div{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:600px){
+  .s5g-page .s5g-sidebar{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .s5g-page .s5g-sidebar > button.s5g-shine{grid-column:span 1!important}
+  .s5g-page .s5g-sidebar > a,.s5g-page .s5g-sidebar > div{grid-column:1/-1!important}
+  .s5g-page .s5g-sidebar > a img{max-height:15rem!important;margin:0 auto!important}
+}
+
 
 `;
 
@@ -607,8 +785,8 @@ export const Sky5GDetailPage: React.FC<Sky5GDetailPageProps> = ({ onBack, onCont
       </section>
 
       {/* Product page: sidebar (downloads, reseller banner, buy online) + main content */}
-      <div className="sky5g-content mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[270px_minmax(0,1fr)] lg:gap-10">
+      <div className="sky5g-content w-full px-4 py-6 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-5">
           {/* ---------- Left sidebar ---------- */}
           <aside className="s5g-sidebar">
             <button type="button" className={sideBtn}>Download Datasheet</button>
@@ -628,7 +806,7 @@ export const Sky5GDetailPage: React.FC<Sky5GDetailPageProps> = ({ onBack, onCont
 
             <div>
               <p className="flex items-center justify-center gap-2 border-b-2 border-[#1F4FD8] pb-3 text-center text-sm font-extrabold text-[#0B1F3A]">
-                Buy Online <ShoppingCart className="h-4 w-4" />
+                Buy Online
               </p>
               <div className="mt-4 grid grid-cols-2 gap-3">
                 <a href="https://www.amazon.com/s?k=skymirr" target="_blank" rel="noreferrer" aria-label="Search SkyMirr on Amazon" className="s5g-marketplace s5g-marketplace-amazon">
