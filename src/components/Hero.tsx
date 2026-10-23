@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { ChevronLeft, ChevronRight, ArrowRight, ArrowUpRight } from "lucide-react";
 import { LATEST_NEWS, COMPANY_INFO } from "../data/skymirrData";
 import { usePrefersReducedMotion } from "./fx/useReducedMotion";
@@ -7,6 +8,9 @@ import { SlideBackdrop } from "./fx/SlideBackdrop";
 =======
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 >>>>>>> ec859e7 (Update website)
+=======
+import { ChevronLeft, ChevronRight } from "lucide-react";
+>>>>>>> 93189c4 (Update website)
 
 interface HeroProps {
   onExploreProducts: () => void;
@@ -153,7 +157,6 @@ interface SlideData {
   badges?: string[];
   productImage: string;
   productAlt: string;
-  ctaText: string;
   target: "products" | "sky5g-router";
 }
 
@@ -167,7 +170,6 @@ const SLIDES: SlideData[] = [
     badges: ["GREATER CONNECTIVITY", "GREATER POSSIBILITIES"],
     productImage: "/images/hero-sky5g-router.png",
     productAlt: "Sky5G wireless router",
-    ctaText: "SHOP NOW",
     target: "sky5g-router",
   },
   {
@@ -179,17 +181,13 @@ const SLIDES: SlideData[] = [
     subtitle: "POWERED BY MuLCAT TECHNOLOGY",
     productImage: "/images/hero-tamp161-antenna.png",
     productAlt: "SkyMirr TAMP161 antenna unit",
-    ctaText: "SHOP NOW",
     target: "products",
   },
 ];
 
 const AUTO_SLIDE_MS = 6500;
 
-export const Hero: React.FC<HeroProps> = ({
-  onExploreProducts,
-  onNavigateDetail,
-}) => {
+export const Hero: React.FC<HeroProps> = (_props) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const touchStartX = useRef<number | null>(null);
@@ -240,13 +238,7 @@ export const Hero: React.FC<HeroProps> = ({
     touchEndX.current = null;
   };
 
-  const handleCtaClick = (target: "products" | "sky5g-router") => {
-    if (target === "sky5g-router" && onNavigateDetail) {
-      onNavigateDetail("sky5g-router");
-    } else {
-      onExploreProducts();
-    }
-  };
+
 
   return (
     <div
@@ -324,17 +316,6 @@ export const Hero: React.FC<HeroProps> = ({
                     </div>
                   )}
 
-                  <div className="pt-2 sm:pt-4">
-                    <button
-                      type="button"
-                      onClick={() => handleCtaClick(item.target)}
-                      tabIndex={isActive ? 0 : -1}
-                      className="group inline-flex items-center gap-2 px-6 sm:px-7 py-3 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider bg-[#1F4FD8] hover:bg-[#1743BA] text-white border border-transparent hover:border-[#FF8A5C] transition-colors duration-300 cursor-pointer"
-                    >
-                      <span>{item.ctaText}</span>
-                      <ArrowRight className="w-4 h-4 text-white" />
-                    </button>
-                  </div>
                 </div>
               </div>
 
