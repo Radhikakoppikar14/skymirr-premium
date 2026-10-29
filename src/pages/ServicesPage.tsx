@@ -17,7 +17,7 @@ import {
 import { LiveWaveCanvas } from "../components/fx/LiveWaveCanvas";
 
 export const ServicesPage: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<"antenna" | "consulting" | "chamber" | "carrier">("antenna");
+  const [activeTab, setActiveTab] = useState<"antenna" | "consulting">("antenna");
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -48,55 +48,33 @@ export const ServicesPage: React.FC = () => {
         "Enclosure & ground plane optimization for embedded layouts",
         "Custom cable, connector, and PCB transition integration",
       ],
+      paragraphs: [] as string[],
+      deliverablesHeading: "Scope & Deliverables Included:",
       turnaround: "Rapid Prototype in 2-3 Weeks",
     },
     {
       id: "consulting",
-      title: "System-Level RF Consulting",
+      title: "RF Consulting Services",
       shortTitle: "RF Consulting",
       icon: <Settings className="w-5 h-5 text-[#1F4FD8]" />,
-      tagline: "Holistic Device Architecture & Interference Elimination",
-      description:
-        "System-level RF guidance to improve signal paths, reduce interference, and fit antenna placement to mechanical, thermal, and certification requirements.",
+      tagline: "",
+      description: "",
+      paragraphs: [
+        "At SkyMirr, we specialize in advanced antenna and RF engineering support for wireless and aerospace systems, including compact multi-band antennas, SATCOM antennas, RF integration optimization, and difficult wireless performance challenges.",
+        "Our antenna technology has already been proven in the market. Most recently, SkyMirr received a CES 2026 Innovation Award for our MuLCAT® antenna technology, recognized for significantly improving 5G range and throughput performance, particularly in challenging signal environments.",
+        "We are currently offering a limited RF assessment engagement for selected companies at no cost for an initial period. The engagement can include:",
+      ],
+      deliverablesHeading: "",
       deliverables: [
-        "Noise floor mitigation & co-existence analysis",
-        "Thermal & mechanical constraint co-design",
-        "Antenna placement & decoupling strategy",
-        "Power amplifier matching & receiver sensitivity audit",
+        "Review of RF-related system issues",
+        "Antenna architecture recommendations",
+        "RF/system performance improvement recommendations",
+        "Customized antenna design consultation",
+        "Quick simulation support",
+        "Antenna measurement and validation support",
+        "System active performance testing (TIS/TRP), when needed",
       ],
       turnaround: "Direct Engineering Access",
-    },
-    {
-      id: "chamber",
-      title: "3D Spherical Anechoic Chamber Testing",
-      shortTitle: "Chamber Testing",
-      icon: <Radio className="w-5 h-5 text-[#1F4FD8]" />,
-      tagline: "Over-the-Air (OTA) Radiated Performance Verification",
-      description:
-        "Our Incheon R&D center houses full 3D spherical anechoic chambers capable of precision Total Radiated Power (TRP) and Total Isotropic Sensitivity (TIS) characterization across 600 MHz to 6000 MHz. Gain full visibility into directional radiation patterns before submitting devices to official carrier testing.",
-      deliverables: [
-        "Full 360° spherical 2D and 3D radiation gain plots",
-        "TRP / TIS carrier pre-test qualification",
-        "Passive S-parameter port-to-port isolation reports",
-        "Fine-tuning recommendations from senior RF fellows",
-      ],
-      turnaround: "Test Reports Within 48 Hours",
-    },
-    {
-      id: "carrier",
-      title: "Carrier & Pre-Certification Compliance",
-      shortTitle: "Pre-Certification",
-      icon: <ShieldCheck className="w-5 h-5 text-[#1F4FD8]" />,
-      tagline: "PTCRB, FCC, AT&T, and T-Mobile First-Time Pass Assurance",
-      description:
-        "Avoid multi-month delays and expensive redesigns. SkyMirr guides your product through strict PTCRB, FCC, CE, AT&T, and T-Mobile certification requirements with pre-compliance diagnostics and tuning.",
-      deliverables: [
-        "Carrier OTA qualification gap analysis",
-        "FCC Part 15 / SAR compliance consultation",
-        "Carrier priority queuing verification (e.g. T-Priority)",
-        "Documentation & lab submission management",
-      ],
-      turnaround: "First-Pass Certification Rate >95%",
     },
   ];
 
@@ -157,7 +135,7 @@ export const ServicesPage: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20 space-y-12">
         
         {/* Service Category Navigation Tabs */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 bg-white p-2.5 rounded-3xl border border-[#E3D4BA] shadow-xl">
+        <div className="grid grid-cols-2 gap-3 bg-white p-2.5 rounded-3xl border border-[#E3D4BA] shadow-xl">
           {services.map((svc) => {
             const isActive = svc.id === activeTab;
             return (
@@ -193,20 +171,31 @@ export const ServicesPage: React.FC = () => {
               <h2 className="text-2xl sm:text-4xl font-black text-[#0b1f3a] font-sans">
                 {currentService.title}
               </h2>
-              <p className="text-xs font-mono text-[#4C8DF6] font-bold">
-                {currentService.tagline}
-              </p>
+              {currentService.tagline && (
+                <p className="text-xs font-mono text-[#4C8DF6] font-bold">
+                  {currentService.tagline}
+                </p>
+              )}
             </div>
 
-            <p className="text-xs sm:text-sm text-[#5B6B82] leading-relaxed">
-              {currentService.description}
-            </p>
+            {currentService.description && (
+              <p className="text-xs sm:text-sm text-[#5B6B82] leading-relaxed">
+                {currentService.description}
+              </p>
+            )}
+            {currentService.paragraphs.map((p, i) => (
+              <p key={i} className="text-xs sm:text-sm text-[#5B6B82] leading-relaxed">
+                {p}
+              </p>
+            ))}
 
             {/* Deliverables Checklist */}
             <div className="space-y-3 pt-2">
-              <span className="text-xs font-mono font-bold text-[#0b1f3a] uppercase tracking-wider block">
-                Scope &amp; Deliverables Included:
-              </span>
+              {currentService.deliverablesHeading && (
+                <span className="text-xs font-mono font-bold text-[#0b1f3a] uppercase tracking-wider block">
+                  {currentService.deliverablesHeading}
+                </span>
+              )}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {currentService.deliverables.map((item, idx) => (
                   <div key={idx} className="flex items-start gap-2.5 p-3 rounded-xl bg-[#FFFFFF] border border-[#E3D4BA]">

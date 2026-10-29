@@ -1313,3 +1313,14 @@ header.sm-header .sm-pop.sm-mega {
   border: 1px solid #C9D6EE; background: #fff; color: #1F4FD8; cursor: pointer; transition: all .2s ease;
 }
 .pt-nav-btn:hover { background: #1F4FD8; color: #fff; border-color: #1F4FD8; }
+/* Contact Us CTA button: white text + arrow (normal and hover) */
+.sm-ctaband .sm-btn-light,
+.sm-ctaband .sm-btn-light:hover,
+.sm-ctaband .sm-btn-light:focus-visible,
+.sm-ctaband .sm-btn-light:active,
+.sm-ctaband .sm-btn-light span,
+.sm-ctaband .sm-btn-light svg,
+.sm-ctaband .sm-btn-light:hover span,
+.sm-ctaband .sm-btn-light:hover svg {
+  color: #fff !important;
+}
