@@ -316,11 +316,7 @@ header.sm-header[data-scrolled] {
   transition: all 0.2s ease;
 }
 .sm-search-close:hover {
-<<<<<<< HEAD
-  background: #F6F0E6;
-=======
   background: #FFFFFF;
->>>>>>> ec859e7 (Update website)
   color: #0b1f3a;
 }
 .sm-search-close svg {
@@ -407,8 +403,6 @@ header.sm-header[data-scrolled] {
   text-align: center;
 }
 
-<<<<<<< HEAD
-=======
 @media (max-width: 640px) {
   .sm-search-overlay {
     padding: 12px 10px 20px;
@@ -434,7 +428,6 @@ header.sm-header[data-scrolled] {
   }
 }
 
->>>>>>> ec859e7 (Update website)
 @keyframes smFade { from { opacity: 0 } to { opacity: 1 } }
 @keyframes smPop { from { opacity: 0; translate: 0 14px; scale: 0.985 } to { opacity: 1; translate: 0 0; scale: 1 } }
 
@@ -602,8 +595,4 @@ html { scroll-padding-top: calc(var(--sm-header-h) + 24px); }
 .sm-scroll::-webkit-scrollbar-button,
 .sm-scroll::-webkit-scrollbar-button:single-button,
 .sm-scroll::-webkit-scrollbar-button:start:decrement,
-<<<<<<< HEAD
 .sm-scroll::-webkit-scrollbar-button:end:increment { display: none !important; width: 0 !important; height: 0 !important; background: none !important; }
-=======
-.sm-scroll::-webkit-scrollbar-button:end:increment { display: none !important; width: 0 !important; height: 0 !important; background: none !important; }
->>>>>>> ec859e7 (Update website)

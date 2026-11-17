@@ -6,13 +6,6 @@ import {
   Activity,
   Radio,
   CheckCircle2,
-<<<<<<< HEAD
-  Cpu,
-  Sparkles,
-  Sliders,
-  Maximize2
-=======
->>>>>>> ec859e7 (Update website)
 } from "lucide-react";
 import { SKYMIRR_TAGLINES } from "../data/skymirrData";
 
@@ -27,11 +20,7 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
 }) => {
   const [selectedCapIndex, setSelectedCapIndex] = useState(0);
   const [waveformMode, setWaveformMode] = useState<WaveformMode>("mulcat");
-<<<<<<< HEAD
-  const [frequencyParam, setFrequencyParam] = useState(2.4); // GHz
-=======
   const [frequencyParam, setFrequencyParam] = useState(2.4);
->>>>>>> ec859e7 (Update website)
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   const capabilities = [
@@ -122,10 +111,6 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
     },
   ];
 
-<<<<<<< HEAD
-  // Interactive Live RF Oscilloscope Simulation
-=======
->>>>>>> ec859e7 (Update website)
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -140,10 +125,6 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
       const h = canvas.height;
       ctx.clearRect(0, 0, w, h);
 
-<<<<<<< HEAD
-      // Technical oscilloscope reticle grid
-=======
->>>>>>> ec859e7 (Update website)
       ctx.strokeStyle = "rgba(76,141,246, 0.15)";
       ctx.lineWidth = 1;
       for (let x = 0; x < w; x += 35) {
@@ -159,10 +140,6 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
         ctx.stroke();
       }
 
-<<<<<<< HEAD
-      // Center baseline
-=======
->>>>>>> ec859e7 (Update website)
       ctx.strokeStyle = "rgba(76,141,246, 0.3)";
       ctx.setLineDash([4, 4]);
       ctx.beginPath();
@@ -175,10 +152,6 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
       const freqMultiplier = (frequencyParam / 2.4) * 0.025;
 
       if (waveformMode === "mulcat") {
-<<<<<<< HEAD
-        // Constructive Positive Coupling: Superposition of two phase-matched waves multiplying amplitude
-=======
->>>>>>> ec859e7 (Update website)
         ctx.beginPath();
         ctx.strokeStyle = "#4C8DF6";
         ctx.lineWidth = 2.8;
@@ -187,11 +160,7 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
 
         for (let x = 0; x < w; x++) {
           const waveA = Math.sin(x * freqMultiplier + step * 0.05);
-<<<<<<< HEAD
-          const waveB = Math.sin(x * freqMultiplier + step * 0.05 + 0.15); // Positive in-phase coupling
-=======
           const waveB = Math.sin(x * freqMultiplier + step * 0.05 + 0.15);
->>>>>>> ec859e7 (Update website)
           const y = cy + (waveA + waveB) * 22;
           if (x === 0) ctx.moveTo(x, y);
           else ctx.lineTo(x, y);
@@ -199,10 +168,6 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
         ctx.stroke();
         ctx.shadowBlur = 0;
 
-<<<<<<< HEAD
-        // Radiating envelope
-=======
->>>>>>> ec859e7 (Update website)
         ctx.beginPath();
         ctx.strokeStyle = "rgba(76,141,246, 0.4)";
         ctx.lineWidth = 1.2;
@@ -213,10 +178,6 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
         }
         ctx.stroke();
       } else if (waveformMode === "sine") {
-<<<<<<< HEAD
-        // Standard Pure Sinusoidal Carrier
-=======
->>>>>>> ec859e7 (Update website)
         ctx.beginPath();
         ctx.strokeStyle = "#1F4FD8";
         ctx.lineWidth = 2.4;
@@ -227,10 +188,6 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
         }
         ctx.stroke();
       } else if (waveformMode === "qam5g") {
-<<<<<<< HEAD
-        // 5G NR QAM modulated digital wave bursts
-=======
->>>>>>> ec859e7 (Update website)
         ctx.beginPath();
         ctx.strokeStyle = "#4C8DF6";
         ctx.lineWidth = 2.2;
@@ -243,10 +200,6 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
         }
         ctx.stroke();
       } else {
-<<<<<<< HEAD
-        // MIMO Orthogonal Spatial Streams (Two separate colored out-of-phase streams)
-=======
->>>>>>> ec859e7 (Update website)
         ctx.beginPath();
         ctx.strokeStyle = "#4C8DF6";
         ctx.lineWidth = 2;
@@ -278,16 +231,6 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
   }, [selectedCapIndex, waveformMode, frequencyParam]);
 
   return (
-<<<<<<< HEAD
-    <section className="py-24 sm:py-32 bg-[#FFFFFF] text-[#0b1f3a] border-t border-[#E3D4BA]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-        
-        {/* SECTION HEADER & CHAPTER ANNOUNCEMENT */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-[0.2em] uppercase text-[#1F4FD8]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#1F4FD8] animate-ping" />
-=======
     <section className="pt-8 sm:pt-10 pb-16 sm:pb-20 bg-[#FFFFFF] text-[#0b1f3a] border-t border-[#E3D4BA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
@@ -295,17 +238,12 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
           <div className="max-w-2xl space-y-3">
             <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-[0.2em] uppercase text-[#1F4FD8]">
               <span className="w-1.5 h-1.5 rounded-full bg-[#FD4401] animate-ping" />
->>>>>>> ec859e7 (Update website)
               01 &middot; RF Core Innovation
             </div>
 
             <h2 className="text-3xl sm:text-5xl font-black tracking-tight font-sans text-[#0b1f3a]">
               {SKYMIRR_TAGLINES.signal}{" "}
-<<<<<<< HEAD
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1F4FD8] to-[#4C8DF6]">
-=======
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1F4FD8] to-[#FD4401]">
->>>>>>> ec859e7 (Update website)
                 Without Compromise.
               </span>
             </h2>
@@ -323,14 +261,7 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
           </div>
         </div>
 
-<<<<<<< HEAD
-        {/* INTERACTIVE RF WORKBENCH ARCHITECTURE */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          
-          {/* Left 5 Columns: Capability Selection Tabs */}
-=======
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
->>>>>>> ec859e7 (Update website)
           <div className="lg:col-span-5 flex flex-col justify-between space-y-3">
             <div className="space-y-3">
               {capabilities.map((cap, idx) => {
@@ -355,10 +286,6 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
                       >
                         {cap.icon}
                       </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> ec859e7 (Update website)
                       <div className="min-w-0">
                         <span className="text-[10px] font-mono uppercase font-bold text-[#1F4FD8] block">
                           {cap.badge}
@@ -368,10 +295,6 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
                         </h3>
                       </div>
                     </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> ec859e7 (Update website)
                     <div className="text-right shrink-0 ml-3">
                       <span className="text-xs font-mono font-bold text-[#1F4FD8] bg-[#E8F0FE] px-2.5 py-1 rounded-full border border-[#E3D4BA]">
                         {cap.stat}
@@ -382,10 +305,6 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
               })}
             </div>
 
-<<<<<<< HEAD
-            {/* Quick Consultation Trigger */}
-=======
->>>>>>> ec859e7 (Update website)
             <div className="pt-2">
               <button
                 onClick={onNavigateTechnology}
@@ -397,10 +316,6 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
             </div>
           </div>
 
-<<<<<<< HEAD
-          {/* Right 7 Columns: Deep-Dive Viewport with Live Canvas Wave Generator */}
-=======
->>>>>>> ec859e7 (Update website)
           <div className="lg:col-span-7 bg-white rounded-3xl border border-[#E3D4BA] shadow-xl p-8 sm:p-10 flex flex-col justify-between space-y-6">
             <div className="space-y-4">
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E3D4BA] pb-4">
@@ -412,10 +327,6 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
                     {current.title}
                   </h3>
                 </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> ec859e7 (Update website)
                 <div className="text-right">
                   <span className="text-2xl font-black font-mono text-[#1F4FD8] block">
                     {current.stat}
@@ -430,10 +341,6 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
                 {current.desc}
               </p>
 
-<<<<<<< HEAD
-              {/* Technical Specifications Breakdown */}
-=======
->>>>>>> ec859e7 (Update website)
               <div className="space-y-2.5 pt-2">
                 <span className="text-xs font-mono font-bold text-[#0b1f3a] uppercase tracking-wider block">
                   Engineering Architecture:
@@ -447,10 +354,6 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
               </div>
             </div>
 
-<<<<<<< HEAD
-            {/* LIVE RF OSCILLOSCOPE MONITOR & INTERACTIVE CONTROLS */}
-=======
->>>>>>> ec859e7 (Update website)
             <div className="pt-4 border-t border-[#E3D4BA] space-y-3">
               <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
                 <div className="flex items-center gap-2">
@@ -458,10 +361,6 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
                   <span className="font-bold text-[#0b1f3a]">Live Resonance Oscilloscope</span>
                 </div>
 
-<<<<<<< HEAD
-                {/* Waveform Selector */}
-=======
->>>>>>> ec859e7 (Update website)
                 <div className="flex items-center gap-1 bg-[#E8F0FE] p-1 rounded-lg border border-[#E3D4BA]">
                   {(
                     [
@@ -486,10 +385,6 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
                 </div>
               </div>
 
-<<<<<<< HEAD
-              {/* Canvas Waveform Viewport */}
-=======
->>>>>>> ec859e7 (Update website)
               <div className="relative w-full h-32 rounded-2xl bg-[#0B1F3A] overflow-hidden border border-[#4C8DF6]/30 flex items-center justify-center shadow-inner">
                 <canvas
                   ref={canvasRef}
@@ -505,10 +400,6 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
                 </div>
               </div>
 
-<<<<<<< HEAD
-              {/* Frequency Tuning Slider */}
-=======
->>>>>>> ec859e7 (Update website)
               <div className="flex items-center justify-between gap-4 pt-1 text-[11px] font-mono text-[#5B6B82]">
                 <span>TUNE RF FREQUENCY:</span>
                 <input
@@ -523,22 +414,11 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
                 <span className="font-bold text-[#1F4FD8]">{frequencyParam.toFixed(1)} GHz</span>
               </div>
             </div>
-<<<<<<< HEAD
-
-          </div>
-
-        </div>
-
-        {/* QUANTITATIVE PROOF METRIC PEDESTALS (4 Elevated Pillars) */}
-        <div className="space-y-6 pt-10 border-t border-[#E3D4BA]">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-=======
           </div>
         </div>
 
         <div className="space-y-6 pt-10 border-t border-[#E3D4BA]">
           <div data-sa-skip className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
->>>>>>> ec859e7 (Update website)
             <div>
               <span className="text-xs font-mono uppercase tracking-widest text-[#1F4FD8] font-bold">
                 02 &middot; Quantitative Rigor
@@ -552,19 +432,11 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
             </p>
           </div>
 
-<<<<<<< HEAD
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {proofMetrics.map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-3xl p-6 sm:p-7 border border-[#E3D4BA] shadow-sm hover:shadow-xl hover:border-[#4C8DF6] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
-=======
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {proofMetrics.map((item, idx) => (
               <div
                 key={idx}
                 className="bg-white rounded-3xl p-6 sm:p-7 border border-[#E3D4BA] shadow-sm hover:shadow-xl hover:border-[#4C8DF6] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between min-w-0"
->>>>>>> ec859e7 (Update website)
               >
                 <div>
                   <span className="text-[11px] font-mono font-bold text-[#5B6B82] uppercase tracking-wider block">
@@ -585,8 +457,4 @@ export const SignalSection: React.FC<SignalSectionProps> = ({
       </div>
     </section>
   );
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> ec859e7 (Update website)

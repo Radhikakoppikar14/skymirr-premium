@@ -271,11 +271,7 @@ export default function ProductDetailPage({ productId }: { productId?: string })
   const showEmptyNotice = groups.length === 0 && right.length === 0;
 
   return (
-<<<<<<< HEAD
-    <main className="min-h-screen bg-[#F6F0E6] pb-24 text-slate-900">
-=======
     <main className="min-h-screen bg-white pb-24 text-slate-900">
->>>>>>> ec859e7 (Update website)
       <section className="bg-[#E8F0FE] pb-10 pt-28 sm:pt-36">
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-4 sm:px-6 md:grid-cols-[1.2fr_1fr] lg:px-8">
           <div className="space-y-5">
@@ -413,11 +409,7 @@ export default function ProductDetailPage({ productId }: { productId?: string })
             <h2 className="mb-6 text-2xl font-black text-slate-900">
               More {CATEGORY_LABELS[catKey ?? ""] ?? ""} Antennas
             </h2>
-<<<<<<< HEAD
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-=======
             <div data-no-pop className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
->>>>>>> ec859e7 (Update website)
               {related.map((r) => (
                 <ProductCard
                   key={r.id}
@@ -425,10 +417,7 @@ export default function ProductDetailPage({ productId }: { productId?: string })
                   subtitle={r.subtitle}
                   image={r.image}
                   badge={r.badge}
-<<<<<<< HEAD
-=======
                   showButton={r.name === "TAMP 161"}
->>>>>>> ec859e7 (Update website)
                   onView={() => {
                     history.push(`/products/${r.id}`);
                     window.scrollTo({ top: 0 });

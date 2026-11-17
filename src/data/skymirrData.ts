@@ -48,11 +48,7 @@ export const LATEST_NEWS = [
   {
     id: "news-3",
     title:
-<<<<<<< HEAD
-      "Introducing SkyMirr's Next Generation Antennas – Powered by MuLCAT™ Technology",
-=======
       "Introducing SkyMirr's Next Generation Antennas – Powered by MuLCAT® Technology",
->>>>>>> ec859e7 (Update website)
     tag: "RF Innovation",
     date: "Technology",
     link: "https://skymirr.com/press-releases/",
@@ -101,41 +97,6 @@ export const SKYMIRR_METRICS = [
 
 export const PARTNERS_DATA = {
   online: [
-<<<<<<< HEAD
-    { name: "Amazon", region: "USA", logo: "/images/partners/amazon.jpg" },
-    { name: "Walmart", region: "USA", logo: "/images/partners/wallmart.jpg" },
-    {
-      name: "Semikart",
-      region: "India",
-      logo: "/images/partners/semikart.jpg",
-    },
-    {
-      name: "Central Computers",
-      region: "USA",
-      logo: "/images/partners/central-computers.png",
-    },
-    { name: "ThinkEDU", region: "USA", logo: "/images/partners/think-edu.png" },
-  ],
-  distributors: [
-    { name: "DigiKey", region: "Global", logo: "/images/partners/digikey.jpg" },
-    { name: "Advent", region: "India", logo: "/images/partners/advent.jpg" },
-    {
-      name: "Aqtronics",
-      region: "India",
-      logo: "/images/partners/aqtronics.jpg",
-    },
-    {
-      name: "D&H",
-      region: "North America",
-      logo: "/images/partners/dandh.jpg",
-    },
-    { name: "Cellhub", region: "USA", logo: "/images/partners/cellhub.jpg" },
-    {
-      name: "B&H Photo Video",
-      region: "Global",
-      logo: "/images/partners/bandh.jpg",
-    },
-=======
     { name: "Semikart", region: "India", logo: "/images/partners/semikart.jpg" },
     { name: "Central Computers", region: "USA", logo: "/images/partners/central-computers.png" },
     { name: "ThinkEDU", region: "USA", logo: "/images/partners/think-edu.png" },
@@ -149,7 +110,6 @@ export const PARTNERS_DATA = {
     { name: "B&H", region: "Global", logo: "/images/partners/bandh.jpg" },
     { name: "DigiKey", region: "Global", logo: "/images/partners/digikey.jpg" },
     { name: "Advent", region: "India", logo: "/images/partners/advent.jpg" },
->>>>>>> ec859e7 (Update website)
   ],
 };
 
@@ -663,17 +623,11 @@ export const COMPANY_INFO = {
   tagline: "Technology to improve Quality of Life",
   slogan: "SIGNAL WITHOUT LIMITS",
   whenConnect: "WHEN IT HAS TO CONNECT, IT HAS TO BE SKYMIRR",
-<<<<<<< HEAD
-  logo: "/images/skymirr-logo-3d.png",
-  logoHd: "/images/skymirr-logo-3d-hd.png",
-  logoFooter: "/images/skymirr-logo-footer.png",
-=======
   logo: "/images/about/SkyMirr-new-logo-footer-light.png",
   logoDark: "/images/SkyMirr-new-logo-footer.png",
   logoLight: "/images/about/SkyMirr-new-logo-footer-light.png",
   logoHd: "/images/about/SkyMirr-new-logo-footer-light.png",
   logoFooter: "/images/about/SkyMirr-new-logo-footer-light.png",
->>>>>>> ec859e7 (Update website)
   founded: "2021",
   founder: "Dr. Eric (Youngmin) Jo, CEO",
   description:
@@ -683,17 +637,10 @@ export const COMPANY_INFO = {
   emailSales: "sales@skymirr.com",
   emailSupport: "support@skymirr.com",
   social: {
-<<<<<<< HEAD
-    instagram: "https://www.instagram.com/skymirr_inc/",
-    linkedin: "https://www.linkedin.com/company/skymirr/",
-    youtube: "https://www.youtube.com/@skymirr",
-    twitter: "https://twitter.com/skymirr_inc",
-=======
     instagram: "https://www.instagram.com/skymirr.tech/",
     linkedin: "https://www.linkedin.com/company/skymirr-inc/",
     youtube: "https://www.youtube.com/@SkyMirr-r9u",
     twitter: "https://x.com/SkyMirrTech",
->>>>>>> ec859e7 (Update website)
   },
   locations: [
     {
@@ -714,8 +661,4 @@ export const COMPANY_INFO = {
         "Bac Ninh & Incheon contract production facilities with 100% QA inspection",
     },
   ],
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> ec859e7 (Update website)

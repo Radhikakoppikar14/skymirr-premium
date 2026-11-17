@@ -1,0 +1,537 @@
+import React, { useEffect, useState, useMemo, useRef } from "react";
+import { createPortal } from "react-dom";
+import {
+  Search,
+  ChevronDown,
+  Menu,
+  X,
+  ArrowUpRight,
+  ArrowRight,
+  Radio,
+  Cpu,
+  Sparkles,
+  Users,
+  Building2,
+  Newspaper,
+  BookOpen,
+  Zap,
+  Activity,
+  ShieldCheck,
+  CheckCircle2,
+  Tag,
+  Compass,
+  FileText,
+  CornerDownLeft,
+  SlidersHorizontal as Sliders,
+} from "lucide-react";
+import { PRODUCTS_DATA } from "../data/skymirrData";
+
+
+interface NavbarProps {
+  currentRoute?: string;
+  onNavigate?: (route: string) => void;
+  onOpenProductDetail?: (productId: string) => void;
+}
+
+type MenuKey = null | "products" | "latest" | "about";
+
+export const Navbar: React.FC<NavbarProps> = ({
+  currentRoute = "home",
+  onNavigate,
+  onOpenProductDetail,
+}) => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<MenuKey>(null);
+  const [accOpen, setAccOpen] = useState<string | null>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const menuCloseTimer = useRef<number | null>(null);
+
+  const cancelMenuClose = () => {
+    if (menuCloseTimer.current !== null) {
+      window.clearTimeout(menuCloseTimer.current);
+      menuCloseTimer.current = null;
+    }
+  };
+
+  const closeMenuAfterPointerLeaves = () => {
+    cancelMenuClose();
+    menuCloseTimer.current = window.setTimeout(() => {
+      setOpenMenu(null);
+      menuCloseTimer.current = null;
+    }, 320);
+  };
+
+  useEffect(() => () => cancelMenuClose(), []);
+
+  // Search Results
+  const searchResults = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+    if (!query) return [];
+
+    return PRODUCTS_DATA.filter((product) =>
+      [
+        product.name,
+        product.category,
+        product.tagline,
+        product.description,
+        product.frequencyRange,
+        product.dimensions,
+        ...product.keyFeatures,
+        ...product.applications,
+        ...product.specs.flatMap((spec) => [spec.label, spec.value]),
+      ]
+        .join(" ")
+        .toLowerCase()
+        .includes(query)
+    ).slice(0, 6);
+  }, [searchQuery]);
+
+  const closeSearch = () => {
+    setSearchOpen(false);
+    setSearchQuery("");
+  };
+
+  const openSearch = () => {
+    setSearchOpen(true);
+    setTimeout(() => {
+      inputRef.current?.focus();
+    }, 50);
+  };
+
+  // Esc closes search, dropdowns and mobile drawer
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSearchOpen(false);
+        setSearchQuery("");
+        setOpenMenu(null);
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  const openProduct = (productId: string) => {
+    closeSearch();
+    if (productId === "tamp-161") {
+      onNavigate?.("tamp-161");
+      return;
+    }
+    onOpenProductDetail?.(productId);
+  };
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchResults[0]) openProduct(searchResults[0].id);
+  };
+
+  const handleNavClick = (route: string) => {
+    setMobileMenuOpen(false);
+    setOpenMenu(null);
+    onNavigate?.(route);
+    window.location.hash = "#/" + (route === "home" ? "" : route);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleContactClick = () => {
+    handleNavClick("contact");
+  };
+
+  /* Antenna category -> products page with that category tab selected */
+  const goCategory = (cat: string) => {
+    window.history.replaceState({}, "", `${window.location.pathname}?cat=${cat}`);
+    handleNavClick("products");
+    window.dispatchEvent(new CustomEvent("sm:category", { detail: { cat } }));
+  };
+
+  const isActive = (route: string) => currentRoute === route;
+
+  const getCategoryBadgeClass = (cat: string) => {
+    switch (cat) {
+      case "router":
+        return "bg-[#1F4FD8] text-white border-[#1F4FD8]";
+      case "antenna":
+        return "bg-[#E8F0FE] text-[#1F4FD8] border-[#4C8DF6]/40";
+      case "tracker":
+        return "bg-purple-50 text-purple-700 border-purple-200";
+      case "tech":
+        return "bg-emerald-50 text-emerald-700 border-emerald-200";
+      case "page":
+        return "bg-slate-100 text-slate-700 border-slate-200";
+      default:
+        return "bg-slate-100 text-slate-600 border-slate-200";
+    }
+  };
+
+  const productsActive =
+    isActive("products") ||
+    isActive("tamp-161") ||
+    isActive("sky5g-router") ||
+    isActive("tracker-detail") ||
+    isActive("product-detail");
+  const latestActive =
+    isActive("press-releases") || isActive("blogs") || isActive("the-latest");
+  const aboutActive = isActive("about") || isActive("team");
+
+  /* wrapper for a dropdown: hover + keyboard focus both open it */
+  const dropdownHandlers = (key: Exclude<MenuKey, null>) => ({
+    onMouseEnter: () => {
+      cancelMenuClose();
+      setOpenMenu(key);
+    },
+    onMouseLeave: closeMenuAfterPointerLeaves,
+    onFocus: () => {
+      cancelMenuClose();
+      setOpenMenu(key);
+    },
+    onBlur: (e: React.FocusEvent<HTMLDivElement>) => {
+      if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setOpenMenu(null);
+    },
+  });
+
+  return (
+    <header className="sm-header fixed top-0 inset-x-0 z-50">
+      <div className="sm-header-inner">
+        {/* Brand */}
+        <a
+          href="#/"
+          onClick={(e) => {
+            e.preventDefault();
+            handleNavClick("home");
+          }}
+          className="sm-brand"
+          aria-label="SkyMirr Home"
+        >
+          <img
+            src="/images/SkyMirr-new-logo-footer.png"
+            alt="SkyMirr Technologies"
+            className="sm-brand-img"
+          />
+        </a>
+
+        {/* Primary navigation */}
+        <nav className="sm-nav flex items-center space-x-6 text-white" aria-label="Primary">
+          <button
+            onClick={() => handleNavClick("home")}
+            className="sm-link text-white hover:text-cyan-400 transition-colors"
+            data-active={isActive("home") || undefined}
+          >
+            <span>Home</span>
+          </button>
+
+          {/* Products - mega menu: columns, sub-links and a featured image card */}
+          <div className="sm-dd sm-dd-mega" {...dropdownHandlers("products")}>
+            <button
+              type="button"
+              onClick={() => setOpenMenu("products")}
+              className="sm-link text-white hover:text-cyan-400 transition-colors flex items-center gap-1"
+              data-active={productsActive || undefined}
+              aria-haspopup="true"
+              aria-expanded={openMenu === "products"}
+              aria-controls="products-mega-menu"
+            >
+              <span>Products</span>
+              <ChevronDown className="sm-chev" />
+            </button>
+            <div
+              id="products-mega-menu"
+              className="nav-pop sm-pop sm-mega"
+              data-open={openMenu === "products"}
+              style={{ width: "min(340px, calc(100vw - 48px))" }}
+            >
+              <div className="sm-mega-cols" style={{ gridTemplateColumns: "1fr" }}>
+                <div className="sm-mega-stack">
+                  {/* 1. Antennas */}
+                  <div className="sm-mega-col">
+                    <button onClick={() => handleNavClick("products")} className="sm-mega-head w-full">
+                      <span className="sm-pop-ico"><Radio /></span>
+                      <span className="sm-pop-txt"><b>Antennas</b><small>600–6000 MHz Wideband &amp; MIMO</small></span>
+                      <ArrowUpRight className="ml-auto w-4 h-4 text-[#9db4dc]" />
+                    </button>
+                  </div>
+
+                  {/* 2. 5G Routers */}
+                  <div className="sm-mega-col">
+                    <button onClick={() => handleNavClick("sky5g-router")} className="sm-mega-head w-full">
+                      <span className="sm-pop-ico"><Cpu /></span>
+                      <span className="sm-pop-txt"><b>5G Routers</b><small>Sky5G Carrier Certified CPE</small></span>
+                      <ArrowUpRight className="ml-auto w-4 h-4 text-[#9db4dc]" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button
+            onClick={() => handleNavClick("technology")}
+            className="sm-link text-white hover:text-cyan-400 transition-colors"
+            data-active={isActive("technology") || undefined}
+          >
+            <span>Technology</span>
+          </button>
+
+          <button
+            onClick={() => handleNavClick("services")}
+            className="sm-link text-white hover:text-cyan-400 transition-colors"
+            data-active={isActive("services") || undefined}
+          >
+            <span>Services</span>
+          </button>
+
+          {/* The Latest & Beyond */}
+          <div className="sm-dd" {...dropdownHandlers("latest")}>
+            <button
+              onClick={() => handleNavClick("press-releases")}
+              className="sm-link text-white hover:text-cyan-400 transition-colors flex items-center gap-1"
+              data-active={latestActive || undefined}
+              aria-haspopup="true"
+              aria-expanded={openMenu === "latest"}
+            >
+              <span>The Latest &amp; Beyond</span>
+              <ChevronDown className="sm-chev" />
+            </button>
+            <div className="nav-pop sm-pop" data-open={openMenu === "latest"}>
+              <button onClick={() => handleNavClick("the-latest")} className="sm-pop-item sm-pop-item-sm">
+                <span className="sm-pop-ico"><Sparkles /></span>
+                <span className="sm-pop-txt"><b>All Dispatches</b></span>
+              </button>
+              <button onClick={() => handleNavClick("press-releases")} className="sm-pop-item sm-pop-item-sm">
+                <span className="sm-pop-ico"><Newspaper /></span>
+                <span className="sm-pop-txt"><b>Press Releases</b></span>
+              </button>
+              <button onClick={() => handleNavClick("blogs")} className="sm-pop-item sm-pop-item-sm">
+                <span className="sm-pop-ico"><BookOpen /></span>
+                <span className="sm-pop-txt"><b>Technical Blogs</b></span>
+              </button>
+            </div>
+          </div>
+
+          {/* About */}
+          <div className="sm-dd" {...dropdownHandlers("about")}>
+            <button
+              onClick={() => handleNavClick("about")}
+              className="sm-link text-white hover:text-cyan-400 transition-colors flex items-center gap-1"
+              data-active={aboutActive || undefined}
+              aria-haspopup="true"
+              aria-expanded={openMenu === "about"}
+            >
+              <span>About</span>
+              <ChevronDown className="sm-chev" />
+            </button>
+            <div className="nav-pop sm-pop" data-open={openMenu === "about"}>
+              <button onClick={() => handleNavClick("about")} className="sm-pop-item sm-pop-item-sm">
+                <span className="sm-pop-ico"><Building2 /></span>
+                <span className="sm-pop-txt"><b>Company &amp; Facilities</b></span>
+              </button>
+              <button onClick={() => handleNavClick("team")} className="sm-pop-item sm-pop-item-sm">
+                <span className="sm-pop-ico"><Users /></span>
+                <span className="sm-pop-txt"><b>Team &amp; Advisors</b></span>
+              </button>
+            </div>
+          </div>
+        </nav>
+
+        {/* Utilities */}
+        <div className="sm-actions text-white flex items-center gap-2.5 sm:gap-3">
+          <button
+            type="button"
+            onClick={openSearch}
+            className="sm-icon-btn text-white hover:text-cyan-400 transition-colors"
+            aria-label="Search"
+          >
+            <Search className="w-4 h-4" />
+          </button>
+
+          <button
+            onClick={handleContactClick}
+            className="hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-white border border-white/30 hover:border-[#E29A69] hover:text-[#E29A69] transition-colors"
+          >
+            <span>Contact Us</span>
+            <ArrowRight className="w-3.5 h-3.5 text-[#E29A69]" />
+          </button>
+
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="sm-icon-btn sm-burger text-white hover:text-cyan-400 transition-colors"
+            aria-label="Toggle Menu"
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? <X /> : <Menu />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile drawer */}
+      <div className="nav-drawer sm-drawer" data-open={mobileMenuOpen}>
+        <div>
+          {/* Quick search button for mobile drawer */}
+          <div className="px-4 pt-3 pb-2 border-b border-white/10">
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                openSearch();
+              }}
+              className="w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white/90 hover:text-white border border-white/15 text-xs font-mono transition-colors text-left"
+            >
+              <Search className="w-4 h-4 text-[#4C8DF6]" />
+              <span>Search antennas, routers, specs...</span>
+            </button>
+          </div>
+
+          <nav className="sm-drawer-list" aria-label="Mobile">
+            {([
+              { type: "link", route: "home", label: "Home" },
+              { type: "group", key: "products", label: "Products", items: [["products", "Antennas"], ["sky5g-router", "5G Routers"]] },
+              { type: "link", route: "technology", label: "Technology (MuLCAT™)" },
+              { type: "link", route: "services", label: "Design Services & Consulting" },
+              { type: "group", key: "latest", label: "The Latest", items: [["the-latest", "All Dispatches"], ["press-releases", "Press Releases"], ["blogs", "Technical Blogs"]] },
+              { type: "group", key: "about", label: "About", items: [["about", "About SkyMirr"], ["team", "Team & Leadership"]] },
+              { type: "link", route: "contact", label: "Contact Us" },
+            ] as Array<
+              | { type: "link"; route: string; label: string }
+              | { type: "group"; key: string; label: string; items: string[][] }
+            >).map((entry) =>
+              entry.type === "link" ? (
+                <button
+                  key={entry.route}
+                  onClick={() => handleNavClick(entry.route)}
+                  className="sm-drawer-item text-white"
+                  data-active={isActive(entry.route) || undefined}
+                  tabIndex={mobileMenuOpen ? 0 : -1}
+                >
+                  <span>{entry.label}</span>
+                  <ArrowUpRight />
+                </button>
+              ) : (
+                <div key={entry.key} className="sm-acc" data-open={accOpen === entry.key || undefined}>
+                  <button
+                    type="button"
+                    className="sm-drawer-item sm-acc-head text-white"
+                    aria-expanded={accOpen === entry.key}
+                    tabIndex={mobileMenuOpen ? 0 : -1}
+                    onClick={() => setAccOpen(accOpen === entry.key ? null : entry.key)}
+                  >
+                    <span>{entry.label}</span>
+                    <ChevronDown />
+                  </button>
+                  <div className="sm-acc-panel">
+                    <div>
+                      {entry.items.map(([route, label]) => (
+                        <button
+                          key={route}
+                          onClick={() => (route.startsWith("cat:") ? goCategory(route.slice(4)) : handleNavClick(route))}
+                          className="sm-drawer-item sm-acc-item text-white"
+                          data-active={isActive(route) || undefined}
+                          tabIndex={mobileMenuOpen && accOpen === entry.key ? 0 : -1}
+                        >
+                          <span>{label}</span>
+                          <ArrowUpRight />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ),
+            )}
+          </nav>
+        </div>
+      </div>
+
+      {/* Global search */}
+      {searchOpen &&
+        createPortal(
+          <div
+            className="sm-search-overlay"
+            onMouseDown={(e) => {
+              if (e.target === e.currentTarget) closeSearch();
+            }}
+          >
+            <div className="sm-search" role="dialog" aria-modal="true" aria-label="Search">
+              <form onSubmit={handleSearchSubmit} className="sm-search-bar">
+                <Search className="sm-search-ico" />
+                <input
+                  ref={inputRef}
+                  type="text"
+                  autoFocus
+                  data-no-ring
+                  className="sm-search-input"
+                  placeholder="Search antennas, frequencies, routers..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                <button
+                  type="button"
+                  onClick={closeSearch}
+                  className="sm-search-close"
+                  aria-label="Close search"
+                >
+                  <X />
+                </button>
+              </form>
+
+              <div className="sm-search-body">
+                {searchResults.length > 0 ? (
+                  <div className="sm-search-results">
+                    {searchResults.map((item) => (
+                      <div
+                        key={item.id}
+                        onClick={() => openProduct(item.id)}
+                        className="sm-result group"
+                      >
+                        <div className="min-w-0 flex-1">
+                          <div className="flex flex-wrap items-center gap-1.5">
+                            <span className="sm-result-name group-hover:text-[#1F4FD8] transition-colors">
+                              {item.name}
+                            </span>
+                            <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full border font-bold bg-[#E8F0FE] text-[#1F4FD8] border-[#4C8DF6]/30 shrink-0">
+                              {item.category}
+                            </span>
+                          </div>
+                          <div className="sm-result-tag line-clamp-2 sm:line-clamp-1">{item.tagline}</div>
+                          {item.frequencyRange && (
+                            <div className="sm-result-freq">{item.frequencyRange}</div>
+                          )}
+                        </div>
+                        <ArrowUpRight className="w-4 h-4 text-[#5B6B82] group-hover:text-[#1F4FD8] transition-colors shrink-0" />
+                      </div>
+                    ))}
+                  </div>
+                ) : searchQuery ? (
+                  <div className="sm-search-empty">
+                    No hardware or specifications matched &ldquo;{searchQuery}&rdquo;.
+                  </div>
+                ) : (
+                  <div className="sm-search-empty">
+                    <p className="text-sm text-[#5B6B82] mb-3">
+                      Type a frequency (e.g. &ldquo;600 MHz&rdquo;, &ldquo;Wi-Fi 7&rdquo;, &ldquo;CPE&rdquo;, &ldquo;MIMO&rdquo;) to search.
+                    </p>
+                    <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
+                      {["600 MHz", "Wi-Fi 7", "Sky5G Router", "MuLCAT™", "MIMO", "Trackers"].map((tag) => (
+                        <button
+                          key={tag}
+                          type="button"
+                          onClick={() => {
+                            setSearchQuery(tag);
+                            inputRef.current?.focus();
+                          }}
+                          className="px-3 py-1 rounded-full text-xs font-mono bg-white hover:bg-[#E8F0FE] text-[#5B6B82] hover:text-[#1F4FD8] border border-[#E3D4BA] transition-colors cursor-pointer"
+                        >
+                          {tag}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>,
+          document.body
+        )}
+    </header>
+  );
+};

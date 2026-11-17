@@ -7,10 +7,7 @@ import {
   Users,
 } from "lucide-react";
 import { LiveWaveCanvas } from "../components/fx/LiveWaveCanvas";
-<<<<<<< HEAD
-=======
 import { ModalShell } from "../components/sm/Modalshell";
->>>>>>> ec859e7 (Update website)
 
 interface TeamMember {
   name: string;
@@ -346,88 +343,6 @@ export const TeamPage: React.FC = () => {
       {/* 3. EXECUTIVE DOSSIER MODAL                                     */}
       {/* ============================================================== */}
       {selectedBio && (
-<<<<<<< HEAD
-        <div
-          onClick={() => setSelectedBio(null)}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#0B1F3A]/80 backdrop-blur-md animate-in fade-in duration-200"
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="relative bg-white rounded-3xl overflow-hidden shadow-2xl max-w-2xl w-full border border-[#E3D4BA] animate-in zoom-in-95 duration-200"
-          >
-            {/* Modal Header (close X removed) */}
-            <div className="p-6 border-b border-[#E3D4BA] bg-[#FFFFFF]">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-[#1F4FD8] font-bold">
-                {selectedBio.role}
-              </span>
-              <h3 className="text-xl font-black text-[#0b1f3a]">
-                {selectedBio.name}
-              </h3>
-            </div>
-
-            {/* Modal Content (sm-scroll = slim scrollbar without arrow buttons) */}
-            <div className="p-6 sm:p-8 space-y-6 max-h-[70vh] overflow-y-auto sm-scroll">
-              <div className="flex items-center gap-6">
-                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-[#E8F0FE] p-2 flex items-center justify-center shrink-0 border border-[#E3D4BA]">
-                  <img
-                    src={selectedBio.photo}
-                    alt={selectedBio.name}
-                    className="max-h-full max-w-full object-contain"
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <div className="text-xs text-[#5B6B82] font-medium leading-relaxed">
-                    {selectedBio.highlight}
-                  </div>
-                  <a
-                    href={selectedBio.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#1F4FD8] hover:underline"
-                  >
-                    <Linkedin className="w-3.5 h-3.5" />
-                    <span>View LinkedIn Profile</span>
-                  </a>
-                </div>
-              </div>
-
-              <div className="space-y-3 pt-2 border-t border-[#E3D4BA]">
-                <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#0b1f3a]">
-                  Biography &amp; Industry Track Record:
-                </h4>
-                <p className="text-xs sm:text-sm text-[#5B6B82] leading-relaxed">
-                  {selectedBio.fullBio}
-                </p>
-              </div>
-
-              {selectedBio.bullets && (
-                <div className="space-y-2 pt-2 border-t border-[#E3D4BA]">
-                  <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#0b1f3a]">
-                    Key Career Milestones &amp; Credentials:
-                  </h4>
-                  <ul className="space-y-1.5 text-xs text-[#5B6B82]">
-                    {selectedBio.bullets.map((b, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#1F4FD8] shrink-0 mt-1.5" />
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-
-            <div className="p-4 px-6 bg-[#FFFFFF] border-t border-[#E3D4BA] flex justify-end">
-              <button
-                onClick={() => setSelectedBio(null)}
-                className="px-5 py-2.5 rounded-xl bg-[#1F4FD8] hover:bg-[#1F4FD8] text-white font-bold text-xs uppercase tracking-wider cursor-pointer"
-              >
-                Close Profile
-              </button>
-            </div>
-          </div>
-        </div>
-=======
         <ModalShell
           size="md"
           onClose={() => setSelectedBio(null)}
@@ -482,7 +397,6 @@ export const TeamPage: React.FC = () => {
             </div>
           )}
         </ModalShell>
->>>>>>> ec859e7 (Update website)
       )}
 
     </div>

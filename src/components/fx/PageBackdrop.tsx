@@ -1,10 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-import { SlideBackdrop } from "./SlideBackdrop";
-
-/* Top-of-page background for every inner page (same as the home hero). */
-export const PageBackdrop: React.FC = () => <SlideBackdrop />;
-=======
 
 interface PageBackdropProps {
   /** Kept for backwards compatibility – every page now uses the same banner image. */
@@ -18,4 +12,3 @@ export const PageBackdrop: React.FC<PageBackdropProps> = () => (
     <div className="page-art-backdrop-shade" />
   </div>
 );
->>>>>>> ec859e7 (Update website)

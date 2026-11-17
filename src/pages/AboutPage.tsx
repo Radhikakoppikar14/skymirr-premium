@@ -53,11 +53,7 @@ export const AboutPage: React.FC = () => {
       {/* 1. EXECUTIVE HERO COMMAND DECK (ZERO BACKGROUND IMAGE)          */}
       {/* ============================================================== */}
       <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#0B1F3A] via-[#0B1F3A] to-[#0B1F3A] text-white py-16 sm:py-24">
-<<<<<<< HEAD
-        <PageBackdrop />
-=======
         <PageBackdrop variant="illustration" />
->>>>>>> ec859e7 (Update website)
         
         {/* Live Electromagnetic Sinusoidal Wave Canvas */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden opacity-45">
@@ -384,8 +380,4 @@ export const AboutPage: React.FC = () => {
 
     </div>
   );
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> ec859e7 (Update website)

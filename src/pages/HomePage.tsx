@@ -1,13 +1,8 @@
 import React from 'react';
 import { Hero } from '../components/Hero';
-<<<<<<< HEAD
-import { SignalSection } from '../components/SignalSection';
-import { ProductsCatalog } from '../components/ProductsCatalog';
-=======
 import { LatestTicker } from '../components/LatestTicker';
 import { SignalSection } from '../components/SignalSection';
 import { ProductTiles } from '../components/ProductTiles';
->>>>>>> ec859e7 (Update website)
 import { SolutionsSection } from '../components/SolutionsSection';
 import { PartnersSection } from '../components/PartnersSection';
 import { SectionDecor } from '../components/fx/SectionDecor';
@@ -27,10 +22,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           onExploreTechnology={() => onNavigate('technology')}
           onNavigateDetail={(detail) => onNavigate(detail)}
         />
-<<<<<<< HEAD
-=======
         <LatestTicker onOpenLatest={() => onNavigate('the-latest')} />
->>>>>>> ec859e7 (Update website)
       </section>
 
       <section id="signal-section" data-rail="Signal" className="px-band px-band-alt">
@@ -40,17 +32,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       </section>
 
       <section id="home-products" data-rail="Products" className="px-band">
-<<<<<<< HEAD
-        <SectionDecor side="left">
-          <ProductsCatalog
-            onSelectCategory={(catId) => {
-              if (catId === 'routers') onNavigate('sky5g-router');
-              else if (catId === 'trackers') onNavigate('tracker-detail');
-              else onNavigate('products');
-            }}
-          />
-        </SectionDecor>
-=======
         <ProductTiles
           onSelect={(id) => {
             if (id === 'routers') onNavigate('sky5g-router');
@@ -58,7 +39,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             else onNavigate('products');
           }}
         />
->>>>>>> ec859e7 (Update website)
       </section>
 
       <section id="home-applications" data-rail="Applications" className="px-band px-band-alt">

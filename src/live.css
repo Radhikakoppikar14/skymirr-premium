@@ -20,11 +20,7 @@
   /* ---------------------------------------------------------------- 1. TEXT */
 
   /* Scroll reveal gets a soft focus-pull: text un-blurs as it rises into place */
-<<<<<<< HEAD
-  .mv-on .mv:not(.mv-in) { filter: blur(7px); }
-=======
   .mv-on .mv:not(.mv-in) { filter: none; } /* no blur on text: keeps hero copy crisp */
->>>>>>> ec859e7 (Update website)
   .mv-on .mv { transition: opacity 0.7s var(--lv-ease), translate 0.7s var(--lv-ease), filter 0.8s var(--lv-ease); }
   .mv-on :is(h1, h2).mv {
     transition: opacity 0.5s ease, translate 0.9s var(--lv-ease), clip-path 1s var(--lv-ease), filter 0.9s var(--lv-ease);
@@ -170,17 +166,6 @@
     opacity: 0;
     transform: translateY(0.6em) rotateX(-45deg);
     transform-origin: 50% 100%;
-<<<<<<< HEAD
-    filter: blur(6px);
-    animation: lvWord 0.85s var(--lv-ease) forwards;
-    animation-delay: calc(var(--i, 0) * 80ms);
-    will-change: transform, opacity;
-  }
-  .mv-on .lv-w { translate: none; }
-  @keyframes lvWord {
-    0% { opacity: 0; transform: translateY(0.6em) rotateX(-45deg); filter: blur(6px); }
-    100% { opacity: 1; transform: none; filter: blur(0); }
-=======
     animation: lvWord 0.85s var(--lv-ease) forwards;
     animation-delay: calc(var(--i, 0) * 80ms);
   }
@@ -188,7 +173,6 @@
   @keyframes lvWord {
     0% { opacity: 0; transform: translateY(0.6em) rotateX(-45deg); }
     100% { opacity: 1; transform: none; }
->>>>>>> ec859e7 (Update website)
   }
   /* the heading's own reveal must not hide the words while they animate */
   .mv-on .lv-w, .mv-on .lv-pre.mv:not(.mv-in) { clip-path: none; }

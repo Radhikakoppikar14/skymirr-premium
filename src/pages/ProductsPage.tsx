@@ -1,35 +1,12 @@
 import React, { useState, useMemo, useEffect } from "react";
-<<<<<<< HEAD
-import { PageBackdrop } from "../components/fx/PageBackdrop";
-import {
-  Sparkles,
-  Radio,
-  Layers,
-  Cpu,
-  Globe,
-  Zap,
-  Search,
-  Download,
-  ArrowRight,
-  Filter,
-  SlidersHorizontal,
-  ChevronRight,
-  ShieldCheck,
-=======
 import {
   Radio,
   Search,
   ArrowRight,
->>>>>>> ec859e7 (Update website)
   Activity
 } from "lucide-react";
 import { CATALOG_ITEMS } from "../data/catalog";
 import { ProductCard } from "../components/products/ProductCard";
-<<<<<<< HEAD
-import { LiveWaveCanvas } from "../components/fx/LiveWaveCanvas";
-import { DatasheetList } from "../components/sm/DatasheetList";
-=======
->>>>>>> ec859e7 (Update website)
 
 interface ProductsPageProps {
   onOpenProductDetail?: (productId: string) => void;
@@ -44,45 +21,6 @@ const categories = [
     desc: "Ultra-wideband Sub-6 MIMO and cellular antennas engineered for sustained multi-gigabit throughput.",
     icon: <Radio className="w-4 h-4" />,
   },
-<<<<<<< HEAD
-  {
-    id: "wifi",
-    label: "Wi-Fi 6E / 7",
-    desc: "Tri-band 2.4/5/6 GHz high-concurrency internal and external Wi-Fi antenna modules.",
-    icon: <Layers className="w-4 h-4" />,
-  },
-  {
-    id: "fpcb",
-    label: "FPCB Flexible",
-    desc: "High-flexibility printed circuit antennas for compact wearables, drones, and tight enclosures.",
-    icon: <Cpu className="w-4 h-4" />,
-  },
-  {
-    id: "embedded",
-    label: "Embedded IoT",
-    desc: "Ultra-compact embedded telemetry and remote monitoring antennas with high isolation.",
-    icon: <Zap className="w-4 h-4" />,
-  },
-  {
-    id: "gnss",
-    label: "GNSS & GPS",
-    desc: "High-precision multi-constellation GPS/GLONASS/Galileo/BeiDou positioning antennas.",
-    icon: <Globe className="w-4 h-4" />,
-  },
-  {
-    id: "customized",
-    label: "Custom Antenna",
-    desc: "Tailored custom electromagnetic antenna geometries developed to client mechanical constraints.",
-    icon: <Sparkles className="w-4 h-4" />,
-  },
-  {
-    id: "chip",
-    label: "Chip Antennas",
-    desc: "Surface-mount miniature ceramic chip antennas for high-density SMD board assembly.",
-    icon: <Cpu className="w-4 h-4" />,
-  },
-=======
->>>>>>> ec859e7 (Update website)
 ];
 
 export function ProductsPage({
@@ -93,11 +31,7 @@ export function ProductsPage({
   const fromUrl = urlParams.get("cat");
 
   const [activeCategory, setActiveCategory] = useState<string>(
-<<<<<<< HEAD
-    fromUrl && CATALOG_ITEMS[fromUrl] ? fromUrl : "cellular"
-=======
     fromUrl && categories.some((c) => c.id === fromUrl) && CATALOG_ITEMS[fromUrl] ? fromUrl : "cellular"
->>>>>>> ec859e7 (Update website)
   );
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -105,11 +39,7 @@ export function ProductsPage({
   useEffect(() => {
     const on = (e: Event) => {
       const cat = (e as CustomEvent<{ cat: string }>).detail?.cat;
-<<<<<<< HEAD
-      if (cat && CATALOG_ITEMS[cat]) { setActiveCategory(cat); setSearchQuery(""); }
-=======
       if (cat && categories.some((c) => c.id === cat) && CATALOG_ITEMS[cat]) { setActiveCategory(cat); setSearchQuery(""); }
->>>>>>> ec859e7 (Update website)
     };
     window.addEventListener("sm:category", on);
     return () => window.removeEventListener("sm:category", on);
@@ -144,52 +74,6 @@ export function ProductsPage({
 
   return (
     <div className="pt-20 sm:pt-24 pb-28 bg-[#FFFFFF] text-[#0b1f3a] min-h-screen relative overflow-hidden font-sans">
-<<<<<<< HEAD
-      
-      {/* ============================================================== */}
-      {/* 1. EXECUTIVE HERO COMMAND DECK (ZERO BACKGROUND IMAGE)          */}
-      {/* ============================================================== */}
-      <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#0B1F3A] via-[#0B1F3A] to-[#0B1F3A] text-white py-14 sm:py-20 mb-8">
-        <PageBackdrop />
-        
-        {/* Live Electromagnetic Wave Canvas */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden opacity-45">
-          <LiveWaveCanvas
-            frequency={0.016}
-            amplitude={28}
-            speed={0.02}
-            colorScheme="cyan"
-            interactive={true}
-            showParticles={true}
-          />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0B1F3A] border border-[#4C8DF6]/40 text-xs font-mono uppercase tracking-widest text-[#4C8DF6] font-bold">
-            <Sparkles className="w-3.5 h-3.5 animate-pulse text-[#4C8DF6]" />
-            <span>Hardware Engineering Catalog</span>
-          </div>
-
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div className="space-y-2 max-w-2xl">
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.08]">
-                Antenna Modules &amp; Systems
-              </h1>
-              <p className="text-[#C9D6EE] text-sm sm:text-base font-normal leading-relaxed">
-                Continuous 600–6000 MHz coverage, low PIM, and positive-coupling MuLCAT™ resonance across commercial and industrial form factors.
-              </p>
-            </div>
-
-            <div className="flex items-center gap-3 text-xs font-mono text-[#C9D6EE]">
-              <span className="px-3.5 py-1.5 rounded-xl bg-white/10 border border-white/20">
-                8+ Antenna Series
-              </span>
-              <span className="px-3.5 py-1.5 rounded-xl bg-[#4C8DF6]/25 border border-[#4C8DF6]/40 text-[#4C8DF6] font-bold">
-                Carrier Certified
-              </span>
-            </div>
-          </div>
-=======
 
       {/* ============================================================== */}
       {/* 1. HERO: slider background video + SkyMirr Antennas title       */}
@@ -216,116 +100,16 @@ export function ProductsPage({
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
           <h1 className="sm-prod-hero-title">SkyMirr Antennas</h1>
           <p className="sm-prod-hero-sub">High-Performance Antenna Solutions for Every Connection</p>
->>>>>>> ec859e7 (Update website)
         </div>
       </section>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
-<<<<<<< HEAD
-        
-        {/* ============================================================== */}
-        {/* FEATURED SPOTLIGHT: SKYTRACKER (LIPA122) & SKY5G ROUTER        */}
-        {/* ============================================================== */}
-        <div data-pop-grid className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          
-          {/* Spotlight Card 1: SkyTracker (LIPA122) */}
-          <div
-            onClick={() => onNavigateDetail?.("tracker-detail")}
-            className="bg-white rounded-3xl p-6 sm:p-8 border border-[#E3D4BA] shadow-xl hover:border-[#4C8DF6] hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between"
-          >
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="px-3 py-1 rounded-full bg-[#E8F0FE] border border-[#E3D4BA] text-[10px] font-mono uppercase font-bold text-[#1F4FD8]">
-                  Featured IoT Hardware
-                </span>
-                <span className="text-xs font-mono text-[#4C8DF6] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                  <span>View SkyTracker Page</span>
-                  <ChevronRight className="w-3.5 h-3.5" />
-                </span>
-              </div>
-
-              <div className="flex items-center gap-6">
-                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-[#0B1F3A] p-3 flex items-center justify-center shrink-0 border border-[#4C8DF6]/30">
-                  <img
-                    src="/images/asset-trackers-2.jpg"
-                    alt="SkyTracker LIPA122"
-                    className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <h3 className="text-xl font-black text-[#0b1f3a] group-hover:text-[#1F4FD8] transition-colors">
-                    SkyTracker (LIPA122)
-                  </h3>
-                  <p className="text-xs text-[#5B6B82] line-clamp-2 leading-relaxed">
-                    Real-time multi-sensor asset tracking with barometric Z-axis shelf positioning and sub-2-minute rapid cargo recovery alerting.
-                  </p>
-                  <div className="flex flex-wrap items-center gap-2 pt-1 text-[10px] font-mono text-[#1F4FD8] font-bold">
-                    <span>GPS + Wi-Fi Mesh</span>
-                    <span>&middot;</span>
-                    <span>Z-Axis ±3ft</span>
-                    <span>&middot;</span>
-                    <span>IP67</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Spotlight Card 2: Sky5G CPE Gateway */}
-          <div
-            onClick={() => onNavigateDetail?.("sky5g-router")}
-            className="bg-white rounded-3xl p-6 sm:p-8 border border-[#E3D4BA] shadow-xl hover:border-[#4C8DF6] hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between"
-          >
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="px-3 py-1 rounded-full bg-[#E8F0FE] border border-[#E3D4BA] text-[10px] font-mono uppercase font-bold text-[#1F4FD8]">
-                  Carrier-Certified Flagship
-                </span>
-                <span className="text-xs font-mono text-[#4C8DF6] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                  <span>View Sky5G Page</span>
-                  <ChevronRight className="w-3.5 h-3.5" />
-                </span>
-              </div>
-
-              <div className="flex items-center gap-6">
-                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-[#0B1F3A] p-3 flex items-center justify-center shrink-0 border border-[#4C8DF6]/30">
-                  <img
-                    src="/images/slider1.jpg"
-                    alt="Sky5G Gateway"
-                    className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <h3 className="text-xl font-black text-[#0b1f3a] group-hover:text-[#1F4FD8] transition-colors">
-                    Sky5G Sub-6 Router
-                  </h3>
-                  <p className="text-xs text-[#5B6B82] line-clamp-2 leading-relaxed">
-                    Flagship 5G CPE router engineered for rural broadband, enterprise failover, and FirstNet priority with MuLCAT™ internal arrays.
-                  </p>
-                  <div className="flex flex-wrap items-center gap-2 pt-1 text-[10px] font-mono text-[#1F4FD8] font-bold">
-                    <span>AT&amp;T &amp; T-Mobile Certified</span>
-                    <span>&middot;</span>
-                    <span>3.4 Gbps Sub-6</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-=======
->>>>>>> ec859e7 (Update website)
 
         {/* ============================================================== */}
         {/* TOP CONTROL DECK: CATEGORY STRIP + SEARCH                      */}
         {/* ============================================================== */}
-<<<<<<< HEAD
-        <div className="bg-white rounded-3xl border border-[#E3D4BA] p-4 sm:p-6 shadow-sm space-y-4">
-          
-=======
         <div className="bg-white rounded-3xl border border-[#FF6A00]/50 p-4 sm:p-6 space-y-4">
 
->>>>>>> ec859e7 (Update website)
           {/* Horizontal Category Switcher Chips */}
           <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
             {categories.map((cat) => {
@@ -335,17 +119,10 @@ export function ProductsPage({
                 <button
                   key={cat.id}
                   onClick={() => selectCategory(cat.id)}
-<<<<<<< HEAD
-                  className={`flex items-center gap-2.5 px-4 py-2.5 rounded-2xl text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap ${
-                    isActive
-                      ? "bg-[#1F4FD8] text-white shadow-md shadow-[#1F4FD8]/30 -translate-y-0.5"
-                      : "bg-[#FFFFFF] hover:bg-[#E8F0FE] text-[#5B6B82] hover:text-[#0b1f3a] border border-[#E3D4BA]"
-=======
                   className={`flex items-center gap-2.5 px-4 py-2.5 rounded-2xl text-xs font-mono font-bold uppercase tracking-wider cursor-pointer whitespace-nowrap ${
                     isActive
                       ? "bg-[#1F4FD8] text-white border border-[#FF6A00]"
                       : "bg-[#FFFFFF] text-[#5B6B82] border border-[#FF6A00]/50"
->>>>>>> ec859e7 (Update website)
                   }`}
                 >
                   <span className={isActive ? "text-white" : "text-[#1F4FD8]"}>
@@ -365,11 +142,7 @@ export function ProductsPage({
           </div>
 
           {/* Search Filter Bar */}
-<<<<<<< HEAD
-          <div className="pt-3 border-t border-[#E3D4BA] flex flex-col sm:flex-row items-center justify-between gap-4">
-=======
           <div className="pt-3 border-t border-[#FF6A00]/30 flex flex-col sm:flex-row items-center justify-between gap-4">
->>>>>>> ec859e7 (Update website)
             <div className="text-xs text-[#5B6B82] font-medium">
               Showing{" "}
               <strong className="text-[#0b1f3a]">
@@ -385,11 +158,7 @@ export function ProductsPage({
                 placeholder="Search models, bands, specs..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-<<<<<<< HEAD
-                className="w-full h-10 pl-10 pr-4 bg-[#FFFFFF] border border-[#E3D4BA] rounded-xl text-xs text-[#0b1f3a] outline-none focus:border-[#1F4FD8]"
-=======
                 className="w-full h-10 pl-10 pr-4 bg-[#FFFFFF] border border-[#FF6A00]/50 rounded-xl text-xs text-[#0b1f3a] outline-none focus:border-[#FF6A00]"
->>>>>>> ec859e7 (Update website)
               />
             </div>
           </div>
@@ -405,45 +174,24 @@ export function ProductsPage({
               image={item.image}
               badge={item.badge}
               onView={() => handleViewProduct(item)}
-<<<<<<< HEAD
-=======
               showButton={item.id === "tamp-161"}
->>>>>>> ec859e7 (Update website)
             />
           ))}
         </div>
 
         {filteredItems.length === 0 && (
-<<<<<<< HEAD
-          <div className="bg-white rounded-3xl p-12 text-center border border-[#E3D4BA] space-y-3">
-=======
           <div className="bg-white rounded-3xl p-12 text-center border border-[#FF6A00]/50 space-y-3">
->>>>>>> ec859e7 (Update website)
             <p className="text-sm text-[#5B6B82]">
               No antenna modules match your filter query "{searchQuery}".
             </p>
             <button
               onClick={() => setSearchQuery("")}
-<<<<<<< HEAD
-              className="text-xs font-bold text-[#1F4FD8] hover:underline"
-=======
               className="text-xs font-bold text-[#FF6A00] underline-offset-4"
->>>>>>> ec859e7 (Update website)
             >
               Clear search filter
             </button>
           </div>
         )}
-<<<<<<< HEAD
-
-
-        {/* Datasheet downloads (built from existing datasheetUrl values) */}
-        <section className="sm-ds-section" aria-labelledby="sm-ds-title">
-          <h2 id="sm-ds-title" className="sm-ds-title">Datasheets</h2>
-          <DatasheetList />
-        </section>
-=======
->>>>>>> ec859e7 (Update website)
       </div>
     </div>
   );

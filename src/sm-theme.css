@@ -1,25 +1,15 @@
 /* ==========================================================================
    SKYMIRR - ENTERPRISE THEME LAYER  (loaded last, presentation only)
    Palette (strict):  navy #0B1F3A · royal #1F4FD8 · sky #4C8DF6 · ice #E8F0FE
-<<<<<<< HEAD
-                      white #FFFFFF · beige #F6F0E6 · sand #E3D4BA · slate #5B6B82
-                      light-on-navy #C9D6EE
-   Section rhythm:    navy -> white -> beige -> navy -> white -> beige -> navy (footer)
-=======
                       white #FFFFFF · sand #E3D4BA · slate #5B6B82
                       light-on-navy #C9D6EE
    Section rhythm:    navy -> white -> white -> navy -> white -> white -> navy (footer)
->>>>>>> ec859e7 (Update website)
    Nothing here changes copy, images, routes or data.
    ========================================================================== */
 
 :root {
   --navy: #0B1F3A; --royal: #1F4FD8; --sky: #4C8DF6; --ice: #E8F0FE;
-<<<<<<< HEAD
-  --white: #FFFFFF; --beige: #F6F0E6; --sand: #E3D4BA; --slate: #5B6B82; --mist: #C9D6EE;
-=======
   --white: #FFFFFF; --beige: #FFFFFF; --sand: #E3D4BA; --slate: #5B6B82; --mist: #C9D6EE;
->>>>>>> ec859e7 (Update website)
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --spring: cubic-bezier(0.34, 1.4, 0.64, 1);
   --grain: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
@@ -138,21 +128,12 @@ header.sm-header .sm-cta:hover .sm-cta-arrow { background: #fff; color: var(--ro
 .sm-home .px-band-alt { background: none; }
 #home-hero { background: var(--navy); }
 #home-stats { background: #fff; }
-<<<<<<< HEAD
-#signal-section { background-color: var(--beige); background-image: none !important; }
-#signal-section section { background: transparent !important; border-top-color: transparent; }
-#home-products { background: var(--navy); }
-#home-applications { background: #fff; }
-#home-partners { background: var(--beige); background-image: none !important; }
-#partners { background-color: var(--beige) !important; background-image: none !important; border-top-color: var(--sand); }
-=======
 #signal-section { background-color: #FFFFFF; background-image: none !important; }
 #signal-section section { background: transparent !important; border-top-color: transparent; }
 #home-products { background: var(--navy); }
 #home-applications { background: #fff; }
 #home-partners { background: #FFFFFF; background-image: none !important; }
 #partners { background-color: #FFFFFF !important; background-image: none !important; border-top-color: var(--sand); }
->>>>>>> ec859e7 (Update website)
 #demo-video { background: linear-gradient(135deg, var(--navy) 0%, var(--navy) 55%, rgba(31,79,216,.55) 130%) !important; }
 .sm-home h2 { letter-spacing: -0.035em; }
 

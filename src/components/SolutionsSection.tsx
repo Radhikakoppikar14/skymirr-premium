@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
-<<<<<<< HEAD
-import { ArrowRight, ShieldCheck, CheckCircle2, Home, Truck, GraduationCap, Factory } from "lucide-react";
-=======
 import { ArrowRight, ShieldCheck, CheckCircle2, Home, Truck, GraduationCap, Factory, ChevronLeft, ChevronRight } from "lucide-react";
->>>>>>> ec859e7 (Update website)
 
 interface SolutionsSectionProps {
   onSelectApplication?: (title: string) => void;
@@ -21,11 +17,7 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
       category: "Fixed Wireless Broadband",
       icon: <Home className="w-4 h-4" />,
       subtitle: "High-speed Fixed Wireless Access for suburban & rural homes",
-<<<<<<< HEAD
-      description: "Delivers carrier-grade broadband to single-family homes and rural communities where fiber is cost-prohibitive. Provides high penetration through modern construction materials and wide coverage up to a 311 ft radius.",
-=======
       description: "Reliable fixed wireless broadband for homes and rural communities beyond practical fiber reach, with indoor coverage up to a 311 ft radius.",
->>>>>>> ec859e7 (Update website)
       image: "/images/Residential1.jpg",
       stat: "311 ft Radius",
       metricLabel: "Indoor Coverage",
@@ -42,11 +34,7 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
       category: "Supply Chain Telemetry",
       icon: <Truck className="w-4 h-4" />,
       subtitle: "Real-time intermodal tracking, temperature & shock monitoring",
-<<<<<<< HEAD
-      description: "Continuous real-time visibility across cold-chain, maritime containers, rail, and over-the-road trailers. Automatically triggers instant alarms if cargo tilts, experiences impact, or leaves geofenced routes.",
-=======
       description: "Track cold-chain and freight across road, rail, and maritime routes, with alerts for impact, tilt, temperature, and geofence changes.",
->>>>>>> ec859e7 (Update website)
       image: "/images/logistics1-1.jpg",
       stat: "Multi-Sensor IoT",
       metricLabel: "Telemetry Suite",
@@ -63,11 +51,7 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
       category: "Campus Infrastructure",
       icon: <GraduationCap className="w-4 h-4" />,
       subtitle: "Campus-wide Wi-Fi 7 density and distance-learning continuity",
-<<<<<<< HEAD
-      description: "High-density multi-user wireless engineered for universities, schools, and research auditoriums. Effortlessly handles up to 512 concurrent students and faculty devices per node with ultra-low latency.",
-=======
       description: "Campus wireless designed for classrooms and auditoriums, supporting up to 512 student and faculty devices per node.",
->>>>>>> ec859e7 (Update website)
       image: "/images/Educational1.jpg",
       stat: "512 Clients/Node",
       metricLabel: "Active Concurrency",
@@ -84,11 +68,7 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
       category: "Automation & SCADA",
       icon: <Factory className="w-4 h-4" />,
       subtitle: "Heavy machinery, robotics, SCADA & warehouse automation",
-<<<<<<< HEAD
-      description: "Ruggedized connectivity built for automated warehouses, smart factories, energy grids, and mining sites. Withstands extreme vibrations, high electromagnetic noise, and harsh chemical environments.",
-=======
       description: "Rugged connectivity for factories, warehouses, energy grids, and mining sites, built for vibration and electrical noise.",
->>>>>>> ec859e7 (Update website)
       image: "/images/Industrial1.jpg",
       stat: "IP69K Ruggedized",
       metricLabel: "Environmental Rating",
@@ -103,8 +83,6 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
 
   const current = applications[activeIndex];
 
-<<<<<<< HEAD
-=======
   // Auto-advance to the next application every 5 seconds (loops back to the first).
   // Clicking a tab restarts the 5s timer. No hover-pause, so it always keeps sliding.
   useEffect(() => {
@@ -115,7 +93,6 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeIndex]);
 
->>>>>>> ec859e7 (Update website)
   // Warm the browser cache for every sector photo so switching tabs is instant
   useEffect(() => {
     applications.forEach((a) => {
@@ -137,25 +114,6 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
         className="pointer-events-none absolute top-10 right-10 w-[500px] h-[500px] bg-[#4C8DF6]/8 blur-[140px] rounded-full"
       />
 
-<<<<<<< HEAD
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
-        
-        {/* Header & Controls */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#E3D4BA] pb-8">
-          <div className="space-y-3 max-w-none">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-[0.2em] uppercase text-[#1F4FD8]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#1F4FD8] animate-ping" />
-              04 &middot; Field Implementations
-            </div>
-
-            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight font-sans text-[#0b1f3a]">
-              Mission-Critical Applications.
-            </h2>
-
-            <p className="text-sm sm:text-base lg:whitespace-nowrap text-[#5B6B82] leading-relaxed font-normal">
-              Turnkey connectivity deployed across residential, supply chain, educational, and industrial infrastructures.
-            </p>
-=======
       <div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10"
       >
@@ -198,7 +156,6 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
             >
               <ChevronRight className="w-5 h-5" />
             </button>
->>>>>>> ec859e7 (Update website)
           </div>
         </div>
 
@@ -279,11 +236,7 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
           </div>
 
           {/* Right Column: Narrative Dossier & Specifications */}
-<<<<<<< HEAD
-          <div className="lg:col-span-6 p-8 sm:p-12 flex flex-col justify-between space-y-8 bg-white">
-=======
           <div key={current.id} className="applications-story lg:col-span-6 p-8 sm:p-12 flex flex-col justify-between space-y-8 bg-white">
->>>>>>> ec859e7 (Update website)
             <div className="space-y-6">
               <div>
                 <div className="flex items-center gap-2 mb-2">

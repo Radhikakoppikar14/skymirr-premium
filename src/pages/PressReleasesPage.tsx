@@ -2,10 +2,7 @@ import React, { useState } from "react";
 import { PageBackdrop } from "../components/fx/PageBackdrop";
 import { Calendar, ArrowRight, Sparkles, ChevronRight } from "lucide-react";
 import { LiveWaveCanvas } from "../components/fx/LiveWaveCanvas";
-<<<<<<< HEAD
-=======
 import { ModalShell } from "../components/sm/Modalshell";
->>>>>>> ec859e7 (Update website)
 
 interface PressItem {
   id: string;
@@ -98,11 +95,7 @@ export const PressReleasesPage: React.FC<PressReleasesPageProps> = ({ onNavigate
       
       {/* Executive Hero Command Deck */}
       <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#0B1F3A] via-[#0B1F3A] to-[#0B1F3A] text-white py-16 sm:py-24">
-<<<<<<< HEAD
-        <PageBackdrop />
-=======
         <PageBackdrop variant="illustration" />
->>>>>>> ec859e7 (Update website)
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden opacity-45">
           <LiveWaveCanvas
             frequency={0.015}
@@ -188,51 +181,6 @@ export const PressReleasesPage: React.FC<PressReleasesPageProps> = ({ onNavigate
 
       {/* Modal */}
       {selectedItem && (
-<<<<<<< HEAD
-        <div
-          onClick={() => setSelectedItem(null)}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#0B1F3A]/80 backdrop-blur-md animate-in fade-in duration-200"
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="relative bg-white rounded-3xl overflow-hidden shadow-2xl max-w-3xl w-full border border-[#E3D4BA] animate-in zoom-in-95 duration-200"
-          >
-            {/* Header (close X removed) */}
-            <div className="p-6 border-b border-[#E3D4BA] bg-[#FFFFFF]">
-              <span className="text-xs font-mono text-[#5B6B82]">
-                {selectedItem.date}
-              </span>
-            </div>
-
-            <div className="p-6 sm:p-8 space-y-6 max-h-[70vh] overflow-y-auto sm-scroll">
-              <h2 className="text-xl sm:text-2xl font-black text-[#0b1f3a] leading-tight">
-                {selectedItem.title}
-              </h2>
-
-              <div className="rounded-2xl bg-[#0B1F3A] p-4 flex items-center justify-center">
-                <img
-                  src={selectedItem.image}
-                  alt={selectedItem.title}
-                  className="max-h-56 w-auto object-contain rounded-xl"
-                />
-              </div>
-
-              <div className="space-y-4 text-xs sm:text-sm text-[#5B6B82] leading-relaxed whitespace-pre-line font-normal">
-                {selectedItem.content}
-              </div>
-            </div>
-
-            <div className="p-4 px-6 bg-[#FFFFFF] border-t border-[#E3D4BA] flex justify-end">
-              <button
-                onClick={() => setSelectedItem(null)}
-                className="px-5 py-2.5 rounded-xl bg-[#1F4FD8] hover:bg-[#1F4FD8] text-white font-bold text-xs uppercase tracking-wider cursor-pointer"
-              >
-                Close Release
-              </button>
-            </div>
-          </div>
-        </div>
-=======
         <ModalShell
           onClose={() => setSelectedItem(null)}
           closeLabel="Close Release"
@@ -244,7 +192,6 @@ export const PressReleasesPage: React.FC<PressReleasesPageProps> = ({ onNavigate
           </div>
           <div className="sm-m-text">{selectedItem.content}</div>
         </ModalShell>
->>>>>>> ec859e7 (Update website)
       )}
 
     </div>

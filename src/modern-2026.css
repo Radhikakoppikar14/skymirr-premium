@@ -42,15 +42,9 @@ header.sm-header[data-scrolled] { background: rgba(8,16,36,.78); box-shadow: 0 1
 .hz-chip svg { flex: none; width: 15px; height: 15px; color: #8cbeff; }
 
 .hz-title { margin: 22px 0 0; max-width: 100%; white-space: nowrap; font: 600 clamp(32px, 4vw, 60px)/1.02 var(--font-display, "Space Grotesk", sans-serif); letter-spacing: -0.05em; text-wrap: nowrap; color: rgba(255,255,255,.96); text-shadow: 0 0 28px rgba(76,141,246,.22), 0 1px 0 rgba(0,0,0,.18); }
-<<<<<<< HEAD
-.hz-word { display: inline-block; opacity: 0; transform: translateY(.5em) scale(.98); filter: blur(12px); animation: hzWord .9s var(--ease-x) forwards; animation-delay: calc(var(--i) * 90ms + 80ms); }
-@media (max-width: 767px) { .hz-title { white-space: normal; text-wrap: balance; max-width: 12.5ch; } }
-@keyframes hzWord { to { opacity: 1; transform: none; filter: blur(0); } }
-=======
 .hz-word { display: inline-block; opacity: 0; transform: translateY(.5em) scale(.98); animation: hzWord .9s var(--ease-x) forwards; animation-delay: calc(var(--i) * 90ms + 80ms); }
 @media (max-width: 767px) { .hz-title { white-space: normal; text-wrap: balance; max-width: 12.5ch; } }
 @keyframes hzWord { to { opacity: 1; transform: none; } }
->>>>>>> ec859e7 (Update website)
 
 .hz-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 26px; }
 .hz-btn { display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 26px; border-radius: 999px; border: 1px solid transparent; font: 600 15px/1 var(--font-sans, Inter, sans-serif); cursor: pointer; transition: transform .35s var(--ease-x), box-shadow .35s, background-color .3s, border-color .3s; }
@@ -190,12 +184,6 @@ header.sm-header[data-scrolled] { background: rgba(8,16,36,.78); box-shadow: 0 1
    Team, Blogs, Press, The Latest, Products)
    ========================================================================== */
 main section.isolate[class*="bg-gradient-to-b"] { background: var(--ink) !important; color: #fff; isolation: isolate; padding-top: clamp(72px, 9vw, 120px); padding-bottom: clamp(88px, 10vw, 132px); }
-<<<<<<< HEAD
-main section.isolate[class*="bg-gradient-to-b"] h1 { letter-spacing: -0.04em; line-height: 1.04; text-shadow: 0 0 60px rgba(76,141,246,.5); animation: hzWord .9s var(--ease-x) .1s both; }
-main section.isolate[class*="bg-gradient-to-b"] h1 + p, main section.isolate[class*="bg-gradient-to-b"] p { animation: hzChip .9s var(--ease-x) .35s both; }
-main section.isolate[class*="bg-gradient-to-b"] [class*="rounded-full"][class*="border"] { background: var(--glass); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-color: var(--glass-line); }
-main section.isolate > .hz-bg { z-index: 0; }
-=======
 main section.isolate[class*="bg-gradient-to-b"] h1 { letter-spacing: -0.04em; line-height: 1.04; text-shadow: none; animation: hzWord .9s var(--ease-x) .1s both; }
 main section.isolate[class*="bg-gradient-to-b"] h1 + p, main section.isolate[class*="bg-gradient-to-b"] p { animation: hzChip .9s var(--ease-x) .35s both; }
 main section.isolate[class*="bg-gradient-to-b"] [class*="rounded-full"][class*="border"] { background: var(--glass); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-color: var(--glass-line); }
@@ -204,7 +192,6 @@ main section.isolate > .hz-bg { z-index: 0; }
 .page-art-backdrop { overflow: hidden; background: #081a35; }
 .page-art-backdrop-image { position: absolute; inset: -8px; width: calc(100% + 16px); height: calc(100% + 16px); max-width: none; object-fit: cover; object-position: center 55%; filter: blur(3px) brightness(.72) saturate(.95); transform: scale(1.015); }
 .page-art-backdrop-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,11,26,.58) 0%, rgba(5,11,26,.36) 52%, rgba(5,11,26,.48) 100%), linear-gradient(0deg, rgba(5,11,26,.22), transparent 72%); }
->>>>>>> ec859e7 (Update website)
 /* calm: hide the older line/wave canvases inside inner-page heroes (slider backdrop replaces them) */
 main section.isolate[class*="bg-gradient-to-b"] > div[aria-hidden="true"]:not(.hz-bg):not(.phv) { display: none !important; }
 
@@ -463,9 +450,6 @@ header.sm-header .sm-pop:not(.sm-mega) .sm-pop-ico svg {
 .text-white :is(h1, h2, h3, h4, h5, h6):not([class*="text-["]):not([class*="text-white"]),
 [class*="bg-[#0B1F3A]"] :is(h1, h2, h3, h4, h5, h6):not([class*="text-["]):not([class*="text-white"]) {
   color: inherit;
-<<<<<<< HEAD
-}
-=======
 }
 
 /* ---------- Soft orange interaction highlights, without button shadows ---------- */
@@ -771,4 +755,3 @@ header.sm-header .sm-mega .sm-mega-link:is(:hover, :focus-visible, :active, [ari
 .sb-marq { display: none; }
 main section.isolate[class*="bg-gradient-to-b"] h1,
 main section.isolate[class*="bg-gradient-to-b"] p { text-shadow: 0 2px 16px rgba(5,11,26,.65); }
->>>>>>> ec859e7 (Update website)

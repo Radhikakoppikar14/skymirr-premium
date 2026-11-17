@@ -12,129 +12,6 @@ interface LightboxState {
   title: string;
 }
 
-<<<<<<< HEAD
-export const Sky5GDetailPage: React.FC<Sky5GDetailPageProps> = ({
-  onBack,
-  onContact,
-}) => {
-  const [lightbox, setLightbox] = useState<LightboxState>({
-    isOpen: false,
-    src: "",
-    title: "",
-  });
-
-  const openLightbox = (src: string, title: string) => {
-    setLightbox({ isOpen: true, src, title });
-  };
-
-  const closeLightbox = () => {
-    setLightbox((prev) => ({ ...prev, isOpen: false }));
-  };
-
-  const bullets = [
-    "42% farther reach to cell towers",
-    "Up to 3.4 Gbps download speeds",
-    "Twice the coverage area compared to standard solutions",
-    "Reliable indoor penetration for homes and businesses",
-    "Resilient performance at the network edge and rural sites",
-    "Optimized for any environment—rural environments, highways, or bustling cities",
-  ];
-
-  const technicalHighlights = [
-    "4x4 MIMO 5G architecture",
-    "Full FR1 band support (600 MHz - 6 GHz)",
-    "Wi-Fi 7 (4x4 MU-MIMO tri-band)",
-    "Supports up to 512 simultaneous devices",
-    "311 ft Wi-Fi coverage radius",
-    "2.5 Gbps LAN / WAN ethernet ports",
-    "VPN: IPSEC, SSL, WireGuard built-in",
-    "TR-069 remote management protocol",
-    "Dual firmware images & auto-recovery failsafe",
-    "Optional external SMA antenna ports for high-gain arrays",
-  ];
-
-  const useCases = [
-    {
-      title: "Rural Areas",
-      desc: "Small offices, farms, community centers, schools",
-    },
-    {
-      title: "Professional Offices",
-      desc: "Cloud apps, VoIP & video, multi-device networks",
-    },
-    {
-      title: "Retail & Restaurants",
-      desc: "POS uptime, guest/staff Wi-Fi, digital signage, security cameras",
-    },
-    {
-      title: "Public Safety",
-      desc: "Mobile command, emergency operations, disaster recovery, EOC backup",
-    },
-    {
-      title: "Construction & Field Services",
-      desc: "Portable broadband, trailer connectivity, project uploads, inspections",
-    },
-  ];
-
-  return (
-    <div className="pdx-page pt-[72px] pb-24 bg-[#FFFFFF] text-[#0b1f3a] animate-fade-in relative overflow-hidden">
-      
-      {/* Background Floating Orbs */}
-      <div className="absolute top-20 left-10 w-[500px] h-[500px] bg-[#4C8DF6]/20 blur-[150px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-[#4C8DF6]/15 blur-[150px] rounded-full pointer-events-none" />
-
-      {/* Top Breadcrumb Bar */}
-      <div className="bg-white/90 backdrop-blur-xl border-b border-[#E3D4BA] py-4 px-4 sm:px-8 relative z-20 shadow-2xs">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <button
-            onClick={onBack}
-            className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#5B6B82] hover:text-[#1F4FD8] transition-colors cursor-pointer group"
-          >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            <span>Back to Products</span>
-          </button>
-          <div className="flex items-center gap-2 text-xs font-mono text-[#5B6B82]">
-            <span>CPEs</span>
-            <span>/</span>
-            <span className="text-[#1F4FD8] font-bold bg-[#E8F0FE] px-3 py-0.5 rounded-full tracking-wider border border-[#E3D4BA]">
-              TCPA 117 (Sky5G® Router)
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 relative z-10 space-y-12 pdx-flow">
-        
-        {/* ========================================================
-            HERO HEADER & QUICK ACTIONS
-            ======================================================== */}
-        <div className="pdx-hero">
-          <div className="pdx-hero-head flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-            <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E8F0FE] border border-[#E3D4BA] text-[11px] font-mono uppercase tracking-[0.25em] text-[#1F4FD8] font-bold backdrop-blur-md shadow-2xs">
-                <Sparkles className="w-3.5 h-3.5 text-[#4C8DF6] animate-pulse" />
-                Flagship Wireless Gateway
-              </div>
-              <h1 className="text-3xl sm:text-5xl font-black text-[#0b1f3a] tracking-tight font-sans">
-                Sky5G Wireless Router
-              </h1>
-              <p className="text-base sm:text-lg font-bold text-[#1F4FD8] font-sans">
-                Unleashing Reliable Connectivity Anywhere
-              </p>
-            </div>
-
-            {/* Quick CTAs */}
-            <div className="flex flex-wrap items-center gap-3">
-              <a
-                href="https://skymirr.com/wp-content/uploads/2025/12/SkyMirr-Data-Sheet-TCPA117.pdf"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-[#1F4FD8] hover:bg-[#0B1F3A] text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md cursor-pointer hover:-translate-y-0.5"
-              >
-                <span>Datasheet</span>
-                <Download className="w-4 h-4" />
-              </a>
-=======
 const IMG = "/images";
 
 /* Images embedded so the page works without copying files into /public */
@@ -216,6 +93,7 @@ const css = `
   font-weight: 500;
   letter-spacing: .015em;
   text-shadow: 0 2px 6px rgba(0,0,0,.4);
+  animation: s5g-subtitle-arrive 1.1s cubic-bezier(.2,.75,.25,1) both, s5g-subtitle-glow 4s ease-in-out 1.1s infinite;
 }
 @media (max-width: 640px) {
   .s5g-page .sm-prod-hero-title { font-size: clamp(2rem, 9vw, 3rem); }
@@ -421,6 +299,245 @@ const css = `
     scroll-behavior: auto !important;
   }
 }
+
+.s5g-connectivity-redesign { position:relative; isolation:isolate; overflow:hidden; margin:0; padding:clamp(1rem,2.4vw,2rem); border-radius:1.35rem; color:#f8fbff; background:#07172e; box-shadow:0 24px 70px rgba(11,31,58,.2); }
+.s5g-connectivity-redesign:before { content:""; position:absolute; inset:0; z-index:-1; background:radial-gradient(ellipse at 12% 20%,rgba(76,141,246,.35),transparent 40%),radial-gradient(ellipse at 92% 82%,rgba(255,106,0,.16),transparent 35%); animation:s5g-ambient 9s ease-in-out infinite alternate; pointer-events:none; }
+.s5g-connectivity-redesign .s5g-connectivity-layout { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); align-items:center; gap:clamp(.75rem,2vw,1.5rem); }
+.s5g-connectivity-redesign .s5g-connectivity-visual { position:relative; min-width:0; overflow:hidden; border-radius:1rem; background:linear-gradient(145deg,#f4f8ff,#dceaff); box-shadow:0 18px 45px rgba(0,0,0,.22); animation:s5g-visual-in .9s .12s both; }
+.s5g-connectivity-redesign .s5g-connectivity-kicker { display:inline-flex; align-items:center; gap:.55rem; color:#a8dcff; text-transform:uppercase; letter-spacing:.15em; font-size:.7rem; font-weight:800; }
+.s5g-connectivity-redesign .s5g-live-dot { width:.5rem; height:.5rem; flex:none; border-radius:50%; background:#59f2b1; box-shadow:0 0 0 0 rgba(89,242,177,.6); animation:s5g-pulse 1.8s ease-out infinite; }
+.s5g-connectivity-redesign .s5g-connectivity-title { margin:.75rem 0 0; color:white; font-size:clamp(1.65rem,3.1vw,2.8rem); line-height:1.04; letter-spacing:-.045em; font-weight:850; animation:s5g-text-in .8s .2s both; }
+.s5g-connectivity-redesign .s5g-connectivity-copy { max-width:58rem; margin-top:.8rem; color:rgba(235,244,255,.82); font-size:clamp(.92rem,1.15vw,1.05rem); line-height:1.7; animation:s5g-text-in .8s .34s both; }
+.s5g-connectivity-redesign .s5g-connectivity-stage { position:relative; margin:0; overflow:hidden; }
+.s5g-connectivity-redesign .s5g-connectivity-stage:after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,.65) 48%,transparent 70%); transform:translateX(-120%); animation:s5g-sweep 6s ease-in-out infinite; }
+.s5g-connectivity-redesign .s5g-connectivity-diagram { display:block; width:100%; height:auto; max-height:29rem; object-fit:contain; padding:clamp(.25rem,1vw,.7rem); filter:drop-shadow(0 12px 24px rgba(11,31,58,.18)); animation:s5g-float 6s ease-in-out infinite; }
+.s5g-connectivity-redesign .s5g-connectivity-stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.55rem; margin-top:1.1rem; }
+.s5g-connectivity-redesign .s5g-connectivity-stat { min-width:0; padding:.8rem .9rem; border-radius:.75rem; border:1px solid rgba(168,220,255,.22); background:rgba(255,255,255,.055); backdrop-filter:blur(12px); animation:s5g-text-in .7s both; transition:transform .25s ease,border-color .25s ease,background .25s ease; }
+.s5g-connectivity-redesign .s5g-connectivity-stat:nth-child(2) { animation-delay:.12s; } .s5g-connectivity-redesign .s5g-connectivity-stat:nth-child(3) { animation-delay:.24s; }
+.s5g-connectivity-redesign .s5g-connectivity-stat:hover { transform:translateY(-4px); border-color:rgba(127,211,255,.7); background:rgba(76,141,246,.13); }
+.s5g-connectivity-redesign .s5g-connectivity-stat strong { display:block; color:#fff; font-size:.98rem; }
+.s5g-connectivity-redesign .s5g-connectivity-stat span { display:block; margin-top:.25rem; color:rgba(235,244,255,.7); font-size:.78rem; line-height:1.45; }
+.s5g-connectivity-redesign .s5g-connectivity-bullets { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.4rem 1.1rem; margin:1rem 0 0; padding:0; list-style:none; }
+.s5g-connectivity-redesign .s5g-connectivity-bullets li { position:relative; padding:.25rem 0 .25rem 1.3rem; color:rgba(245,249,255,.88); font-size:.88rem; line-height:1.55; animation:s5g-text-in .7s both; }
+.s5g-connectivity-redesign .s5g-connectivity-bullets li:before { content:""; position:absolute; top:.72rem; left:0; width:.45rem; height:.45rem; border-radius:50%; background:#7fd3ff; box-shadow:0 0 14px rgba(127,211,255,.7); }
+@keyframes s5g-orbit { to { transform:rotate(360deg); } }
+@keyframes s5g-pulse { 70% { box-shadow:0 0 0 9px rgba(89,242,177,0); } 100% { box-shadow:0 0 0 0 rgba(89,242,177,0); } }
+@keyframes s5g-sweep { 0%,55% { transform:translateX(-120%); } 85%,100% { transform:translateX(120%); } }
+@keyframes s5g-float { 0%,100% { translate:0 0; } 50% { translate:0 -5px; } }
+@keyframes s5g-ambient { from { opacity:.65; transform:scale(1); } to { opacity:1; transform:scale(1.06); } }
+@keyframes s5g-text-in { from { opacity:0; translate:0 14px; } to { opacity:1; translate:0 0; } }
+@keyframes s5g-visual-in { from { opacity:0; translate:-18px 0; scale:.98; } to { opacity:1; translate:0 0; scale:1; } }
+@keyframes s5g-subtitle-arrive { from { opacity:0; translate:0 18px; filter:blur(6px); } to { opacity:1; translate:0 0; filter:blur(0); } }
+@keyframes s5g-subtitle-glow { 0%,100% { text-shadow:0 2px 6px rgba(0,0,0,.4); } 50% { text-shadow:0 2px 18px rgba(127,211,255,.45),0 2px 6px rgba(0,0,0,.4); } }
+@media (max-width:760px) { .s5g-connectivity-redesign .s5g-connectivity-layout { grid-template-columns:1fr; } .s5g-connectivity-redesign .s5g-connectivity-visual { order:2; } .s5g-connectivity-redesign .s5g-connectivity-stats { grid-template-columns:1fr; } .s5g-connectivity-redesign .s5g-connectivity-bullets { grid-template-columns:1fr; } }
+@media (prefers-reduced-motion:reduce) { .s5g-connectivity-redesign *, .s5g-connectivity-redesign:before, .s5g-page .sm-prod-hero-sub { animation:none!important; transition:none!important; } }
+
+/* Final Sky5G visual direction: compact editorial layout with animated supporting copy */
+.s5g-page .sm-prod-hero-sub {
+  display:block;
+  animation: s5g-subtitle-arrive 1s cubic-bezier(.16,1,.3,1) .25s both,
+             s5g-subtitle-glow 5s ease-in-out 1.3s infinite;
+  will-change: opacity, translate, filter;
+}
+.s5g-page .s5g-connectivity-redesign {
+  padding:clamp(1rem,3vw,2.6rem);
+  border-radius:1.6rem;
+  background:#06152b;
+  box-shadow:0 28px 80px rgba(7,23,46,.24);
+}
+.s5g-page .s5g-connectivity-redesign .s5g-connectivity-layout {
+  grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+  gap:clamp(.6rem,1.6vw,1.4rem);
+  align-items:stretch;
+}
+.s5g-page .s5g-connectivity-redesign .s5g-connectivity-text {
+  order:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:clamp(.25rem,1.2vw,1rem) 0;
+}
+.s5g-page .s5g-connectivity-redesign .s5g-connectivity-visual {
+  order:2;
+  align-self:stretch;
+  display:flex;
+  align-items:center;
+  border:1px solid rgba(127,211,255,.45);
+  border-radius:1.2rem;
+  background:linear-gradient(145deg,#f7fbff 0%,#dbeaff 52%,#eef5ff 100%);
+  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 18px 52px rgba(0,0,0,.25);
+  animation:s5g-visual-in .95s .12s both;
+}
+.s5g-page .s5g-connectivity-redesign .s5g-connectivity-stage { width:100%; }
+.s5g-page .s5g-connectivity-redesign .s5g-connectivity-diagram {
+  max-height:clamp(18rem,34vw,31rem);
+  padding:clamp(.25rem,.8vw,.65rem);
+  animation:s5g-float 5.5s ease-in-out infinite, s5g-text-in .9s both;
+}
+.s5g-page .s5g-connectivity-redesign .s5g-connectivity-kicker {
+  animation:s5g-text-in .75s .08s both;
+}
+.s5g-page .s5g-connectivity-redesign .s5g-connectivity-title {
+  max-width:15ch;
+  font-size:clamp(1.8rem,3.4vw,3.2rem);
+  line-height:1.02;
+  animation:s5g-text-in .85s .18s both;
+}
+.s5g-page .s5g-connectivity-redesign .s5g-connectivity-copy {
+  max-width:38rem;
+  margin-top:1rem;
+  font-size:clamp(.93rem,1.15vw,1.06rem);
+  line-height:1.75;
+  animation:s5g-text-in .9s .32s both;
+}
+.s5g-page .s5g-connectivity-redesign .s5g-connectivity-stats {
+  gap:.65rem;
+  margin-top:1rem;
+}
+.s5g-page .s5g-connectivity-redesign .s5g-connectivity-stat {
+  border-radius:.9rem;
+  padding:.9rem 1rem;
+  background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.035));
+}
+.s5g-page .s5g-connectivity-redesign .s5g-connectivity-stat strong {
+  font-size:clamp(.9rem,1.1vw,1.05rem);
+}
+.s5g-page .s5g-connectivity-redesign .s5g-connectivity-stat span,
+.s5g-page .s5g-connectivity-redesign .s5g-connectivity-bullets li {
+  animation:s5g-text-in .8s both;
+}
+.s5g-page .s5g-connectivity-redesign .s5g-connectivity-bullets li:nth-child(2n) { animation-delay:.1s; }
+.s5g-page .s5g-connectivity-redesign .s5g-connectivity-bullets li:nth-child(3n) { animation-delay:.18s; }
+.s5g-page .s5g-connectivity-redesign .s5g-connectivity-bullets { gap:.3rem 1.25rem; }
+@media (max-width:760px) {
+  .s5g-page .s5g-connectivity-redesign { padding:1rem; border-radius:1rem; }
+  .s5g-page .s5g-connectivity-redesign .s5g-connectivity-layout { grid-template-columns:1fr; gap:1rem; }
+  .s5g-page .s5g-connectivity-redesign .s5g-connectivity-text { order:1; }
+  .s5g-page .s5g-connectivity-redesign .s5g-connectivity-visual { order:2; }
+  .s5g-page .s5g-connectivity-redesign .s5g-connectivity-title { max-width:none; }
+  .s5g-page .s5g-connectivity-redesign .s5g-connectivity-diagram { max-height:none; }
+}
+
+
+/* Refined feature cards: tight spacing, clear hierarchy, subtle motion */
+.s5g-page .s5g-feature-card {
+  position:relative; isolation:isolate; overflow:hidden;
+  margin:clamp(1rem,2.1vw,1.75rem) 0; padding:clamp(1.1rem,2.4vw,2rem);
+  border:1px solid #e1e9f5; border-radius:1.15rem;
+  background:linear-gradient(135deg,#fff 0%,#f8fbff 68%,#f2f7ff 100%);
+  box-shadow:0 10px 28px rgba(11,31,58,.055);
+  animation:s5g-feature-enter .75s cubic-bezier(.2,.8,.2,1) both;
+  transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;
+}
+.s5g-page .s5g-feature-card:nth-of-type(2n) { animation-delay:.08s; }
+.s5g-page .s5g-feature-card:before { content:""; position:absolute; z-index:-1; width:14rem; height:14rem; right:-7rem; top:-8rem; border-radius:50%; background:radial-gradient(circle,rgba(76,141,246,.12),transparent 68%); transition:transform .45s ease; }
+.s5g-page .s5g-feature-card:hover { transform:translateY(-3px); border-color:#bfd2f8; box-shadow:0 18px 40px rgba(11,31,58,.095); }
+.s5g-page .s5g-feature-card:hover:before { transform:scale(1.35); }
+.s5g-page .s5g-feature-card-heading { display:flex; align-items:center; gap:.85rem; margin-bottom:1rem; }
+.s5g-page .s5g-feature-index { display:inline-flex; flex:0 0 auto; align-items:center; justify-content:center; width:2.5rem; height:2.5rem; border-radius:.8rem; color:#fff; background:linear-gradient(135deg,#3977e8,#1f4fd8); font-size:.78rem; font-weight:800; letter-spacing:.04em; box-shadow:0 6px 15px rgba(31,79,216,.2); }
+.s5g-page .s5g-feature-card-heading .s5g-h2 { margin:0; font-size:clamp(1.35rem,2vw,1.9rem); line-height:1.2; }
+.s5g-page .s5g-feature-card-heading p { margin:0; font-size:clamp(1.15rem,1.8vw,1.55rem); font-weight:750; color:#0b1f3a!important; }
+.s5g-page .s5g-feature-card .s5g-list { display:grid; gap:.65rem; margin:0; padding-left:1.3rem; font-size:clamp(.92rem,1.15vw,1.04rem); line-height:1.7; }
+.s5g-page .s5g-feature-card .s5g-list li { padding:.1rem 0 .1rem .15rem; animation:s5g-feature-line .65s both; }
+.s5g-page .s5g-feature-card .s5g-list li:nth-child(2) { animation-delay:.1s; }
+.s5g-page .s5g-feature-card .s5g-list li:nth-child(3) { animation-delay:.18s; }
+.s5g-page .s5g-feature-card--benefits { background:linear-gradient(135deg,#f7faff,#edf4ff); }
+.s5g-page .s5g-feature-card--certifications { background:linear-gradient(135deg,#fffaf6,#fff 70%); border-color:#f4e4d8; }
+.s5g-page .s5g-feature-card--certifications .s5g-feature-index { background:linear-gradient(135deg,#ff8a45,#f05b14); box-shadow:0 6px 15px rgba(240,91,20,.18); }
+.s5g-page .s5g-feature-card--technical:before { background:radial-gradient(circle,rgba(255,106,0,.1),transparent 68%); }
+@keyframes s5g-feature-enter { from { opacity:0; transform:translateY(18px) scale(.99); } to { opacity:1; transform:translateY(0) scale(1); } }
+@keyframes s5g-feature-line { from { opacity:0; translate:0 8px; } to { opacity:1; translate:0 0; } }
+@media(max-width:640px) { .s5g-page .s5g-feature-card { padding:1rem; border-radius:.9rem; } .s5g-page .s5g-feature-card-heading { gap:.65rem; align-items:flex-start; } .s5g-page .s5g-feature-index { width:2.1rem; height:2.1rem; border-radius:.65rem; } }
+@media(prefers-reduced-motion:reduce) { .s5g-page .s5g-feature-card,.s5g-page .s5g-feature-card .s5g-list li { animation:none!important; transition:none!important; } }
+
+.s5g-page .s5g-editorial-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:1rem;margin:clamp(2rem,5vw,4rem) 0}
+.s5g-page .s5g-editorial-intro{grid-column:span 12;padding:1rem 0 1.5rem;border-bottom:1px solid #dce6f5;animation:s5ged-in .8s both}
+.s5g-page .s5g-editorial-intro>span{font-size:.72rem;letter-spacing:.2em;font-weight:900;color:#f06422}
+.s5g-page .s5g-editorial-intro h2{font-size:clamp(2.3rem,5vw,4.5rem);line-height:.98;letter-spacing:-.055em;margin:.9rem 0}
+.s5g-page .s5g-editorial-intro em{font-style:normal;color:#3977e8}
+.s5g-page .s5g-editorial-intro p{color:#64748b;font-size:1rem;max-width:42rem}
+.s5g-page .s5g-editorial-panel{position:relative;overflow:hidden;grid-column:span 6;padding:clamp(1.2rem,2.5vw,2rem);border-radius:1.2rem;border:1px solid #dfe8f5;background:#fff;box-shadow:0 12px 36px #0b1f3a0c;animation:s5ged-in .7s both;transition:transform .3s,box-shadow .3s}
+.s5g-page .s5g-editorial-panel:hover{transform:translateY(-5px);box-shadow:0 22px 44px #0b1f3a19}
+.s5g-page .s5g-editorial-panel:after{content:'';position:absolute;width:12rem;height:12rem;border-radius:50%;right:-7rem;bottom:-7rem;background:radial-gradient(circle,#4c8df629,transparent 70%);pointer-events:none}
+.s5g-page .s5g-editorial-panel--connectivity{grid-column:span 7;background:linear-gradient(140deg,#f4f8ff,#fff 75%)}
+.s5g-page .s5g-editorial-panel--benefits{grid-column:span 5;background:linear-gradient(145deg,#0b1f3a,#17457e);color:white;border-color:#17457e}
+.s5g-page .s5g-editorial-panel--certifications{grid-column:span 12;background:linear-gradient(110deg,#fff8f2,#fff 50%,#f4f8ff)}
+.s5g-page .s5g-editorial-panel--technical{grid-column:span 5}.s5g-page .s5g-editorial-panel--usecases{grid-column:span 7;background:#f4f8ff}
+.s5g-page .s5g-editorial-panel small{display:block;color:#71819a;font-weight:900;font-size:.68rem;letter-spacing:.16em;margin-bottom:1rem}
+.s5g-page .s5g-editorial-panel h2{font-size:clamp(1.4rem,2.2vw,2rem);line-height:1.15;margin:0 0 1rem;letter-spacing:-.03em}
+.s5g-page .s5g-editorial-panel--benefits h2{color:#fff}
+.s5g-page .s5g-editorial-feature{display:grid;grid-template-columns:2.5rem 1fr;gap:.8rem;padding:1rem 0;border-top:1px solid #dfe8f5;animation:s5ged-in .7s both}.s5g-page .s5g-editorial-feature:nth-of-type(3){animation-delay:.15s}
+.s5g-page .s5g-editorial-feature>b{display:grid;place-items:center;width:2.25rem;height:2.25rem;border-radius:.7rem;background:#e8f0ff;color:#2458bf}
+.s5g-page .s5g-editorial-feature p,.s5g-page .s5g-editorial-cert p{margin:0;color:#52627a;font-size:.93rem;line-height:1.7}.s5g-page .s5g-editorial-feature strong,.s5g-page .s5g-editorial-cert strong{color:#0b1f3a}
+.s5g-page .s5g-editorial-metric{display:grid;grid-template-columns:4.5rem 1fr;gap:.8rem;align-items:center;padding:.9rem 0;border-top:1px solid #ffffff25}.s5g-page .s5g-editorial-metric>strong{font-size:2rem;color:#8db4ff;letter-spacing:-.06em}.s5g-page .s5g-editorial-metric p{margin:0;color:#d4e0f4;font-size:.85rem;line-height:1.6}.s5g-page .s5g-editorial-metric b{color:white}
+.s5g-page .s5g-editorial-cert{display:grid;grid-template-columns:2rem 1fr;gap:.8rem;padding:1rem 0;border-top:1px solid #e7eaf0;animation:s5ged-in .7s both}.s5g-page .s5g-editorial-cert>b{display:grid;place-items:center;width:1.7rem;height:1.7rem;border-radius:50%;background:#3977e8;color:white}
+.s5g-page .s5g-editorial-panel--technical .s5g-list{list-style:none;padding:0;margin:0}.s5g-page .s5g-editorial-panel--technical .s5g-list li{display:grid;grid-template-columns:2rem 1fr;gap:.7rem;padding:.85rem 0;border-top:1px solid #e4ebf5;line-height:1.6;animation:s5ged-in .7s both}.s5g-page .s5g-editorial-panel--technical .s5g-list li>b,.s5g-page .s5g-editorial-usecases>div>b{color:#3977e8;font-size:.72rem;letter-spacing:.08em}
+.s5g-page .s5g-editorial-usecases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 1.2rem}.s5g-page .s5g-editorial-usecases>div{display:grid;grid-template-columns:1.5rem 1fr;gap:.5rem;padding:.9rem 0;border-top:1px solid #dce6f5;animation:s5ged-in .7s both}.s5g-page .s5g-editorial-usecases p{margin:0;color:#52627a;font-size:.9rem;line-height:1.65}.s5g-page .s5g-editorial-usecases p strong{display:block;color:#0b1f3a;margin-bottom:.2rem}
+@keyframes s5ged-in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:760px){.s5g-page .s5g-editorial-panel,.s5g-page .s5g-editorial-panel--connectivity,.s5g-page .s5g-editorial-panel--benefits,.s5g-page .s5g-editorial-panel--certifications,.s5g-page .s5g-editorial-panel--technical,.s5g-page .s5g-editorial-panel--usecases{grid-column:span 12}.s5g-page .s5g-editorial-usecases{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.s5g-page .s5g-editorial-grid *{animation:none!important;transition:none!important}}
+
+
+
+/* Professional redesign overrides */
+.s5g-page{background:#f6f8fb!important;color:#10243f!important;padding-bottom:4rem!important}
+.s5g-page .s5g-editorial-grid{display:grid!important;grid-template-columns:repeat(12,minmax(0,1fr))!important;gap:1.1rem!important;margin:clamp(2rem,4vw,3.5rem) 0!important}
+.s5g-page .s5g-editorial-intro{grid-column:span 12!important;padding:0 0 1.4rem!important;border-bottom:1px solid #dce5f0!important}
+.s5g-page .s5g-editorial-intro>span{color:#2864c7!important;letter-spacing:.16em!important;font-size:.68rem!important}
+.s5g-page .s5g-editorial-intro h2{font-size:clamp(2rem,4vw,3.5rem)!important;line-height:1.05!important;letter-spacing:-.045em!important;color:#10243f!important;margin:.65rem 0!important}
+.s5g-page .s5g-editorial-intro em{color:#2864c7!important}
+.s5g-page .s5g-editorial-intro p{color:#64748b!important;max-width:46rem!important;line-height:1.7!important}
+.s5g-page .s5g-editorial-panel{grid-column:span 6!important;padding:clamp(1.2rem,2vw,1.8rem)!important;border:1px solid #e0e7f0!important;border-radius:1rem!important;background:#fff!important;box-shadow:0 5px 20px rgba(16,36,63,.045)!important;animation:s5g-pro-enter .7s cubic-bezier(.2,.8,.2,1) both!important;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease!important}
+.s5g-page .s5g-editorial-panel:hover{transform:translateY(-3px)!important;border-color:#b9ccec!important;box-shadow:0 14px 30px rgba(16,36,63,.09)!important}
+.s5g-page .s5g-editorial-panel:after{display:none!important}
+.s5g-page .s5g-editorial-panel small{color:#63758e!important;font-size:.66rem!important;letter-spacing:.14em!important;margin-bottom:.8rem!important}
+.s5g-page .s5g-editorial-panel h2{color:#10243f!important;font-size:clamp(1.35rem,2vw,1.8rem)!important;line-height:1.2!important;margin:0 0 1rem!important}
+.s5g-page .s5g-editorial-panel--connectivity{grid-column:span 7!important;background:#fff!important}
+.s5g-page .s5g-editorial-panel--benefits{grid-column:span 5!important;background:#102b4c!important;border-color:#102b4c!important}
+.s5g-page .s5g-editorial-panel--benefits h2{color:#fff!important}.s5g-page .s5g-editorial-panel--benefits small{color:#c5d6ed!important}
+.s5g-page .s5g-editorial-feature{grid-template-columns:2.1rem minmax(0,1fr)!important;gap:.8rem!important;padding:.9rem 0!important;border-top:1px solid #e8edf4!important}
+.s5g-page .s5g-editorial-feature>b{width:2rem!important;height:2rem!important;border-radius:.55rem!important;background:#edf4ff!important;color:#2864c7!important}
+.s5g-page .s5g-editorial-feature p,.s5g-page .s5g-editorial-cert p{color:#52647b!important;font-size:.92rem!important;line-height:1.72!important}
+.s5g-page .s5g-editorial-feature strong,.s5g-page .s5g-editorial-cert strong{color:#10243f!important}
+.s5g-page .s5g-editorial-metric{grid-template-columns:4rem minmax(0,1fr)!important;padding:.85rem 0!important;border-top:1px solid #ffffff26!important}
+.s5g-page .s5g-editorial-metric>strong{font-size:1.8rem!important;color:#91baff!important}.s5g-page .s5g-editorial-metric p{color:#d8e3f2!important;font-size:.85rem!important;line-height:1.6!important}
+.s5g-page .s5g-editorial-panel--certifications{grid-column:span 12!important;background:#fff!important}
+.s5g-page .s5g-editorial-panel--certifications .s5g-editorial-cert{grid-template-columns:2rem minmax(0,1fr)!important;gap:.8rem!important;padding:1rem 0!important;border-top:1px solid #e8edf4!important}
+.s5g-page .s5g-editorial-cert>b{width:1.65rem!important;height:1.65rem!important;background:#eaf2ff!important;color:#2864c7!important}
+.s5g-page .s5g-editorial-panel--technical{grid-column:span 5!important}.s5g-page .s5g-editorial-panel--usecases{grid-column:span 7!important;background:#fff!important}
+.s5g-page .s5g-editorial-panel--technical .s5g-list li{padding:.8rem 0!important;border-top:1px solid #e8edf4!important;color:#52647b!important;line-height:1.65!important}
+.s5g-page .s5g-editorial-panel--technical .s5g-list li>b,.s5g-page .s5g-editorial-usecases>div>b{color:#2864c7!important}
+.s5g-page .s5g-editorial-usecases{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:0 1rem!important}.s5g-page .s5g-editorial-usecases>div{padding:.85rem 0!important;border-top:1px solid #e8edf4!important}.s5g-page .s5g-editorial-usecases p{color:#64748b!important;line-height:1.65!important}.s5g-page .s5g-editorial-usecases p strong{color:#10243f!important}
+.s5g-page .s5g-connectivity-redesign{border-radius:1rem!important;box-shadow:0 14px 35px rgba(16,36,63,.1)!important}
+@keyframes s5g-pro-enter{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:760px){.s5g-page .s5g-editorial-panel,.s5g-page .s5g-editorial-panel--connectivity,.s5g-page .s5g-editorial-panel--benefits,.s5g-page .s5g-editorial-panel--certifications,.s5g-page .s5g-editorial-panel--technical,.s5g-page .s5g-editorial-panel--usecases{grid-column:span 12!important}.s5g-page .s5g-editorial-usecases{grid-template-columns:1fr!important}.s5g-page .s5g-editorial-panel{padding:1.1rem!important}}
+@media(prefers-reduced-motion:reduce){.s5g-page .s5g-editorial-panel{animation:none!important;transition:none!important}}
+
+
+/* Sidebar redesign: compact product resources, reseller artwork and retailer links */
+.s5g-page .sky5g-content{width:100%;max-width:none!important;padding-left:clamp(1rem,3vw,3rem)!important;padding-right:clamp(1rem,3vw,3rem)!important}
+.s5g-page .sky5g-content > div{grid-template-columns:minmax(250px,285px) minmax(0,1fr)!important;gap:clamp(1.25rem,2.4vw,2.5rem)!important;align-items:start}
+.s5g-page .s5g-sidebar{min-width:0;align-self:start;display:flex;flex-direction:column;gap:.7rem;padding:1.1rem;border:1px solid #dce6f3;border-radius:18px;background:linear-gradient(160deg,#fff 0%,#f5f8fd 100%);box-shadow:0 12px 32px rgba(11,31,58,.07)}
+.s5g-page .s5g-sidebar:before{content:"SKY5G RESOURCES";display:block;padding:0 0 .8rem;border-bottom:1px solid #e2eaf5;color:#6a7b93;font-size:.68rem;font-weight:850;letter-spacing:.16em}
+.s5g-page .s5g-sidebar > button.s5g-shine{min-height:46px;width:100%;padding:.75rem 1rem!important;border:1px solid #d9e4f4!important;border-radius:10px!important;background:#fff!important;color:#16345c!important;box-shadow:none!important;font-size:.86rem!important;font-weight:750!important;line-height:1.35;justify-content:flex-start;transition:background .22s ease,border-color .22s ease,transform .22s ease!important}
+.s5g-page .s5g-sidebar > button.s5g-shine:before{content:"↓";display:inline-grid;place-items:center;flex:0 0 28px;width:28px;height:28px;margin-right:.65rem;border-radius:8px;background:#eaf1ff;color:#245bd0;font-size:1rem;font-weight:900}
+.s5g-page .s5g-sidebar > button.s5g-shine:hover{background:#f0f5ff!important;border-color:#9dbbf4!important;transform:translateX(2px)!important}
+.s5g-page .s5g-sidebar > a{display:block;overflow:hidden;border:1px solid #dce6f3!important;border-radius:12px!important;background:#fff;line-height:0;transition:border-color .2s ease,box-shadow .2s ease!important}
+.s5g-page .s5g-sidebar > a:hover{border-color:#9dbbf4!important;box-shadow:0 8px 20px rgba(11,31,58,.09)}
+.s5g-page .s5g-sidebar > a img{display:block;width:100%;height:auto;max-height:250px;object-fit:contain;background:#fff}
+.s5g-page .s5g-sidebar > div{padding:.95rem;border:1px solid #e0e8f3;border-radius:12px;background:#fff}
+.s5g-page .s5g-sidebar > div > p{margin:0!important;display:flex;align-items:center;justify-content:space-between!important;text-align:left!important;padding:0 0 .8rem!important;border-bottom:1px solid #e7edf6!important;font-size:.86rem!important;letter-spacing:.01em}
+.s5g-page .s5g-sidebar > div > p:after{content:"Official retailers";color:#7b8ba1;font-size:.68rem;font-weight:600}
+.s5g-page .s5g-sidebar .mt-4.grid{margin-top:.8rem!important;gap:.55rem!important}
+.s5g-page .s5g-sidebar .s5g-marketplace{min-width:0;min-height:44px;padding:.45rem!important;border-radius:9px!important;background:#fbfcff!important;transition:transform .2s ease,border-color .2s ease,background .2s ease!important}
+.s5g-page .s5g-sidebar .s5g-marketplace:hover{transform:translateY(-2px)!important;background:#fff!important;border-color:#9dbbf4!important}
+.s5g-page .s5g-sidebar .s5g-marketplace svg{max-width:100%}
+.s5g-page .s5g-sidebar > div > button{border-radius:10px!important;background:#1f4fd8!important;border:1px solid #1f4fd8!important;color:#fff!important;box-shadow:none!important;text-transform:none;line-height:1.45}
+.s5g-page .s5g-sidebar > div > button:hover{background:#173fae!important;transform:translateY(-1px)}
+@media(max-width:1023px){.s5g-page .sky5g-content > div{grid-template-columns:minmax(0,1fr)!important}.s5g-page .s5g-sidebar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;margin-bottom:1rem}.s5g-page .s5g-sidebar:before{grid-column:1/-1}.s5g-page .s5g-sidebar > a{grid-column:1/-1}.s5g-page .s5g-sidebar > a img{max-height:300px;margin:0 auto}.s5g-page .s5g-sidebar > div{grid-column:1/-1}.s5g-page .s5g-sidebar > div > button{grid-column:1/-1}}
+@media(max-width:520px){.s5g-page .sky5g-content{padding-left:1rem!important;padding-right:1rem!important}.s5g-page .s5g-sidebar{padding:.8rem;border-radius:14px}.s5g-page .s5g-sidebar > button.s5g-shine{font-size:.78rem!important;padding:.65rem .7rem!important}.s5g-page .s5g-sidebar > button.s5g-shine:before{flex-basis:24px;width:24px;height:24px;margin-right:.45rem}}
+@media(prefers-reduced-motion:reduce){.s5g-page .s5g-sidebar *{transition:none!important}}
+
 `;
 
 const heroTitle = "Sky5G Wireless Router";
@@ -457,46 +574,9 @@ export const Sky5GDetailPage: React.FC<Sky5GDetailPageProps> = ({ onBack, onCont
             <span className="text-[#1F4FD8] font-bold bg-[#E8F0FE] px-3 py-0.5 rounded-full tracking-wider">
               TCPA 117 (Sky5G® Router)
             </span>
-            <GlitchText
-              as="h1"
-              text={heroTitle}
-              className="text-4xl font-black tracking-tight text-slate-900 sm:text-5xl"
-            />
-            <GlitchText
-              as="p"
-              text={heroSubtitle}
-              className="text-base font-semibold text-slate-800"
-            />
-            <p className="max-w-xl text-sm leading-relaxed text-slate-600">
-              5G Sub-6 /4G LTE Wireless Customer Premises Equipment/Router
-            </p>
-
-            <ul className="flex flex-wrap gap-3">
-              {heroChips.map((c) => (
-                <li
-                  key={c.text}
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 shadow-2xs"
-                >
-                  <span className="text-blue-600">{c.icon}</span>
-                  {c.text}
-                </li>
-              ))}
-            </ul>
-
-            <div className="flex flex-wrap items-center gap-3 pt-1">
-              <button type="button" onClick={onContact} className={btnPrimary}>
-                Contact Us Now <ArrowRight className="h-3.5 w-3.5" />
-              </button>
-              <a
-                href="https://www.bhphotovideo.com/c/search?q=skymirr"
-                target="_blank"
-                rel="noreferrer"
-                className={btnPrimary}
-              >
-                Buy on B&amp;H <ShoppingCart className="h-3.5 w-3.5" />
-              </a>
-            </div>
           </div>
+        </div>
+      </div>
 
       {/* Sky5G hero: matches the Antennas banner dimensions, typography, and background video */}
       <section className="sm-prod-hero sky5g-hero relative isolate flex min-h-[260px] items-center overflow-hidden border-b-4 border-[#FF6A00] bg-[#0B1F3A] text-white sm:min-h-[360px] mb-8">
@@ -530,7 +610,7 @@ export const Sky5GDetailPage: React.FC<Sky5GDetailPageProps> = ({ onBack, onCont
       <div className="sky5g-content mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[270px_minmax(0,1fr)] lg:gap-10">
           {/* ---------- Left sidebar ---------- */}
-          <aside className="space-y-4">
+          <aside className="s5g-sidebar">
             <button type="button" className={sideBtn}>Download Datasheet</button>
             <button type="button" className={sideBtn}>Download Latest Firmware</button>
             <button type="button" className={sideBtn}>Quickstart Guide</button>
@@ -623,92 +703,62 @@ export const Sky5GDetailPage: React.FC<Sky5GDetailPageProps> = ({ onBack, onCont
               </div>
             </section>
 
-            {/* Superior Connectivity By Design (1) */}
-            <section className="space-y-5">
-              <h2 className={h2}>Superior Connectivity By Design</h2>
-              <p className={body}>
-                Unlike traditional routers where antennas are an afterthought, SkyMirr’s exclusive MuLCAT®
-                antenna-first engineering puts signal strength and reliability front and center. Experience up to{" "}
-                <strong className="text-[#0B1F3A]">42% farther reach to cell towers</strong>, enhanced indoor
-                coverage, and consistently high speeds—even during network congestion or in remote locations.
-              </p>
-              <img
-                src={IMG_DIAGRAM}
-                alt="Diagram: Sky5G router with local Wi-Fi 7 to connected devices, linked by a 5G Sub6/4G LTE wireless link to a base station"
-                loading="lazy"
-                className="block h-auto w-full max-w-3xl"
-              />
-              <ul className={ul}>
+            {/* Sky5G connectivity — completely restructured split composition; original copy and diagram retained */}
+            <section className="s5g-connectivity-redesign">
+              <div className="s5g-connectivity-layout">
+                <div className="s5g-connectivity-visual">
+                  <div className="s5g-connectivity-stage">
+                    <img
+                      src={IMG_DIAGRAM}
+                      alt="Diagram: Sky5G router with local Wi-Fi 7 to connected devices, linked by a 5G Sub6/4G LTE wireless link to a base station"
+                      loading="lazy"
+                      className="s5g-connectivity-diagram"
+                    />
+                  </div>
+                </div>
+                <div className="s5g-connectivity-text">
+                  <div className="s5g-connectivity-kicker">
+                    <span className="s5g-live-dot" aria-hidden="true" />
+                    Sky5G · Connected by design
+                  </div>
+                  <h2 className="s5g-connectivity-title">Stronger signal. Wider reach.<br className="hidden sm:block" /> One seamless connection.</h2>
+                  <p className="s5g-connectivity-copy">
+                    Unlike traditional routers where antennas are an afterthought, SkyMirr’s exclusive MuLCAT®
+                    antenna-first engineering puts signal strength and reliability front and center. Experience up to{" "}
+                    <strong className="text-white">42% farther reach to cell towers</strong>, enhanced indoor
+                    coverage, and consistently high speeds—even during network congestion or in remote locations.
+                  </p>
+                </div>
+              </div>
+              <div className="s5g-connectivity-stats" aria-label="Sky5G performance highlights">
+                <div className="s5g-connectivity-stat">
+                  <strong>42% farther reach</strong>
+                  <span>Improved connection to cell towers</span>
+                </div>
+                <div className="s5g-connectivity-stat">
+                  <strong>Up to 3.4 Gbps</strong>
+                  <span>High-speed download performance</span>
+                </div>
+                <div className="s5g-connectivity-stat">
+                  <strong>Twice the coverage</strong>
+                  <span>Compared with standard solutions</span>
+                </div>
+              </div>
+              <ul className="s5g-connectivity-bullets">
                 {bullets.map((b) => {
                   const m = b.match(/^(42% farther reach|Up to 3\.4 Gbps|Twice the coverage area)(.*)$/);
-                  return (
-                    <li key={b}>
-                      {m ? (<><strong>{m[1]}</strong>{m[2]}</>) : b}
-                    </li>
-                  );
+                  return <li key={b}>{m ? (<><strong>{m[1]}</strong>{m[2]}</>) : b}</li>;
                 })}
               </ul>
             </section>
 
-            {/* Superior Connectivity By Design (2) */}
-            <section className="space-y-4">
-              <h2 className={h2}>Superior Connectivity By Design</h2>
-              <ul className={ul}>
-                <li>
-                  <strong>MuLCAT® Antenna:</strong> AI-driven, real-time optimization ensures peak performance and
-                  extends connectivity to challenging areas without upgrading carrier networks.
-                </li>
-                <li>
-                  <strong>Wi-Fi 7 Integration:</strong> Delivers seamless, high-speed connections for streaming, remote
-                  work, and online learning.
-                </li>
-              </ul>
-            </section>
-
-            <section className="space-y-4">
-              <h2 className={h2}>Key Benefits</h2>
-              <ul className={ul}>
-                <li><strong>2x Coverage Area:</strong> Connect more users and devices across broader spaces.</li>
-                <li><strong>50% Power Savings:</strong> Lower energy consumption for cost-effective, sustainable operations.</li>
-                <li><strong>Real-Time Optimization:</strong> Automatic adjustments keep your connection strong in tough conditions.</li>
-              </ul>
-            </section>
-
-            {/* Certifications */}
-            <section className="space-y-4">
-              <p className={body}>Sky5G is certified for</p>
-              <ul className={ul}>
-                <li>
-                  <strong>T-Mobile’s Standard 5G Network</strong>—delivering fast speeds, broad coverage, and
-                  enterprise-grade reliability.
-                </li>
-                <li>
-                  <strong>T-Priority</strong>- where mission-critical users enjoy elevated network access, priority
-                  queuing during congestion, hardened connections for public safety, and enhanced reliability for first
-                  responders and emergency services. It is approved for use by: Police, Fire, EMS, emergency operations,
-                  public works, school districts, utility and infrastructure agencies.
-                </li>
-                <li>
-                  <strong>AT&amp;T’s standard 5G network</strong> - delivering reliable 5G connectivity on the AT&amp;T
-                  network for business, mobile, and connectivity-challenged environments.
-                </li>
-              </ul>
-            </section>
-
-            <section className="space-y-4">
-              <h2 className={h2}>Technical Highlights</h2>
-              <ul className={ul}>
-                {technicalHighlights.map((t) => <li key={t}>{t}</li>)}
-              </ul>
-            </section>
-
-            <section className="space-y-4">
-              <h2 className={h2}>Versatile Use Cases</h2>
-              <ul className={ul}>
-                {useCases.map(([t, d]) => (
-                  <li key={t}><strong>{t}:</strong> {d}</li>
-                ))}
-              </ul>
+            <section className="s5g-editorial-grid" aria-label="Sky5G features and certifications">
+              <header className="s5g-editorial-intro"><span>ENGINEERED FOR MORE</span><h2>Built to connect.<br/><em>Designed to perform.</em></h2><p>Technology, benefits, certifications, and real-world applications behind Sky5G.</p></header>
+              <article className="s5g-editorial-panel s5g-editorial-panel--connectivity"><small>01 / TECHNOLOGY</small><h2 className={h2}>Superior Connectivity By Design</h2><div className="s5g-editorial-feature"><b>01</b><p><strong>MuLCAT® Antenna</strong><br/>AI-driven, real-time optimization ensures peak performance and extends connectivity to challenging areas without upgrading carrier networks.</p></div><div className="s5g-editorial-feature"><b>02</b><p><strong>Wi-Fi 7 Integration</strong><br/>Delivers seamless, high-speed connections for streaming, remote work, and online learning.</p></div></article>
+              <article className="s5g-editorial-panel s5g-editorial-panel--benefits"><small>02 / ADVANTAGES</small><h2 className={`${h2} !text-white`}>Key Benefits</h2><div className="s5g-editorial-metric"><strong>2×</strong><p><b>Coverage Area</b><br/>Connect more users and devices across broader spaces.</p></div><div className="s5g-editorial-metric"><strong>50%</strong><p><b>Power Savings</b><br/>Lower energy consumption for cost-effective, sustainable operations.</p></div><div className="s5g-editorial-metric"><strong>RT</strong><p><b>Real-Time Optimization</b><br/>Automatic adjustments keep your connection strong in tough conditions.</p></div></article>
+              <article className="s5g-editorial-panel s5g-editorial-panel--certifications"><small>03 / NETWORK APPROVALS</small><h2 className={h2}>Sky5G is certified for</h2><div className="s5g-editorial-cert"><b>✓</b><p><strong>T-Mobile’s Standard 5G Network</strong>—delivering fast speeds, broad coverage, and enterprise-grade reliability.</p></div><div className="s5g-editorial-cert"><b>✓</b><p><strong>T-Priority</strong>- where mission-critical users enjoy elevated network access, priority queuing during congestion, hardened connections for public safety, and enhanced reliability for first responders and emergency services. It is approved for use by: Police, Fire, EMS, emergency operations, public works, school districts, utility and infrastructure agencies.</p></div><div className="s5g-editorial-cert"><b>✓</b><p><strong>AT&amp;T’s standard 5G network</strong> - delivering reliable 5G connectivity on the AT&amp;T network for business, mobile, and connectivity-challenged environments.</p></div></article>
+              <article className="s5g-editorial-panel s5g-editorial-panel--technical"><small>04 / SPECIFICATIONS</small><h2 className={h2}>Technical Highlights</h2><ul className={ul}>{technicalHighlights.map((t,i)=><li key={t}><b>{String(i+1).padStart(2,'0')}</b>{t}</li>)}</ul></article>
+              <article className="s5g-editorial-panel s5g-editorial-panel--usecases"><small>05 / APPLICATIONS</small><h2 className={h2}>Versatile Use Cases</h2><div className="s5g-editorial-usecases">{useCases.map(([t,d],i)=><div key={t}><b>{String(i+1).padStart(2,'0')}</b><p><strong>{t}</strong>{d ? ` — ${d}` : ''}</p></div>)}</div></article>
             </section>
 
             <p className="border-t border-[#E1E7F0] pt-6 text-sm text-[#475569]">
@@ -745,7 +795,6 @@ export const Sky5GDetailPage: React.FC<Sky5GDetailPageProps> = ({ onBack, onCont
             <div className="pt-6 flex justify-center">
               <img src={lightbox.src} alt={lightbox.title} className="max-w-full h-auto object-contain" />
             </div>
->>>>>>> ec859e7 (Update website)
           </div>
         </div>
       )}
