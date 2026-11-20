@@ -1313,3 +1313,40 @@ header.sm-header .sm-pop.sm-mega {
   border: 1px solid #C9D6EE; background: #fff; color: #1F4FD8; cursor: pointer; transition: all .2s ease;
 }
 .pt-nav-btn:hover { background: #1F4FD8; color: #fff; border-color: #1F4FD8; }
+/* Contact Us CTA button: white text + arrow (normal and hover) */
+.sm-ctaband .sm-btn-light,
+.sm-ctaband .sm-btn-light:hover,
+.sm-ctaband .sm-btn-light:focus-visible,
+.sm-ctaband .sm-btn-light:active,
+.sm-ctaband .sm-btn-light span,
+.sm-ctaband .sm-btn-light svg,
+.sm-ctaband .sm-btn-light:hover span,
+.sm-ctaband .sm-btn-light:hover svg {
+  color: #fff !important;
+}
+
+/* ---- Inner page heroes: same video + blue tint as the Products banner ---- */
+.page-art-backdrop-video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+}
+.page-art-backdrop-tint { position: absolute; inset: 0; background: rgba(20, 63, 122, .55); }
+.page-art-backdrop-image, .page-art-backdrop-shade { display: none !important; }
+
+main section.isolate[class*="from-[#0B1F3A]"] {
+  background: #143f7a !important;
+  color: #fff !important;
+  min-height: 300px;
+}
+main section.isolate[class*="from-[#0B1F3A]"] > .page-art-backdrop { display: block !important; z-index: 0; }
+main section.isolate[class*="from-[#0B1F3A]"] :is(h1, h2, h3, h4) {
+  color: #fff !important;
+  font-family: "Poppins", "Inter", sans-serif;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .35);
+}
+main section.isolate[class*="from-[#0B1F3A]"] p,
+main section.isolate[class*="from-[#0B1F3A]"] [class*="text-[#C9D6EE]"] {
+  color: #fff !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, .35);
+}
+.contact-hero__ambience { display: none !important; }

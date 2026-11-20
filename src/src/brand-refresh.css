@@ -1,0 +1,1315 @@
+/* SkyMirr brand refresh: white surfaces, corporate blue and restrained orange. */
+:root {
+  --brand-blue: #1f4fd8;
+  --brand-blue-hover: #1743ba;
+  --brand-blue-light: #4c8df6;
+  --brand-navy: #0b1f3a;
+  --brand-orange: #d7783b;
+  --brand-orange-hover: #bd5c22;
+  --brand-orange-button: #bf541b;
+  --brand-orange-button-hover: #a84915;
+  --brand-orange-soft: #fff3e9;
+  --brand-line: #e2e7ef;
+  --brand-muted: #5b6b82;
+  --color-sand: var(--brand-line);
+  --color-border-subtle: var(--brand-line);
+  --color-slate-200: var(--brand-line);
+  --color-slate-300: var(--brand-line);
+  --line: var(--brand-line);
+  --highlight-orange: var(--brand-orange);
+  --highlight-orange-soft: var(--brand-orange-soft);
+  --px-line: var(--brand-line);
+  --sm-hair: var(--brand-line);
+  --sm-teal: var(--brand-blue);
+  --sm-cyan: var(--brand-blue-light);
+  --sm-mute: var(--brand-muted);
+  color-scheme: light;
+}
+
+html {
+  background: #fff;
+  scrollbar-color: var(--brand-blue) #fff;
+  scroll-behavior: smooth;
+}
+
+body,
+#root,
+main,
+.sm-home,
+.sm-home > section,
+.px-band-alt {
+  background-color: #fff !important;
+}
+
+body {
+  color: var(--brand-navy);
+}
+
+/* Keep the header and hero aligned as one clean top region. */
+header.sm-header {
+  top: var(--ab-off, 0px) !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--brand-line) !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+header.sm-header[data-scrolled] {
+  background: #fff !important;
+  box-shadow: none !important;
+}
+
+header.sm-header::before {
+  display: block;
+  height: 2px;
+  background: var(--brand-blue) !important;
+  opacity: 1;
+}
+
+.sm-header-inner {
+  max-width: 1480px;
+  height: 76px;
+  padding-inline: clamp(18px, 4vw, 52px);
+}
+
+.sm-header[data-scrolled] .sm-header-inner { height: 68px; }
+.sm-brand-img { height: 38px; filter: grayscale(1) saturate(0); }
+.sm-header[data-scrolled] .sm-brand-img { height: 34px; }
+
+header.sm-header .sm-nav,
+header.sm-header .sm-actions,
+header.sm-header .sm-nav .sm-link,
+header.sm-header .sm-icon-btn {
+  color: var(--brand-navy) !important;
+}
+
+header.sm-header .sm-link {
+  border-radius: 0;
+  font-weight: 600;
+}
+
+header.sm-header .sm-link::after {
+  height: 2px;
+  bottom: 1px;
+  border-radius: 0;
+  background: var(--brand-orange) !important;
+}
+
+header.sm-header .sm-link:hover,
+header.sm-header .sm-dd:hover > .sm-link,
+header.sm-header .sm-dd:focus-within > .sm-link,
+header.sm-header .sm-link[data-active] {
+  color: var(--brand-blue) !important;
+}
+
+header.sm-header .sm-cta,
+header.sm-header button[class*="border-white"] {
+  color: var(--brand-blue) !important;
+  border-color: var(--brand-line) !important;
+  background: #fff !important;
+}
+
+header.sm-header .sm-cta:hover,
+header.sm-header button[class*="border-white"]:hover {
+  color: var(--brand-blue-hover) !important;
+  background: var(--brand-orange-soft) !important;
+  border-color: var(--brand-orange) !important;
+}
+
+header.sm-header .sm-cta svg,
+header.sm-header button[class*="border-white"] svg {
+  color: var(--brand-orange) !important;
+}
+
+/* Dropdowns use readable white panels and thin blue/orange interaction cues. */
+header.sm-header .sm-pop,
+header.sm-header .sm-pop.sm-mega {
+  color: var(--brand-navy) !important;
+  background: #fff !important;
+  border: 1px solid var(--brand-line) !important;
+  border-radius: 16px !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+.sm-search {
+  border-color: var(--brand-line) !important;
+  box-shadow: none !important;
+  animation: searchDoorIn 0.42s cubic-bezier(0.22, 1, 0.36, 1) both !important;
+}
+
+.sm-search-overlay { animation: none !important; }
+
+header.sm-header .sm-pop .sm-pop-item,
+header.sm-header .sm-mega-head,
+header.sm-header .sm-mega-link,
+header.sm-header .sm-drawer-item {
+  color: var(--brand-navy) !important;
+}
+
+header.sm-header .sm-pop-txt b,
+header.sm-header .sm-mega-head b {
+  color: var(--brand-navy) !important;
+}
+
+header.sm-header .sm-pop-txt small,
+header.sm-header .sm-mega-head small {
+  color: var(--brand-muted) !important;
+}
+
+header.sm-header .sm-mega-links { border-left-color: var(--brand-line) !important; }
+header.sm-header .sm-mega-count {
+  color: var(--brand-blue) !important;
+  background: #f2f6fd !important;
+}
+
+header.sm-header .sm-mega .sm-pop-ico {
+  color: var(--brand-blue) !important;
+  background: #f2f6fd !important;
+  border: 1px solid var(--brand-line) !important;
+}
+
+header.sm-header .sm-pop-item:is(:hover, :focus-visible),
+header.sm-header .sm-mega-head:is(:hover, :focus-visible),
+header.sm-header .sm-mega-link:is(:hover, :focus-visible),
+header.sm-header .sm-drawer-item:is(:hover, :focus-visible, [data-active]) {
+  color: var(--brand-navy) !important;
+  background: var(--brand-orange-soft) !important;
+  border-color: var(--brand-orange) !important;
+  outline: 1px solid var(--brand-orange) !important;
+  outline-offset: -1px;
+  box-shadow: none !important;
+}
+
+header.sm-header .sm-pop-item:is(:hover, :focus-visible) :is(b, small, svg),
+header.sm-header .sm-mega-head:is(:hover, :focus-visible) :is(b, small, svg),
+header.sm-header .sm-mega-link:is(:hover, :focus-visible) svg {
+  color: var(--brand-navy) !important;
+}
+
+header.sm-header .sm-drawer {
+  background: #fff !important;
+  border-top: 1px solid var(--brand-line) !important;
+  box-shadow: none !important;
+}
+
+header.sm-header .sm-drawer .text-white,
+header.sm-header .sm-drawer .text-white\/90 {
+  color: var(--brand-navy) !important;
+}
+
+header.sm-header .sm-drawer .bg-white\/10,
+header.sm-header .sm-drawer .bg-white\/15 {
+  background: #fff !important;
+  border-color: var(--brand-line) !important;
+}
+
+header.sm-header .sm-drawer .border-white\/10,
+header.sm-header .sm-drawer .border-white\/15 {
+  border-color: var(--brand-line) !important;
+}
+
+header.sm-header .sm-drawer .text-\[\#4C8DF6\] { color: var(--brand-blue) !important; }
+
+/* Menu panels reveal horizontally instead of scaling or fading into place. */
+header.sm-header .nav-pop {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: transform 0.22s ease, opacity 0.18s ease,
+    visibility 0s linear 0.22s;
+}
+
+header.sm-header .nav-pop[data-open="true"] {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+/* The slider keeps its video backdrop; blue leads, with orange as a small cue. */
+#home-hero.px-band { background: #071226 !important; }
+#home-hero .sky-hero { min-height: max(540px, 100svh); }
+#home-hero .sky-hero-track { min-height: inherit; align-items: stretch; }
+#home-hero .sky-hero-slide {
+  min-height: max(540px, 100svh);
+  transform: none !important;
+  transition-property: opacity !important;
+  transition-duration: 700ms !important;
+  transition-timing-function: ease-in-out !important;
+}
+#home-hero .sky-hero-product {
+  scale: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+#home-hero .sky-hero-product.opacity-0 {
+  z-index: 0 !important;
+  opacity: 0 !important;
+}
+#home-hero .sky-hero-product.opacity-100 {
+  z-index: 20 !important;
+  animation: heroProductFadeIn 700ms ease-out both;
+}
+@keyframes heroProductFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+#home-hero .hero-accent,
+#home-hero [class*="text-[#8DB4FF]"] { color: #8db4ff !important; }
+#home-hero [class*="text-[#F1B58F]"] { color: #efb48f !important; }
+#home-hero button[class*="bg-[#1F4FD8]"] {
+  color: #fff !important;
+  background: var(--brand-blue) !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+#home-hero button[class*="bg-[#1F4FD8]"]:is(:hover, :focus-visible) {
+  color: #fff !important;
+  background: var(--brand-blue-hover) !important;
+  border-color: var(--brand-orange) !important;
+  outline: 1px solid var(--brand-orange) !important;
+  outline-offset: 2px;
+}
+#home-hero button[class*="bg-[#1F4FD8]"] svg { color: #fff !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  #home-hero .sky-hero-slide { transition-duration: 0ms !important; }
+  #home-hero .sky-hero-product { animation: none !important; }
+}
+
+/* Inner page banners use the same white canvas; keep visual media in its frame. */
+main section[class*="from-[#0B1F3A]"] {
+  color: var(--brand-navy) !important;
+  background: #fff !important;
+}
+
+main section[class*="from-[#0B1F3A]"] + :is(section, div[class*="-mt-8"]) {
+  margin-top: 0 !important;
+}
+
+main section[class*="from-[#0B1F3A]"] > [aria-hidden="true"]:not(.page-art-backdrop) {
+  display: none !important;
+}
+
+/* Banner image (public/images/downloaded/banner.jpg) stays visible behind every page hero. */
+main section[class*="from-[#0B1F3A]"] > .page-art-backdrop {
+  display: block !important;
+  z-index: 0;
+}
+
+main section[class*="from-[#0B1F3A]"] :is(h1, h2, h3, h4) {
+  color: var(--brand-navy) !important;
+}
+
+main section[class*="from-[#0B1F3A]"] strong.text-white {
+  color: var(--brand-navy) !important;
+}
+
+main section[class*="from-[#0B1F3A]"] p {
+  color: var(--brand-muted) !important;
+}
+
+main section[class*="from-[#0B1F3A]"] [class*="text-[#C9D6EE]"] {
+  color: var(--brand-muted) !important;
+}
+
+main section[class*="from-[#0B1F3A]"] [class*="bg-white/10"] {
+  color: var(--brand-navy) !important;
+  background: #f3f6fb !important;
+  border-color: var(--brand-line) !important;
+}
+
+main section[class*="from-[#0B1F3A]"] :is(a, button):not([class*="bg-"]):hover {
+  color: var(--brand-blue) !important;
+}
+
+main section[class*="from-[#0B1F3A]"] .inline-flex[class*="bg-[#0B1F3A]"] {
+  background: #f3f6fb !important;
+  border-color: var(--brand-line) !important;
+  color: var(--brand-blue) !important;
+}
+
+/* White page sections, faint cool borders and no ambient decoration wash. */
+.sm-home .px-band-alt,
+.sm-home > section { background: #fff !important; }
+.px-band + .px-band::before { background: var(--brand-line) !important; }
+.fx-wash,
+.fx-waves,
+.fx-orbit,
+.fx-blob,
+.fx-blob-b,
+.fx-hairline,
+.fx-streak { display: none !important; }
+main [class*="blur-["] { display: none !important; }
+
+main [class*="border-[#E3D4BA]"],
+main [class*="border-[#E3D4BA]/"] {
+  border-color: var(--brand-line) !important;
+}
+
+main [class*="bg-[#E8F0FE]"],
+main [class*="bg-[#FFFFFF]"],
+main [class*="bg-[#E3D4BA]"],
+main [class*="bg-[#F8FAFC]"],
+main [class*="bg-slate-50"],
+main [class*="bg-gray-50"] {
+  background-color: #fff !important;
+}
+
+main [class*="from-white"][class*="to-[#E8F0FE]"],
+main [class*="from-[#FFFFFF]"][class*="to-[#E8F0FE]"] {
+  background-image: none !important;
+  background-color: #fff !important;
+}
+
+main [class*="shadow-"] {
+  box-shadow: none !important;
+}
+
+main [class*="hover:shadow-"]:hover,
+main .group:hover {
+  box-shadow: none !important;
+}
+
+main [class*="border-[#4C8DF6]"]:hover,
+main [class*="border-[#1F4FD8]"]:hover,
+main [class*="hover:border-[#4C8DF6]"]:hover {
+  border-color: var(--brand-blue-light) !important;
+}
+
+main :is(h1, h2, h3, h4) {
+  text-wrap: balance;
+}
+
+main p {
+  max-width: 70ch;
+  line-height: 1.65;
+  white-space: normal !important;
+}
+
+main :is(input, select, textarea) {
+  border-color: var(--brand-line) !important;
+  background-color: #fff !important;
+}
+
+main :is(input, select, textarea):focus {
+  border-color: var(--brand-blue) !important;
+  outline: 2px solid color-mix(in srgb, var(--brand-blue) 18%, transparent);
+  outline-offset: 1px;
+}
+
+/* Product detail hero becomes a light, readable introduction block. */
+.pdx-hero {
+  color: var(--brand-navy) !important;
+  background: #fff !important;
+  box-shadow: none !important;
+}
+
+.pdx-hero h1,
+.pdx-hero h2,
+.pdx-hero h3,
+.pdx-hero h1 ~ p,
+.pdx-hero p.text-blue-700 {
+  color: var(--brand-navy) !important;
+}
+
+.pdx-hero-visual {
+  background: #fff !important;
+  border-color: var(--brand-line) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+.pdx-hero-visual :is(h3, p) { color: var(--brand-navy) !important; }
+.pdx-hero-visual img { filter: none !important; }
+
+/* A light contact band continues the white page rhythm. */
+.sm-ctaband {
+  color: var(--brand-navy) !important;
+  background: #fff !important;
+  border-top: 1px solid var(--brand-line);
+}
+
+.sm-ctaband::before,
+.sm-ctaband::after { display: none !important; }
+.sm-ctaband h2 { color: var(--brand-navy) !important; }
+.sm-ctaband .sm-eyebrow { color: var(--brand-blue) !important; }
+.sm-ctaband-rings { color: var(--brand-blue-light) !important; opacity: 0.12; }
+
+.sm-ctaband .sm-btn-light {
+  color: #fff !important;
+  background: var(--brand-blue) !important;
+  border: 1px solid var(--brand-blue) !important;
+  box-shadow: none !important;
+}
+
+.sm-ctaband .sm-btn-light:hover {
+  color: #fff !important;
+  background: var(--brand-blue-hover) !important;
+  border-color: var(--brand-orange) !important;
+  outline: 1px solid var(--brand-orange) !important;
+}
+
+/* Footer uses the same plain white canvas and low-contrast divider system. */
+footer {
+  color: var(--brand-muted) !important;
+  background: #fff !important;
+  border-color: var(--brand-line) !important;
+}
+
+footer[class*="text-[#C9D6EE]"] { color: var(--brand-muted) !important; }
+footer > div[aria-hidden="true"] { display: none !important; }
+footer::before { height: 1px !important; background: var(--brand-line) !important; }
+footer :is(.text-white, [class*="text-[#C9D6EE]"]) { color: var(--brand-muted) !important; }
+footer img { filter: grayscale(1) saturate(0); }
+footer [class*="bg-[#0B1F3A]"] {
+  color: var(--brand-muted) !important;
+  background: #fff !important;
+  border-color: var(--brand-line) !important;
+}
+footer a:hover { color: var(--brand-blue) !important; }
+footer a[class]:hover,
+footer a[class]:focus-visible { color: var(--brand-blue) !important; }
+footer a[href^="tel:"] { color: var(--brand-navy) !important; }
+footer [class*="shadow-"] { box-shadow: none !important; }
+footer a[class*="bg-white/10"] {
+  color: var(--brand-blue) !important;
+  background: #f3f6fb !important;
+  border: 1px solid var(--brand-line);
+}
+footer a[class*="bg-white/10"]:hover {
+  color: var(--brand-blue) !important;
+  background: var(--brand-orange-soft) !important;
+  border-color: var(--brand-orange) !important;
+}
+
+/* Restore blue primary actions after legacy orange-only theme rules. */
+:is(button, a)[class*="bg-[#1F4FD8]"],
+:is(button, a)[class*="bg-[#4C8DF6]"],
+:is(button, a)[class*="bg-[#0B1F3A]"],
+:is(button, a)[class*="bg-blue-600"],
+:is(button, a)[class*="bg-blue-700"],
+:is(button, a)[class*="from-[#1F4FD8]"],
+:is(button, a)[class*="from-blue-600"],
+:is(button, a)[class*="bg-gradient"] {
+  box-shadow: none !important;
+}
+
+:is(button, a)[class*="bg-[#1F4FD8]"],
+:is(button, a)[class*="bg-[#4C8DF6]"],
+:is(button, a)[class*="bg-[#0B1F3A]"],
+:is(button, a)[class*="bg-blue-600"],
+:is(button, a)[class*="bg-blue-700"],
+:is(button, a)[class*="from-[#1F4FD8]"],
+:is(button, a)[class*="from-blue-600"],
+:is(button, a)[class*="bg-gradient"] {
+  background-color: var(--brand-blue) !important;
+  background-image: none !important;
+  border-color: var(--brand-blue) !important;
+  color: #fff !important;
+}
+
+:is(button, a)[class*="bg-[#1F4FD8]"]:is(:hover, :focus-visible, :active),
+:is(button, a)[class*="bg-[#4C8DF6]"]:is(:hover, :focus-visible, :active),
+:is(button, a)[class*="bg-[#0B1F3A]"]:is(:hover, :focus-visible, :active),
+:is(button, a)[class*="bg-blue-600"]:is(:hover, :focus-visible, :active),
+:is(button, a)[class*="bg-blue-700"]:is(:hover, :focus-visible, :active),
+:is(button, a)[class*="from-[#1F4FD8]"]:is(:hover, :focus-visible, :active),
+:is(button, a)[class*="from-blue-600"]:is(:hover, :focus-visible, :active),
+:is(button, a)[class*="bg-gradient"]:is(:hover, :focus-visible, :active) {
+  background-color: var(--brand-blue-hover) !important;
+  background-image: none !important;
+  border-color: var(--brand-orange) !important;
+  color: #fff !important;
+  outline: 1px solid var(--brand-orange) !important;
+  outline-offset: 2px;
+  box-shadow: none !important;
+}
+
+:is(button, a)[class*="bg-[#1F4FD8]"]:is([aria-selected="true"], [aria-pressed="true"], [data-active]),
+:is(button, a)[class*="bg-[#4C8DF6]"]:is([aria-selected="true"], [aria-pressed="true"], [data-active]),
+:is(button, a)[class*="bg-[#0B1F3A]"]:is([aria-selected="true"], [aria-pressed="true"], [data-active]),
+:is(button, a)[class*="bg-blue-600"]:is([aria-selected="true"], [aria-pressed="true"], [data-active]),
+:is(button, a)[class*="bg-blue-700"]:is([aria-selected="true"], [aria-pressed="true"], [data-active]),
+:is(button, a)[class*="from-[#1F4FD8]"]:is([aria-selected="true"], [aria-pressed="true"], [data-active]) {
+  background-color: var(--brand-blue) !important;
+  background-image: none !important;
+  border-color: var(--brand-blue) !important;
+  color: #fff !important;
+}
+
+:is(button, a)[class*="bg-[#1F4FD8]"]:is(:hover, :focus-visible, :active) :is(svg, span),
+:is(button, a)[class*="bg-[#4C8DF6]"]:is(:hover, :focus-visible, :active) :is(svg, span),
+:is(button, a)[class*="bg-[#0B1F3A]"]:is(:hover, :focus-visible, :active) :is(svg, span),
+:is(button, a)[class*="bg-blue-600"]:is(:hover, :focus-visible, :active) :is(svg, span),
+:is(button, a)[class*="bg-blue-700"]:is(:hover, :focus-visible, :active) :is(svg, span),
+:is(button, a)[class*="from-[#1F4FD8]"]:is(:hover, :focus-visible, :active) :is(svg, span),
+:is(button, a)[class*="from-blue-600"]:is(:hover, :focus-visible, :active) :is(svg, span),
+:is(button, a)[class*="bg-gradient"]:is(:hover, :focus-visible, :active) :is(svg, span) {
+  color: #fff !important;
+}
+
+:is(button, a)[class*="bg-[#1F4FD8]"]:is([aria-selected="true"], [aria-pressed="true"], [data-active]) :is(svg, span),
+:is(button, a)[class*="bg-[#4C8DF6]"]:is([aria-selected="true"], [aria-pressed="true"], [data-active]) :is(svg, span),
+:is(button, a)[class*="bg-[#0B1F3A]"]:is([aria-selected="true"], [aria-pressed="true"], [data-active]) :is(svg, span),
+:is(button, a)[class*="bg-blue-600"]:is([aria-selected="true"], [aria-pressed="true"], [data-active]) :is(svg, span),
+:is(button, a)[class*="bg-blue-700"]:is([aria-selected="true"], [aria-pressed="true"], [data-active]) :is(svg, span),
+:is(button, a)[class*="from-[#1F4FD8]"]:is([aria-selected="true"], [aria-pressed="true"], [data-active]) :is(svg, span) {
+  color: #fff !important;
+}
+
+main :is(button, a)[class*="text-[#1F4FD8]"],
+main :is(button, a)[class*="text-[#4C8DF6]"],
+main :is(button, a)[class*="text-blue-600"],
+main :is(button, a)[class*="text-blue-700"] {
+  color: var(--brand-blue) !important;
+}
+
+/* Replace lift/shadow hovers with a quiet border color change. */
+main div.group:not(.no-lift):hover,
+main .glass-panel-light:hover,
+main .card-gradient-hover:hover,
+main [class*="hover:-translate"]:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+main a:not([class*="rounded"]):hover,
+main p a:not([class*="rounded"]):hover {
+  color: var(--brand-blue) !important;
+  text-decoration-color: var(--brand-orange) !important;
+}
+
+main [class*="drop-shadow"] { filter: none !important; }
+
+main [class*="animate-in"][class*="zoom-in"] {
+  animation: modalDoorIn 0.42s cubic-bezier(0.22, 1, 0.36, 1) both !important;
+}
+
+#applications img.animate-fade-in {
+  animation: applicationImageSlide 0.42s cubic-bezier(0.22, 1, 0.36, 1) both !important;
+}
+
+#applications .applications-story {
+  animation: applicationStorySlide 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes applicationImageSlide {
+  from { transform: translateX(28px); clip-path: inset(0 0 0 100%); }
+  to { transform: translateX(0); clip-path: inset(0 0 0 0); }
+}
+
+@keyframes applicationStorySlide {
+  from { transform: translateX(18px); }
+  to { transform: translateX(0); }
+}
+
+@keyframes searchDoorIn {
+  from { opacity: 0; clip-path: inset(0 0 0 100%); transform: translateX(24px); }
+  to { opacity: 1; clip-path: inset(0 0 0 0); transform: translateX(0); }
+}
+
+@keyframes modalDoorIn {
+  from { clip-path: inset(0 0 0 100%); transform: translateX(28px); }
+  to { clip-path: inset(0 0 0 0); transform: translateX(0); }
+}
+
+/* Fade page transitions without horizontal movement. */
+.page-transition-viewport {
+  overflow-x: clip;
+}
+
+.page-transition-panel {
+  width: 100%;
+  min-height: 1px;
+  will-change: opacity;
+}
+
+@media (max-width: 1023px) {
+  .sm-header-inner { height: 68px; }
+  .sm-header[data-scrolled] .sm-header-inner { height: 64px; }
+}
+
+@media (max-width: 640px) {
+  header.sm-header .sm-header-inner { padding-inline: 16px; }
+  .sm-brand-img { max-width: 42vw; height: 33px; }
+  main p { max-width: 100%; }
+}
+
+@media (max-height: 520px) {
+  #home-hero .sky-hero,
+  #home-hero .sky-hero-slide { min-height: 540px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { scroll-behavior: auto !important; }
+  .page-transition-panel { will-change: auto; }
+  #applications img.animate-fade-in,
+  #applications .applications-story,
+  .sm-search,
+  main [class*="animate-in"][class*="zoom-in"] { animation: none !important; }
+}
+
+/* Use orange for actions, outlines, and selected highlights. */
+html { scrollbar-color: var(--brand-orange) #fff; }
+header.sm-header::before { background: var(--brand-orange) !important; }
+header.sm-header .sm-link:is(:hover, :focus-visible, [data-active]),
+header.sm-header .sm-dd:is(:hover, :focus-within) > .sm-link {
+  color: var(--brand-orange-button) !important;
+}
+header.sm-header .sm-cta,
+header.sm-header button[class*="border-white"] {
+  color: var(--brand-orange-button) !important;
+  border-color: var(--brand-orange) !important;
+}
+header.sm-header .sm-cta:is(:hover, :focus-visible),
+header.sm-header button[class*="border-white"]:is(:hover, :focus-visible) {
+  color: var(--brand-orange-button-hover) !important;
+  background: var(--brand-orange-soft) !important;
+  border-color: var(--brand-orange) !important;
+  outline: 1px solid var(--brand-orange) !important;
+}
+header.sm-header .sm-mega-count,
+header.sm-header .sm-mega .sm-pop-ico {
+  color: var(--brand-orange-button) !important;
+  background: var(--brand-orange-soft) !important;
+  border-color: var(--brand-orange) !important;
+}
+
+#home-hero [class*="text-[#8DB4FF]"],
+#home-hero [class*="text-[#4C8DF6]"],
+#home-hero [class*="text-[#F1B58F]"] {
+  color: var(--brand-orange) !important;
+}
+#home-hero button[class*="bg-[#1F4FD8]"],
+#home-hero button[class*="bg-[#4C8DF6]"] {
+  background: var(--brand-orange-button) !important;
+  border-color: var(--brand-orange-button) !important;
+  color: #fff !important;
+}
+#home-hero button[class*="bg-[#1F4FD8]"]:is(:hover, :focus-visible),
+#home-hero button[class*="bg-[#4C8DF6]"]:is(:hover, :focus-visible) {
+  background: var(--brand-orange-button-hover) !important;
+  border-color: var(--brand-orange) !important;
+  outline: 1px solid var(--brand-orange) !important;
+}
+#home-hero button[role="tab"][aria-selected="true"] {
+  background: var(--brand-orange) !important;
+}
+
+main :is(button, a)[class*="bg-[#1F4FD8]"],
+main :is(button, a)[class*="bg-[#4C8DF6]"],
+main :is(button, a)[class*="bg-[#0B1F3A]"],
+main :is(button, a)[class*="bg-blue-600"],
+main :is(button, a)[class*="bg-blue-700"],
+main :is(button, a)[class*="from-[#1F4FD8]"],
+main :is(button, a)[class*="from-blue-600"],
+main :is(button, a)[class*="bg-gradient"] {
+  color: #fff !important;
+  background-color: var(--brand-orange-button) !important;
+  background-image: none !important;
+  border-color: var(--brand-orange-button) !important;
+  box-shadow: none !important;
+}
+main :is(button, a)[class*="bg-[#1F4FD8]"],
+main :is(button, a)[class*="bg-[#4C8DF6]"],
+main :is(button, a)[class*="bg-[#0B1F3A]"],
+main :is(button, a)[class*="bg-blue-600"],
+main :is(button, a)[class*="bg-blue-700"],
+main :is(button, a)[class*="from-[#1F4FD8]"],
+main :is(button, a)[class*="from-blue-600"],
+main :is(button, a)[class*="bg-gradient"] {
+  transition: background-color 180ms ease, border-color 180ms ease, outline-color 180ms ease;
+}
+main :is(button, a)[class*="bg-[#1F4FD8]"]:is(:hover, :focus-visible, :active),
+main :is(button, a)[class*="bg-[#4C8DF6]"]:is(:hover, :focus-visible, :active),
+main :is(button, a)[class*="bg-[#0B1F3A]"]:is(:hover, :focus-visible, :active),
+main :is(button, a)[class*="bg-blue-600"]:is(:hover, :focus-visible, :active),
+main :is(button, a)[class*="bg-blue-700"]:is(:hover, :focus-visible, :active),
+main :is(button, a)[class*="from-[#1F4FD8]"]:is(:hover, :focus-visible, :active),
+main :is(button, a)[class*="from-blue-600"]:is(:hover, :focus-visible, :active),
+main :is(button, a)[class*="bg-gradient"]:is(:hover, :focus-visible, :active) {
+  color: #fff !important;
+  background-color: var(--brand-orange-button-hover) !important;
+  background-image: none !important;
+  border-color: var(--brand-orange) !important;
+  outline: 1px solid var(--brand-orange) !important;
+  outline-offset: 2px;
+  box-shadow: none !important;
+}
+main :is(button, a):is([aria-selected="true"], [aria-pressed="true"], [data-active]) {
+  border-color: var(--brand-orange) !important;
+  outline-color: var(--brand-orange) !important;
+}
+main :is(button, a):is([aria-selected="true"], [aria-pressed="true"])[class*="bg-"] {
+  color: #fff !important;
+  background-color: var(--brand-orange-button) !important;
+  background-image: none !important;
+}
+
+main :is(button, a):is([class*="border-[#4C8DF6]"], [class*="border-[#1F4FD8]"], [class*="border-[#E3D4BA]"], [class*="border-blue-"]):not([class*="bg-[#1F4FD8]"]):not([class*="bg-[#4C8DF6]"]):not([class*="bg-blue-"]):not([class*="bg-gradient"]),
+main :is(button, a)[class*="border-white"]:not([class*="bg-[#1F4FD8]"]):not([class*="bg-blue-"]) {
+  color: var(--brand-orange-button) !important;
+  border-color: var(--brand-orange) !important;
+}
+main :is(button, a):is([class*="border-[#4C8DF6]"], [class*="border-[#1F4FD8]"], [class*="border-[#E3D4BA]"], [class*="border-blue-"], [class*="border-white"]):is(:hover, :focus-visible) {
+  color: var(--brand-orange-button-hover) !important;
+  background-color: var(--brand-orange-soft) !important;
+  border-color: var(--brand-orange) !important;
+  outline: 1px solid var(--brand-orange) !important;
+  outline-offset: 2px;
+}
+
+main [class*="text-[#1F4FD8]"],
+main [class*="text-[#4C8DF6]"],
+main [class*="text-blue-600"],
+main [class*="text-blue-700"] {
+  color: var(--brand-orange-button) !important;
+}
+main :not(button):not(a)[class*="bg-[#1F4FD8]"],
+main :not(button):not(a)[class*="bg-[#4C8DF6]"],
+main :not(button):not(a)[class*="bg-blue-50"],
+main :not(button):not(a)[class*="bg-blue-100"],
+main :not(button):not(a)[class*="bg-[#E8F0FE]"] {
+  background-color: var(--brand-orange-soft) !important;
+  background-image: none !important;
+}
+main [class*="border-[#4C8DF6]"],
+main [class*="border-[#1F4FD8]"],
+main [class*="border-blue-"] {
+  border-color: var(--brand-orange) !important;
+}
+main :is(input, select, textarea):focus {
+  border-color: var(--brand-orange) !important;
+  outline: 2px solid color-mix(in srgb, var(--brand-orange) 24%, transparent) !important;
+}
+main a:not([class*="rounded"]):hover,
+main p a:not([class*="rounded"]):hover { color: var(--brand-orange-button) !important; }
+.sm-ctaband .sm-btn-light {
+  background: var(--brand-orange-button) !important;
+  border-color: var(--brand-orange-button) !important;
+}
+.sm-ctaband .sm-btn-light:hover {
+  background: var(--brand-orange-button-hover) !important;
+  border-color: var(--brand-orange) !important;
+  outline: 1px solid var(--brand-orange) !important;
+}
+footer a:hover,
+footer a[class]:focus-visible { color: var(--brand-orange-button) !important; }
+footer a[class*="bg-white/10"] {
+  color: var(--brand-orange-button) !important;
+  background: var(--brand-orange-soft) !important;
+  border-color: var(--brand-orange) !important;
+}
+footer a[class*="bg-white/10"]:is(:hover, :focus-visible) {
+  color: var(--brand-orange-button-hover) !important;
+  border-color: var(--brand-orange-button) !important;
+  outline: 1px solid var(--brand-orange) !important;
+}
+.fixed.top-0.left-0.right-0 > div[class*="from-blue-600"] {
+  background: var(--brand-orange) !important;
+  box-shadow: none !important;
+}
+
+/* Blue leads the interface; orange is reserved for the primary hero CTA and small accents. */
+#demo-video { color: #fff !important; }
+#demo-video h2,
+#demo-video strong { color: #fff !important; }
+#demo-video .space-y-4 { color: #d6e2f2 !important; }
+html { scrollbar-color: var(--brand-blue) #fff; }
+header.sm-header::before { background: var(--brand-blue) !important; }
+header.sm-header .sm-link:is(:hover, :focus-visible, [data-active]),
+header.sm-header .sm-dd:is(:hover, :focus-within) > .sm-link {
+  color: var(--brand-blue) !important;
+}
+header.sm-header .sm-cta,
+header.sm-header button[class*="border-white"] {
+  color: var(--brand-blue) !important;
+  border-color: var(--brand-blue-light) !important;
+}
+header.sm-header .sm-cta:is(:hover, :focus-visible),
+header.sm-header button[class*="border-white"]:is(:hover, :focus-visible) {
+  color: var(--brand-blue-hover) !important;
+  background: #f1f6ff !important;
+  border-color: var(--brand-blue) !important;
+  outline: 1px solid var(--brand-blue-light) !important;
+}
+header.sm-header .sm-mega-count,
+header.sm-header .sm-mega .sm-pop-ico {
+  color: var(--brand-blue) !important;
+  background: #f1f6ff !important;
+  border-color: var(--brand-line) !important;
+}
+
+#home-hero [class*="text-[#8DB4FF]"],
+#home-hero [class*="text-[#4C8DF6]"] { color: var(--brand-blue-light) !important; }
+#home-hero button[aria-label="Previous slide"],
+#home-hero button[aria-label="Next slide"] {
+  background: var(--brand-blue) !important;
+  border-color: rgba(255,255,255,.3) !important;
+}
+#home-hero button[aria-label="Previous slide"]:is(:hover, :focus-visible),
+#home-hero button[aria-label="Next slide"]:is(:hover, :focus-visible) {
+  background: var(--brand-blue-hover) !important;
+  border-color: var(--brand-orange) !important;
+  outline: 1px solid var(--brand-orange) !important;
+}
+#home-hero button[role="tab"][aria-selected="true"] { background: var(--brand-blue-light) !important; }
+
+main :is(button, a)[class*="bg-[#1F4FD8]"],
+main :is(button, a)[class*="bg-[#4C8DF6]"],
+main :is(button, a)[class*="bg-[#0B1F3A]"],
+main :is(button, a)[class*="bg-blue-600"],
+main :is(button, a)[class*="bg-blue-700"],
+main :is(button, a)[class*="from-[#1F4FD8]"],
+main :is(button, a)[class*="from-blue-600"],
+main :is(button, a)[class*="bg-gradient"] {
+  color: #fff !important;
+  background-color: var(--brand-blue) !important;
+  background-image: none !important;
+  border-color: var(--brand-blue) !important;
+}
+main :is(button, a)[class*="bg-[#1F4FD8]"]:is(:hover, :focus-visible, :active),
+main :is(button, a)[class*="bg-[#4C8DF6]"]:is(:hover, :focus-visible, :active),
+main :is(button, a)[class*="bg-[#0B1F3A]"]:is(:hover, :focus-visible, :active),
+main :is(button, a)[class*="bg-blue-600"]:is(:hover, :focus-visible, :active),
+main :is(button, a)[class*="bg-blue-700"]:is(:hover, :focus-visible, :active),
+main :is(button, a)[class*="from-[#1F4FD8]"]:is(:hover, :focus-visible, :active),
+main :is(button, a)[class*="from-blue-600"]:is(:hover, :focus-visible, :active),
+main :is(button, a)[class*="bg-gradient"]:is(:hover, :focus-visible, :active) {
+  color: #fff !important;
+  background-color: var(--brand-blue-hover) !important;
+  background-image: none !important;
+  border-color: var(--brand-blue-light) !important;
+  outline: 1px solid var(--brand-blue-light) !important;
+  outline-offset: 2px;
+}
+main :is(button, a):is([aria-selected="true"], [aria-pressed="true"], [data-active])[class*="bg-"] {
+  color: #fff !important;
+  background-color: var(--brand-blue) !important;
+  background-image: none !important;
+  border-color: var(--brand-blue) !important;
+}
+main :is(button, a):is([class*="border-[#4C8DF6]"], [class*="border-[#1F4FD8]"], [class*="border-[#E3D4BA]"], [class*="border-blue-"]):not([class*="bg-[#1F4FD8]"]):not([class*="bg-[#4C8DF6]"]):not([class*="bg-blue-"]):not([class*="bg-gradient"]),
+main :is(button, a)[class*="border-white"]:not([class*="bg-[#1F4FD8]"]):not([class*="bg-blue-"]) {
+  color: var(--brand-blue) !important;
+  border-color: var(--brand-blue-light) !important;
+}
+main :is(button, a):is([class*="border-[#4C8DF6]"], [class*="border-[#1F4FD8]"], [class*="border-[#E3D4BA]"], [class*="border-blue-"], [class*="border-white"]):is(:hover, :focus-visible) {
+  color: var(--brand-blue-hover) !important;
+  background-color: #f1f6ff !important;
+  border-color: var(--brand-blue) !important;
+  outline: 1px solid var(--brand-blue-light) !important;
+  outline-offset: 2px;
+}
+main [class*="text-[#1F4FD8]"],
+main [class*="text-[#4C8DF6]"],
+main [class*="text-blue-600"],
+main [class*="text-blue-700"] { color: var(--brand-blue) !important; }
+main :not(button):not(a)[class*="bg-[#1F4FD8]"],
+main :not(button):not(a)[class*="bg-[#4C8DF6]"],
+main :not(button):not(a)[class*="bg-blue-50"],
+main :not(button):not(a)[class*="bg-blue-100"],
+main :not(button):not(a)[class*="bg-[#E8F0FE]"] {
+  background-color: #f1f6ff !important;
+  background-image: none !important;
+}
+main [class*="border-[#4C8DF6]"],
+main [class*="border-[#1F4FD8]"],
+main [class*="border-blue-"] { border-color: var(--brand-blue-light) !important; }
+main :is(input, select, textarea):focus {
+  border-color: var(--brand-blue) !important;
+  outline: 2px solid color-mix(in srgb, var(--brand-blue-light) 24%, transparent) !important;
+}
+main a:not([class*="rounded"]):hover,
+main p a:not([class*="rounded"]):hover { color: var(--brand-blue) !important; }
+.sm-ctaband .sm-btn-light {
+  background: var(--brand-blue) !important;
+  border-color: var(--brand-blue) !important;
+}
+.sm-ctaband .sm-btn-light:hover {
+  background: var(--brand-blue-hover) !important;
+  border-color: var(--brand-orange) !important;
+  outline: 1px solid var(--brand-orange) !important;
+}
+footer a:hover,
+footer a[class]:focus-visible { color: var(--brand-blue) !important; }
+footer a[class*="bg-white/10"] {
+  color: var(--brand-blue) !important;
+  background: #f1f6ff !important;
+  border-color: var(--brand-line) !important;
+}
+footer a[class*="bg-white/10"]:is(:hover, :focus-visible) {
+  color: var(--brand-blue-hover) !important;
+  border-color: var(--brand-blue-light) !important;
+  outline: 1px solid var(--brand-orange) !important;
+}
+.fixed.top-0.left-0.right-0 > div[class*="from-blue-600"] {
+  background: var(--brand-blue-light) !important;
+}
+
+/* Keep shared dark page banners readable on every route. */
+main section.isolate[class*="from-[#0B1F3A]"] {
+  color: #fff !important;
+  background: linear-gradient(125deg, #0b1f3a 0%, #12315c 58%, #1d4678 100%) !important;
+}
+main section.isolate[class*="from-[#0B1F3A]"] :is(h1, h2, h3, h4, h5, h6),
+main section.isolate[class*="from-[#0B1F3A]"] strong.text-white {
+  color: #fff !important;
+}
+main section.isolate[class*="from-[#0B1F3A]"] :is(p, li),
+main section.isolate[class*="from-[#0B1F3A]"] [class*="text-[#C9D6EE]"] {
+  color: #d6e2f2 !important;
+}
+main section.isolate[class*="from-[#0B1F3A]"] :is(a, button):not([class*="bg-"]) {
+  color: #9fc1ff !important;
+}
+main section.isolate[class*="from-[#0B1F3A]"] :is(a, button):not([class*="bg-"]):is(:hover, :focus-visible) {
+  color: var(--brand-orange) !important;
+}
+main section.isolate[class*="from-[#0B1F3A]"] [class*="rounded-full"][class*="border"] {
+  color: var(--brand-blue) !important;
+  background: #f1f6ff !important;
+  border-color: var(--brand-blue-light) !important;
+}
+
+/* Technology page: orange cues stay crisp without hover movement or glow. */
+main section.isolate.technology-hero[class*="from-[#0B1F3A]"] .technology-hero-badge[class*="rounded-full"][class*="border"] {
+  color: var(--brand-orange-button) !important;
+  background: var(--brand-orange-soft) !important;
+  border-color: var(--brand-orange) !important;
+}
+.technology-hero-badge svg { color: var(--brand-orange) !important; }
+.technology-blueprint-frame {
+  border-color: var(--brand-line) !important;
+  box-shadow: none !important;
+  transition: border-color 180ms ease, outline-color 180ms ease !important;
+}
+main .technology-blueprint-frame:is(:hover, :focus-visible) {
+  border-color: var(--brand-orange) !important;
+  outline: 1px solid var(--brand-orange) !important;
+  outline-offset: 2px;
+}
+.technology-blueprint-frame .technology-blueprint-zoom {
+  color: var(--brand-orange-button) !important;
+  border: 1px solid var(--brand-orange) !important;
+  box-shadow: none !important;
+}
+main .technology-figure-tag {
+  color: var(--brand-orange-button) !important;
+  background: var(--brand-orange-soft) !important;
+  border-color: var(--brand-orange) !important;
+}
+.technology-action-button {
+  color: #fff !important;
+  background: var(--brand-orange-button) !important;
+  border: 1px solid var(--brand-orange-button) !important;
+  box-shadow: none !important;
+  transition: background-color 180ms ease, border-color 180ms ease, outline-color 180ms ease !important;
+}
+.technology-action-button:is(:hover, :focus-visible, :active) {
+  color: #fff !important;
+  background: var(--brand-orange-button-hover) !important;
+  border-color: var(--brand-orange) !important;
+  outline: 1px solid var(--brand-orange) !important;
+  outline-offset: 2px;
+}
+
+.latest-ticker-band {
+  background: linear-gradient(105deg, #0b1f3a 0%, #173d76 52%, #0b1f3a 100%);
+}
+.latest-ticker-pill { box-shadow: none !important; }
+.latest-ticker-pill:hover { background-color: rgba(255, 255, 255, 0.14) !important; }
+.latest-ticker-headline { animation: latestTickerFade 320ms ease-out both; }
+@keyframes latestTickerFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .latest-ticker-headline { animation: none !important; }
+}
+
+/* Keep interactive highlights and outlines consistently orange site-wide. */
+:focus-visible {
+  outline: 2px solid var(--brand-orange) !important;
+  outline-offset: 2px !important;
+}
+
+main :is(button, a):is(
+  [class*="border-[#4C8DF6]"],
+  [class*="border-[#1F4FD8]"],
+  [class*="border-[#E3D4BA]"],
+  [class*="border-blue-"],
+  [class*="border-white"]
+):is(:hover, :focus-visible, :active) {
+  border-color: var(--brand-orange) !important;
+  outline: 1px solid var(--brand-orange) !important;
+  outline-offset: 2px !important;
+}
+
+main :is(button, a)[class*="bg-[#1F4FD8]"]:is(:hover, :focus-visible, :active),
+main :is(button, a)[class*="bg-[#4C8DF6]"]:is(:hover, :focus-visible, :active),
+main :is(button, a)[class*="bg-[#0B1F3A]"]:is(:hover, :focus-visible, :active),
+main :is(button, a)[class*="bg-blue-600"]:is(:hover, :focus-visible, :active),
+main :is(button, a)[class*="bg-blue-700"]:is(:hover, :focus-visible, :active),
+main :is(button, a)[class*="bg-gradient"]:is(:hover, :focus-visible, :active) {
+  border-color: var(--brand-orange) !important;
+  outline: 1px solid var(--brand-orange) !important;
+  outline-offset: 2px !important;
+}
+
+main :is(button, a):is([aria-selected="true"], [aria-pressed="true"], [data-active])[class*="border-"] {
+  border-color: var(--brand-orange) !important;
+  outline: 1px solid var(--brand-orange) !important;
+  outline-offset: 2px !important;
+}
+main :is(button, a, [role="tab"], [role="button"]):is([aria-selected="true"], [aria-pressed="true"], [data-active]) {
+  border-color: var(--brand-orange) !important;
+  outline: 1px solid var(--brand-orange) !important;
+  outline-offset: 2px !important;
+}
+
+main [class*="border-[#4C8DF6]"]:is(:hover, :focus-within),
+main [class*="border-[#1F4FD8]"]:is(:hover, :focus-within),
+main [class*="border-blue-"]:is(:hover, :focus-within),
+header [class*="border-"]:is(:hover, :focus-within, [data-active], [aria-selected="true"]) {
+  border-color: var(--brand-orange) !important;
+  outline: 1px solid var(--brand-orange) !important;
+  outline-offset: 2px !important;
+}
+
+main :is([role="button"], [role="tab"], [role="option"], [tabindex], [onclick])[class*="border-"]:is(
+  :hover,
+  :focus-visible,
+  [aria-selected="true"],
+  [aria-pressed="true"],
+  [data-active]
+) {
+  border-color: var(--brand-orange) !important;
+  outline: 1px solid var(--brand-orange) !important;
+  outline-offset: 2px !important;
+}
+
+main :is(input, select, textarea):is(:hover, :focus, :focus-visible) {
+  border-color: var(--brand-orange) !important;
+  outline: 2px solid var(--brand-orange) !important;
+  outline-offset: 2px !important;
+  box-shadow: none !important;
+}
+
+header :is(a, button):focus-visible {
+  outline: 2px solid var(--brand-orange) !important;
+  outline-offset: 2px !important;
+}
+header.sm-header .sm-cta:is(:hover, :focus-visible),
+header.sm-header button[class*="border-white"]:is(:hover, :focus-visible),
+header.sm-header .sm-icon-btn:is(:hover, :focus-visible) {
+  border-color: var(--brand-orange) !important;
+  outline: 1px solid var(--brand-orange) !important;
+  outline-offset: 2px !important;
+  box-shadow: none !important;
+}
+footer :is(a, button):is(:hover, :focus-visible, [aria-current="page"], [data-active]) {
+  border-color: var(--brand-orange) !important;
+  outline-color: var(--brand-orange) !important;
+}
+
+/* Orange active markers for the home page section rail and dividers. */
+.px-rail a:is(:hover, :focus-visible, [data-active]) {
+  background: var(--brand-orange) !important;
+  box-shadow: none !important;
+}
+.px-rail a:focus-visible {
+  outline: 2px solid var(--brand-orange) !important;
+  outline-offset: 3px !important;
+}
+.px-band + .px-band::before {
+  background: linear-gradient(90deg, transparent, rgba(215, 120, 59, 0.35), transparent) !important;
+}
+
+/* Shared footer: dark blue background and readable light text on every route. */
+footer {
+  color: #d6e2f2 !important;
+  background: #0b1f3a !important;
+  border-color: rgba(76, 141, 246, 0.28) !important;
+}
+footer::before {
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, var(--brand-orange), transparent) !important;
+}
+footer img { filter: none !important; }
+footer :is(.text-white, [class*="text-[#C9D6EE]"], [class*="text-[#5B6B82]"], .text-slate-400, .text-slate-500, .text-slate-600) {
+  color: #d6e2f2 !important;
+}
+footer :is(h4, [class*="text-[#4C8DF6]"], [class*="text-[#1F4FD8]"]) {
+  color: #8db4ff !important;
+}
+footer a[href^="tel:"] { color: #fff !important; }
+footer [class*="bg-[#0B1F3A]"] {
+  color: #d6e2f2 !important;
+  background: #07172d !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+footer a:hover,
+footer a:focus-visible { color: var(--brand-orange) !important; }
+footer a[class*="bg-white/10"] {
+  color: #d6e2f2 !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+footer a[class*="bg-white/10"]:is(:hover, :focus-visible) {
+  color: #fff !important;
+  background: var(--brand-orange-button) !important;
+  border-color: var(--brand-orange) !important;
+}
+
+/* ==========================================================================
+   Modal shell (profiles, press releases, blogs, latest) - fits the screen,
+   always readable. Rendered in a portal on <body>, so no page wrapper can
+   clip it and no "main ..." / navy-overlay rule can recolour its text.
+   ========================================================================== */
+.sm-modal-overlay {
+  position: fixed; inset: 0; z-index: 2147483000;
+  display: flex; align-items: center; justify-content: center;
+  padding: clamp(10px, 2.5vh, 28px) clamp(10px, 3vw, 28px);
+  background: rgba(11, 31, 58, 0.78);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.sm-modal-panel {
+  display: flex; flex-direction: column;
+  width: 100%;
+  max-height: calc(100vh - 2 * clamp(10px, 2.5vh, 28px));
+  max-height: calc(100dvh - 2 * clamp(10px, 2.5vh, 28px));
+  background: #fff; border: 1px solid #E3D4BA; border-radius: 24px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  animation: smModalIn .22s ease-out both;
+}
+.sm-modal-md { max-width: 42rem; }
+.sm-modal-lg { max-width: 48rem; }
+.sm-modal-head { flex: 0 0 auto; padding: 18px 24px; border-bottom: 1px solid #E3D4BA; background: #fff; }
+.sm-modal-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 22px 24px; background: #fff; display: grid; gap: 20px; align-content: start; }
+.sm-modal-foot { flex: 0 0 auto; display: flex; justify-content: flex-end; padding: 12px 24px; border-top: 1px solid #E3D4BA; background: #fff; }
+.sm-modal-close {
+  padding: 10px 20px; border: 0; border-radius: 12px; cursor: pointer;
+  background: #1F4FD8; color: #fff !important; font: 700 12px/1 Inter, sans-serif;
+  letter-spacing: .08em; text-transform: uppercase;
+}
+.sm-modal-close:hover { background: #0B1F3A; }
+
+/* readable text - strong contrast, no inherited fades/filters */
+.sm-modal-panel, .sm-modal-panel * { opacity: 1; filter: none; }
+.sm-modal-panel .sm-m-title { color: #0B1F3A !important; font-weight: 800; line-height: 1.2; }
+.sm-modal-panel .sm-m-role  { color: #1F4FD8 !important; }
+.sm-modal-panel .sm-m-meta  { color: #3F4F66 !important; }
+.sm-modal-panel .sm-m-text  { color: #243247 !important; font-size: 15px; line-height: 1.7; max-width: none; white-space: pre-line; }
+.sm-modal-panel .sm-m-label { color: #0B1F3A !important; }
+.sm-modal-panel .sm-m-list li { color: #243247 !important; font-size: 14px; line-height: 1.6; }
+.sm-modal-panel .sm-m-badge { color: #1F4FD8 !important; background: #E8F0FE; border: 1px solid #C9D6EE; }
+.sm-modal-panel .sm-m-link  { color: #1F4FD8 !important; }
+.sm-modal-panel .sm-m-media { background: #0B1F3A; border-radius: 16px; padding: 14px; display: flex; justify-content: center; align-items: center; }
+.sm-modal-panel .sm-m-media img { max-height: min(34vh, 320px); width: auto; max-width: 100%; object-fit: contain; border-radius: 12px; }
+
+@keyframes smModalIn { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: none; } }
+@media (max-width: 640px) {
+  .sm-modal-head, .sm-modal-body, .sm-modal-foot { padding-left: 16px; padding-right: 16px; }
+  .sm-modal-panel .sm-m-text { font-size: 14px; }
+}
+
+/* ---- Products page hero (video + Poppins title) ---- */
+.sm-prod-hero { min-height: 300px; }
+.sm-prod-hero-title {
+  font-family: "Poppins", "Inter", sans-serif; font-weight: 600; color: #fff;
+  font-size: clamp(2rem, 4.4vw, 3.25rem); line-height: 1.15; letter-spacing: .01em;
+  text-shadow: 0 2px 12px rgba(0,0,0,.35);
+}
+.sm-prod-hero-sub {
+  font-family: "Poppins", "Inter", sans-serif; font-weight: 400; color: #fff;
+  font-size: clamp(1rem, 2vw, 1.55rem); letter-spacing: .06em; margin-top: .4rem;
+  text-shadow: 0 2px 10px rgba(0,0,0,.35);
+}
+
+/* ---- Products dropdown: sits directly under the "Products" button ---- */
+header.sm-header .sm-dd-mega { position: relative !important; }
+header.sm-header .sm-pop.sm-mega {
+  left: 0 !important; right: auto !important;
+  top: calc(100% + 4px) !important; margin-top: 0 !important;
+  translate: 0 0 !important;           /* cancels the -50% centring that pushed it under "Home" */
+  transform-origin: top left;
+}
+
+/* ---- Home: PRODUCTS image tiles ---- */
+.sm-tiles { padding: 56px 0 8px; }
+.sm-tiles-title {
+  text-align: center; font-family: "Poppins", "Inter", sans-serif; font-weight: 500;
+  letter-spacing: .5em; font-size: clamp(1.1rem, 2vw, 1.5rem); color: #0b1f3a; margin-bottom: 28px;
+}
+.sm-tiles-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.sm-tile {
+  position: relative; display: block; overflow: hidden; padding: 0; border: 0; cursor: pointer;
+  aspect-ratio: 3 / 2; background: #0b1f3a; border-radius: 0;
+}
+.sm-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.sm-tile:hover img { transform: scale(1.06); }
+.sm-tile-label {
+  position: absolute; top: 12%; left: 0; right: 0; text-align: center; color: #fff;
+  font-family: "Oswald", "Bebas Neue", "Arial Narrow", Impact, sans-serif; font-weight: 500;
+  font-size: clamp(1.4rem, 3vw, 2.4rem); letter-spacing: .08em;
+  text-shadow: 0 0 6px #1e5bff, 0 0 14px #1e5bff, 0 0 22px rgba(30,91,255,.8);
+}
+@media (max-width: 720px) { .sm-tiles-grid { grid-template-columns: 1fr; } }
+/* ---- Typewriter caret (Products tiles) ---- */
+.sm-type-caret {
+  display: inline-block; width: .08em; height: .9em; margin-left: .06em; vertical-align: -.08em;
+  background: currentColor; animation: smCaret .8s steps(1) infinite;
+}
+.sm-type-caret.is-done { animation: smCaret .8s steps(1) 3, smCaretOut .3s 2.4s forwards; }
+.sm-tiles-title .sm-type-caret { background: #1F4FD8; }
+@keyframes smCaret { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes smCaretOut { to { opacity: 0; } }
+.sm-tile-label { min-height: 1.2em; }
+
+/* ---- Applications: prev / next arrows ---- */
+.app-nav-btn {
+  width: 44px; height: 44px; border-radius: 9999px; display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid #C9D6EE; background: #fff; color: #1F4FD8; cursor: pointer; transition: all .2s ease;
+}
+.app-nav-btn:hover { background: #1F4FD8; color: #fff; border-color: #1F4FD8; transform: translateY(-1px); }
+
+/* ---- Products tiles: match live design (bold gradient heading, rounded tiles, text baked into images) ---- */
+.sm-tiles { padding: 48px 0 24px; }
+.sm-tiles-title {
+  text-align: center; font-family: "Inter", "Poppins", sans-serif; font-weight: 800; letter-spacing: -.01em;
+  font-size: clamp(2.6rem, 5.2vw, 4.2rem); line-height: 1.1; margin-bottom: 36px;
+  background: linear-gradient(90deg, #1F4FD8 0%, #0b1f3a 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
+}
+.sm-tiles-title .sm-type-caret { -webkit-text-fill-color: initial; background: #1F4FD8; width: .07em; height: .85em; }
+.sm-tiles-grid { gap: 32px; }
+.sm-tile {
+  aspect-ratio: 1.45 / 1; border-radius: 24px; border: 1px solid rgba(31,79,216,.35); background: #0b1f3a;
+  box-shadow: 0 10px 30px rgba(11,31,58,.12); transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+.sm-tile:hover { transform: translateY(-4px); border-color: #FD4401; box-shadow: 0 16px 40px rgba(11,31,58,.22); }
+.sm-tile-label { display: none; }
+
+/* ---- Partners: clean cards instead of solid blue bars ---- */
+.pt-card {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  padding: 28px 20px 22px; background: #fff; border: 1px solid #E3E9F4; border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(11,31,58,.05); transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.pt-card:hover { transform: translateY(-4px); border-color: #4C8DF6; box-shadow: 0 16px 36px rgba(31,79,216,.14); }
+.pt-nav-btn {
+  width: 40px; height: 40px; border-radius: 9999px; display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid #C9D6EE; background: #fff; color: #1F4FD8; cursor: pointer; transition: all .2s ease;
+}
+.pt-nav-btn:hover { background: #1F4FD8; color: #fff; border-color: #1F4FD8; }

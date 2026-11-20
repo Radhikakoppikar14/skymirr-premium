@@ -1,14 +1,25 @@
 import React from "react";
 
 interface PageBackdropProps {
-  /** Kept for backwards compatibility – every page now uses the same banner image. */
+  /** Kept for backwards compatibility – every page uses the same hero background. */
   variant?: "default" | "illustration";
 }
 
-/* Top-of-page background for ALL inner pages: /public/images/downloaded/banner.jpg */
+/* Hero background for ALL inner pages: same looping video + soft blue tint
+   as the Products page banner (/public/assets/slider-background.mp4). */
 export const PageBackdrop: React.FC<PageBackdropProps> = () => (
   <div aria-hidden="true" className="hz-bg page-art-backdrop">
-    <img className="page-art-backdrop-image" src="/images/downloaded/banner.jpg" alt="" />
-    <div className="page-art-backdrop-shade" />
+    <video
+      className="page-art-backdrop-video"
+      autoPlay
+      loop
+      muted
+      playsInline
+      preload="auto"
+      aria-hidden="true"
+    >
+      <source src="/assets/slider-background.mp4" type="video/mp4" />
+    </video>
+    <div className="page-art-backdrop-tint" />
   </div>
 );
