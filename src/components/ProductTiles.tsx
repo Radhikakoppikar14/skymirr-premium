@@ -5,9 +5,9 @@ interface ProductTilesProps {
 }
 
 const TILES = [
-  { id: "antennas" as const, label: "ANTENNAS", image: "/images/antennas-new.jpg" },
-  { id: "routers" as const, label: "5G ROUTERS", image: "/images/5g-routers.jpg" },
-  { id: "trackers" as const, label: "ASSET TRACKERS", image: "/images/asset-trackers-2.jpg" },
+  { id: "antennas" as const, label: "ANTENNAS", image: "/images/antennas-home.jpg" },
+  { id: "routers" as const, label: "5G ROUTERS", image: "/images/5g-routers-home.jpg" },
+  { id: "trackers" as const, label: "ASSET TRACKERS", image: "/images/asset-trackers-home.jpg" },
 ];
 
 /* Typewriter: types the text out letter by letter once `start` is true. */
